@@ -1,5 +1,6 @@
 package com.myapps.padelapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -71,7 +72,14 @@ public class BaseActivity extends AppCompatActivity {
         AndroidLoggerUtils.logMsg(TAG, "onStop()");
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        AndroidLoggerUtils.logMsg(TAG, "onNewIntent()");
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////
 // NAVIGATION
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -81,6 +89,14 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void navigateToNext(INavigation cmd) {
         cmd.navigate();
+    }
+
+    /**
+     *
+     * @return
+     */
+    protected INavigation getNavigationCmd() {
+        return null;
     }
 
 }
