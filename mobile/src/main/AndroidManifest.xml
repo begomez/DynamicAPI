@@ -14,8 +14,7 @@
         <!-- SPLASH -->
         <activity
             android:name=".view.SplashActivity"
-            android:theme="@style/AppThemeFullScreen"
-            >
+            android:theme="@style/AppThemeFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,13 +25,8 @@
         <!-- LOGIN -->
         <activity
             android:name=".view.LoginActivity"
-            android:label="@string/title_login_screen"
-            >
-
-        </activity>
-
-
-
+            android:label="@string/title_login_screen"></activity>
+        <activity android:name=".view.TutorialActivity"></activity>
     </application>
 
 </manifest>
