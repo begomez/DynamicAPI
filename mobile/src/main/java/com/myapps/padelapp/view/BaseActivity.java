@@ -3,11 +3,21 @@ package com.myapps.padelapp.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
+import com.myapps.padelapp.R;
+import com.myapps.padelapp.components.AppToolbar;
 import com.myapps.padelapp.navigation.INavigation;
 import com.myapps.padelapp.persist.ActivityRepository;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Optional;
 
 /**
  * Created by bernatgomez on 6/3/17.
@@ -16,6 +26,11 @@ import com.myapps.padelapp.utils.AndroidLoggerUtils;
 public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
+
+    @BindView(R.id.app_toolbar)
+    protected AppToolbar toolbar;
+
+    protected int layoutId;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -29,7 +44,17 @@ public class BaseActivity extends AppCompatActivity {
 
         ActivityRepository.getInstance().add(this);
 
+    //XXX: features - content - toolbar
+
+        //XXX: features
         this.configWindow();
+
+        //XXX: content
+        this.setContentView(this.layoutId);
+        this.injectViews();
+
+        //XXX: toolbar
+        this.configToolBar();
     }
 
     @Override
@@ -42,10 +67,38 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     *
+     */
+    protected void injectViews() {
+        ButterKnife.bind(this);
+
+        this.toolbar = (AppToolbar) this.findViewById(R.id.app_toolbar);
+    }
+
+    /**
      * Request window features inside this method
      */
     protected void configWindow() {
 
+    }
+
+    private boolean hasToolbar() {
+        return this.toolbar != null;
+    }
+
+    /**
+     *
+     */
+    protected void configToolBar() {
+        if (this.hasToolbar()) {
+            this.setSupportActionBar(this.toolbar);
+            ActionBar bar = this.getSupportActionBar();
+
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowTitleEnabled(true);
+
+
+        }
     }
 
     @Override
