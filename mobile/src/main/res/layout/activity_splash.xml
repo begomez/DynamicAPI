@@ -33,7 +33,7 @@
     <com.myapps.padelapp.components.AppTextView
         android:id="@+id/splashText"
 
-        style="@style/TextTitle"
+        style="@style/BaseText.Title"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

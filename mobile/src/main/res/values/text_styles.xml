@@ -1,21 +1,25 @@
 <resources>
 
-    <style name="TextTitle" parent="TextAppearance.AppCompat.Title">
+    <style name="BaseText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
-    <style name="TextSubtitle" parent="TextAppearance.AppCompat.Caption">
+    <style name="BaseText.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="BaseText.Subtitle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/colorWhite</item>
+
+    </style>
+
+    <style name="BaseText.Content" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textColor">@color/colorBlack</item>
 
     </style>
 
-    <style name="TextContent" parent="TextAppearance.AppCompat.Body1">
-        <item name="android:textColor">@color/colorBlack</item>
-
-    </style>
-
-    <style name="TextWidget" parent="TextAppearance.AppCompat.Widget.Button">
-        <item name="android:textColor">@color/colorBlack</item>
+    <style name="BaseText.Widget" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="android:textColor">@color/colorWhite</item>
 
     </style>
 
