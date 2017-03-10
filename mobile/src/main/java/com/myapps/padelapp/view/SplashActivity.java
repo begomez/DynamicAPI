@@ -1,6 +1,5 @@
 package com.myapps.padelapp.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
@@ -24,8 +23,8 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    protected void configWindow() {
-        super.configWindow();
+    protected void prepareWindow() {
+        super.prepareWindow();
 
         this.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
@@ -61,7 +60,7 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void navigate() {
-                NavigationUtis.navigateToActivity(SplashActivity.this, LoginActivity.class);
+                NavigationUtis.navigateToActivity(SplashActivity.this, TutorialActivity.class);
             }
         };
 

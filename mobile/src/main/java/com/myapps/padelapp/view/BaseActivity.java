@@ -5,19 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
+import com.f2prateek.dart.Dart;
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.AppToolbar;
 import com.myapps.padelapp.navigation.INavigation;
 import com.myapps.padelapp.persist.ActivityRepository;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Optional;
 
 /**
  * Created by bernatgomez on 6/3/17.
@@ -46,15 +43,20 @@ public class BaseActivity extends AppCompatActivity {
 
     //XXX: features - content - toolbar
 
-        //XXX: features
-        this.configWindow();
+        //XXX: 1. features
+        this.prepareWindow();
 
-        //XXX: content
+        //XXX: 2. content
         this.setContentView(this.layoutId);
-        this.injectViews();
 
-        //XXX: toolbar
-        this.configToolBar();
+        this.injectComponents();
+
+        //XXX: 3. toolbar and others
+        this.configViews();
+
+        if (!this.isActivityRecreation(savedInstanceState)) {
+            this.launchMainFragment();
+        }
     }
 
     @Override
@@ -64,41 +66,6 @@ public class BaseActivity extends AppCompatActivity {
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onDestroy()");
 
         ActivityRepository.getInstance().remove(this);
-    }
-
-    /**
-     *
-     */
-    protected void injectViews() {
-        ButterKnife.bind(this);
-
-        this.toolbar = (AppToolbar) this.findViewById(R.id.app_toolbar);
-    }
-
-    /**
-     * Request window features inside this method
-     */
-    protected void configWindow() {
-
-    }
-
-    private boolean hasToolbar() {
-        return this.toolbar != null;
-    }
-
-    /**
-     *
-     */
-    protected void configToolBar() {
-        if (this.hasToolbar()) {
-            this.setSupportActionBar(this.toolbar);
-            ActionBar bar = this.getSupportActionBar();
-
-            bar.setDisplayHomeAsUpEnabled(true);
-            bar.setDisplayShowTitleEnabled(true);
-
-
-        }
     }
 
     @Override
@@ -113,7 +80,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onPause();
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onPause()");
-
     }
 
     @Override
@@ -135,6 +101,69 @@ public class BaseActivity extends AppCompatActivity {
         super.onNewIntent(intent);
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onNewIntent()");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// UTILS
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    private boolean isActivityRecreation(Bundle state) {
+        return state != null;
+    }
+
+    /**
+     * Request window features inside this method
+     */
+    protected void prepareWindow() {
+
+    }
+
+    protected void injectComponents() {
+        this.injectViews();
+        this.injectExtras();
+    }
+
+    /**
+     *
+     */
+    protected void injectViews() {
+        ButterKnife.bind(this);
+
+        this.toolbar = (AppToolbar) this.findViewById(R.id.app_toolbar);
+    }
+
+    protected void injectExtras() {
+        Dart.inject(this);
+    }
+
+    protected void configViews() {
+        this.configToolBar();
+    }
+
+    private boolean hasToolbar() {
+        return this.toolbar != null;
+    }
+
+    /**
+     *
+     */
+    protected void configToolBar() {
+        if (this.hasToolbar()) {
+            this.setSupportActionBar(this.toolbar);
+            ActionBar bar = this.getSupportActionBar();
+
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowTitleEnabled(true);
+
+
+        }
+    }
+
+    /**
+     *
+     */
+    protected void launchMainFragment() {
+        //TODO:
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
