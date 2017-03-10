@@ -3,4 +3,5 @@
     <string name="app_sport">Padel</string>
 
     <string name="title_login_screen">Login</string>
+    <string name="title_tutorial_screen">Tutorial</string>
 </resources>
