@@ -30,7 +30,9 @@
         </activity>
 
         <!-- TUTORIAL -->
-        <activity android:name=".view.TutorialActivity">
+        <activity
+            android:name=".view.TutorialActivity"
+            android:label="@string/title_tutorial_screen">
 
         </activity>
 
