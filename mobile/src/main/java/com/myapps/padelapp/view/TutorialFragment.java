@@ -32,15 +32,7 @@ public class TutorialFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-
-        View v = LayoutInflater.from(this.getContext()).inflate(R.layout.fragment_tutorial, container);
-
-        return v;
+        this.layoutId = R.layout.fragment_tutorial;
     }
 }
