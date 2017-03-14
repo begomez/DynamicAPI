@@ -48,12 +48,12 @@ public class SplashActivity extends BaseActivity {
 /////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    protected void navigateToNext(INavigation cmd) {
+    public void navigateToNext(INavigation cmd) {
         super.navigateToNext(cmd);
     }
 
     @Override
-    protected INavigation getNavigationCmd() {
+    public INavigation getNavigationCmd() {
         super.getNavigationCmd();
 
         INavigation cmd = new BaseNavigation() {

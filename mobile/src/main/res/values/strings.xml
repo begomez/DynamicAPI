@@ -4,4 +4,6 @@
 
     <string name="title_login_screen">Login</string>
     <string name="title_tutorial_screen">Tutorial</string>
+
+    <string name="btn_adelante">¡Adelante!</string>
 </resources>

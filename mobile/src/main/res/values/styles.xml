@@ -24,4 +24,23 @@
         <item name="android:background">@color/colorAccent</item>
     </style>
 
+    <style name="Common">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Button" parent="Widget.AppCompat.ActionButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Tutorial" parent="Common">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Tutorial.PagerIndicator">
+        <item name="android:layout_marginBottom">@dimen/pager_indicator_marginBottom</item>
+    </style>
+
 </resources>

@@ -6,4 +6,7 @@
     <!-- toolbar -->
     <dimen name="toolbar_elevation">4dp</dimen>
 
+    <!-- tutorial -->
+    <dimen name="pager_indicator_marginBottom">60dp</dimen>
+
 </resources>
