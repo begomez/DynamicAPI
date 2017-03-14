@@ -2,10 +2,7 @@ package com.myapps.padelapp.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.f2prateek.dart.InjectExtra;
@@ -26,6 +23,11 @@ import butterknife.OnClick;
 public class TutorialFragment extends BaseFragment {
 
     public static final String EXTRA_DATA = "extra_data";
+
+    private static final int PAGE_1 = 0;
+    private static final int PAGE_2 = 1;
+    private static final int PAGE_3 = 2;
+    private static final int PAGE_4 = 3;
 
     @BindView(R.id.tutorial_frag_icon)
     protected ImageView tutIcon;
@@ -58,24 +60,6 @@ public class TutorialFragment extends BaseFragment {
         return frag;
     }
 
-    private void f(int position) {
-
-        switch (position) {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                break;
-        }
-    }
-
 /////////////////////////////////////////////////////////////////////////////////////////
 // NAVIGATION
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -100,22 +84,47 @@ public class TutorialFragment extends BaseFragment {
         this.layoutId = R.layout.fragment_tutorial;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = super.onCreateView(inflater, container, savedInstanceState);
+    public void configViews() {
+        super.configViews();
 
-        Button btn = (Button) v.findViewById(R.id.tutorial_frag_btn);
+        this.configPages();
+    }
 
-        btn.setOnClickListener(new View.OnClickListener() {
+    private void configPages() {
+
+        switch (this.data.position) {
+            case PAGE_1:
+                this.setTextsAndIcon(R.string.tutorial_step_1_title, R.string.tutorial_step_1_subtitle, R.drawable.tut_step_1);
+                break;
+            case PAGE_2:
+                this.setTextsAndIcon(R.string.tutorial_step_2_title, R.string.tutorial_step_2_subtitle, R.drawable.tut_step_2);
+                break;
+            case PAGE_3:
+                this.setTextsAndIcon(R.string.tutorial_step_3_title, R.string.tutorial_step_3_subtitle, R.drawable.tut_step_3);
+                break;
+            case PAGE_4:
+                this.setTextsAndIcon(R.string.tutorial_step_4_title, R.string.tutorial_step_4_subtitle, R.drawable.tut_step_4);
+                break;
+            default:
+                break;
+        }
+
+        this.tutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onMainBtnClick(v);
             }
         });
 
-        return v;
     }
+
+    private void setTextsAndIcon(int title, int subtitle, int icon) {
+        this.tutTitle.setCustomText(title);
+        this.tutSubtitle.setCustomText(subtitle);
+        this.tutIcon.setImageDrawable(this.getResources().getDrawable(icon));
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // DATA

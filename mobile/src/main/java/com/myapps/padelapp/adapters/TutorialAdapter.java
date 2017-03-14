@@ -14,7 +14,7 @@ public class TutorialAdapter extends BasePagerAdapter {
 
     private static final String TAG = TutorialAdapter.class.getSimpleName();
 
-    private static final int NUM_SLIDES = 5;
+    private static final int NUM_SLIDES = 4;
 
     private INavigable navCallback;
 
