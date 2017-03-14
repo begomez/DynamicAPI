@@ -20,7 +20,7 @@
 
         android:layout_centerInParent="true"
 
-        android:src="@drawable/tutorial_icon_1"
+        android:src="@drawable/tut_step_1"
         />
 
     <com.myapps.padelapp.components.AppTextView
