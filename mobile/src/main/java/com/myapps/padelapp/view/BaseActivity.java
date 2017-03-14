@@ -9,21 +9,24 @@ import android.support.v7.app.AppCompatActivity;
 import com.f2prateek.dart.Dart;
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.AppToolbar;
+import com.myapps.padelapp.interfaces.INavigable;
 import com.myapps.padelapp.navigation.INavigation;
 import com.myapps.padelapp.persist.ActivityRepository;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Optional;
 
 /**
  * Created by bernatgomez on 6/3/17.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements INavigable {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
+    @Nullable
     @BindView(R.id.app_toolbar)
     protected AppToolbar toolbar;
 
@@ -174,7 +177,7 @@ public class BaseActivity extends AppCompatActivity {
      *
      * @param cmd
      */
-    protected void navigateToNext(INavigation cmd) {
+    public void navigateToNext(INavigation cmd) {
         cmd.navigate();
     }
 
@@ -182,8 +185,20 @@ public class BaseActivity extends AppCompatActivity {
      *
      * @return
      */
-    protected INavigation getNavigationCmd() {
+    public INavigation getNavigationCmd() {
         return null;
     }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+// BACK NAVIGATION
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    protected void customOnBackPressed() {
+
+    }
 }
