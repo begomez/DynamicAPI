@@ -1,4 +1,4 @@
-package com.myapps.padelapp.model;
+package com.myapps.padelapp.model.interfaces;
 
 /**
  * Created by bernatgomez on 2/3/17.

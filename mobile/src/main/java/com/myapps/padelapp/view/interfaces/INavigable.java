@@ -1,6 +1,6 @@
-package com.myapps.padelapp.interfaces;
+package com.myapps.padelapp.view.interfaces;
 
-import com.myapps.padelapp.navigation.INavigation;
+import com.myapps.padelapp.navigation.interfaces.INavigation;
 
 /**
  * Created by bernatgomez on 13/3/17.

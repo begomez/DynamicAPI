@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.navigation.BaseNavigation;
-import com.myapps.padelapp.navigation.INavigation;
+import com.myapps.padelapp.navigation.interfaces.INavigation;
 import com.myapps.padelapp.navigation.NavigationUtis;
 
 public class SplashActivity extends BaseActivity {
@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    protected void prepareWindow() {
+    public void prepareWindow() {
         super.prepareWindow();
 
         this.getWindow().requestFeature(Window.FEATURE_NO_TITLE);

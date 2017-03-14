@@ -3,7 +3,7 @@ package com.myapps.padelapp.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.myapps.padelapp.interfaces.INavigable;
+import com.myapps.padelapp.view.interfaces.INavigable;
 import com.myapps.padelapp.view.TutorialFragment;
 
 /**

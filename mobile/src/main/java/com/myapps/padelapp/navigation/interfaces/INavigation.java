@@ -1,4 +1,4 @@
-package com.myapps.padelapp.navigation;
+package com.myapps.padelapp.navigation.interfaces;
 
 
 /**

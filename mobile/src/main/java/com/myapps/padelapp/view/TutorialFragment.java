@@ -12,7 +12,7 @@ import com.f2prateek.dart.InjectExtra;
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.AppButton;
 import com.myapps.padelapp.components.AppTextView;
-import com.myapps.padelapp.interfaces.INavigable;
+import com.myapps.padelapp.view.interfaces.INavigable;
 
 import java.io.Serializable;
 

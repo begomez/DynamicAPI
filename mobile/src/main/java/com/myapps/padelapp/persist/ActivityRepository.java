@@ -2,6 +2,7 @@ package com.myapps.padelapp.persist;
 
 import android.app.Activity;
 
+import com.myapps.padelapp.persist.interfaces.IRepository;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
 
 import java.lang.ref.WeakReference;

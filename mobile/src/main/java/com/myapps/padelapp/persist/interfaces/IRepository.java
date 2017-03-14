@@ -1,4 +1,4 @@
-package com.myapps.padelapp.persist;
+package com.myapps.padelapp.persist.interfaces;
 
 /**
  * Created by bernatgomez on 9/3/17.

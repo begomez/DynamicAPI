@@ -5,24 +5,26 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.f2prateek.dart.Dart;
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.AppToolbar;
-import com.myapps.padelapp.interfaces.INavigable;
-import com.myapps.padelapp.navigation.INavigation;
+import com.myapps.padelapp.view.interfaces.IBase;
+import com.myapps.padelapp.view.interfaces.IMainAction;
+import com.myapps.padelapp.view.interfaces.INavigable;
+import com.myapps.padelapp.navigation.interfaces.INavigation;
 import com.myapps.padelapp.persist.ActivityRepository;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Optional;
 
 /**
  * Created by bernatgomez on 6/3/17.
  */
 
-public class BaseActivity extends AppCompatActivity implements INavigable {
+public class BaseActivity extends AppCompatActivity implements IBase, IMainAction, INavigable {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
@@ -57,8 +59,8 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
         //XXX: 3. toolbar and others
         this.configViews();
 
-        if (!this.isActivityRecreation(savedInstanceState)) {
-            this.launchMainFragment();
+        if (this.isActivityCreation(savedInstanceState)) {
+            this.launchContentFragment();
         }
     }
 
@@ -107,21 +109,23 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-// UTILS
+// IBASE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
 
-    private boolean isActivityRecreation(Bundle state) {
-        return state != null;
+    private boolean isActivityCreation(Bundle state) {
+        return state == null;
     }
 
     /**
      * Request window features inside this method
      */
-    protected void prepareWindow() {
+    @Override
+    public void prepareWindow() {
 
     }
 
-    protected void injectComponents() {
+    @Override
+    public void injectComponents() {
         this.injectViews();
         this.injectExtras();
     }
@@ -131,15 +135,14 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
      */
     protected void injectViews() {
         ButterKnife.bind(this);
-
-        this.toolbar = (AppToolbar) this.findViewById(R.id.app_toolbar);
     }
 
     protected void injectExtras() {
         Dart.inject(this);
     }
 
-    protected void configViews() {
+    @Override
+    public void configViews() {
         this.configToolBar();
     }
 
@@ -165,12 +168,22 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
     /**
      *
      */
-    protected void launchMainFragment() {
-        //TODO:
+    @Override
+    public void launchContentFragment() {
+        //TODO: implement on subclasses
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
-// NAVIGATION
+// IMAINACTION IMPL
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onMainBtnClick(View v) {
+
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// INAVIGABLE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -186,6 +199,7 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
      * @return
      */
     public INavigation getNavigationCmd() {
+        //TODO: implement on subclasses
         return null;
     }
 
@@ -198,7 +212,4 @@ public class BaseActivity extends AppCompatActivity implements INavigable {
         super.onBackPressed();
     }
 
-    protected void customOnBackPressed() {
-
-    }
 }
