@@ -8,6 +8,11 @@ import android.content.Context;
 
 public abstract class AndroidUtils {
 
+    /**
+     *
+     * @param cntxt
+     * @return
+     */
     public static String getPackageIdentifier(Context cntxt) {
         return cntxt.getPackageName();
     }

@@ -160,8 +160,6 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
 
             bar.setDisplayHomeAsUpEnabled(true);
             bar.setDisplayShowTitleEnabled(true);
-
-
         }
     }
 

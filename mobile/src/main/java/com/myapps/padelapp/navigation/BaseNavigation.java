@@ -7,6 +7,7 @@ import com.myapps.padelapp.navigation.interfaces.INavigation;
  */
 
 public abstract class BaseNavigation implements INavigation {
+
     @Override
     public abstract void navigate();
 }

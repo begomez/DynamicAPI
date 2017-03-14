@@ -7,6 +7,9 @@ package com.myapps.padelapp.navigation.interfaces;
 
 public interface INavigation {
 
+    /**
+     *
+     */
     public void navigate();
 
 }

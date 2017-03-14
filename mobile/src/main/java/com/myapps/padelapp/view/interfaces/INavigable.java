@@ -8,8 +8,16 @@ import com.myapps.padelapp.navigation.interfaces.INavigation;
 
 public interface INavigable {
 
+    /**
+     *
+     * @return
+     */
     public INavigation getNavigationCmd();
 
+    /**
+     *
+     * @param cmd
+     */
     public void navigateToNext(INavigation cmd);
 
 }

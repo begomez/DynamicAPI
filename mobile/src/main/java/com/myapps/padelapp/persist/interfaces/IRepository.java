@@ -5,5 +5,9 @@ package com.myapps.padelapp.persist.interfaces;
  */
 
 public interface IRepository {
+
+    /**
+     *
+     */
     public void cleanUp();
 }

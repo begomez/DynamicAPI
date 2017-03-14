@@ -6,11 +6,23 @@ package com.myapps.padelapp.view.interfaces;
 
 public interface IBase {
 
+    /**
+     *
+     */
     public void prepareWindow();
 
+    /**
+     *
+     */
     public void injectComponents();
 
+    /**
+     *
+     */
     public void configViews();
 
+    /**
+     *
+     */
     public void launchContentFragment();
 }

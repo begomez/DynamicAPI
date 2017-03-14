@@ -11,6 +11,8 @@ import com.myapps.padelapp.utils.AndroidLoggerUtils;
  * Created by bernatgomez on 6/3/17.
  */
 
+//TODO: detect going to background
+
 public class MainApplication extends Application {
 
     private static final String TAG = MainApplication.class.getSimpleName();
