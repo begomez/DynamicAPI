@@ -65,7 +65,7 @@ dependencies {
 
 // BUTTER
     compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
 
 // FIREBASE
     compile 'com.google.firebase:firebase-auth:9.4.0'
