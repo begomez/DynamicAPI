@@ -7,6 +7,12 @@ import android.util.Log;
  */
 
 public abstract class AndroidLoggerUtils {
+
+    /**
+     *
+     * @param tag
+     * @param msg
+     */
     public static void logMsg(String tag, String msg) {
         Log.d(tag, msg);
     }

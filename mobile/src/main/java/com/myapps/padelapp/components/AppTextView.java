@@ -27,4 +27,12 @@ public class AppTextView extends TextView {
     public AppTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
+    public void setCustomText(int id) {
+        this.setCustomText(this.getResources().getString(id));
+    }
+
+    public void setCustomText(String txt) {
+        this.setText(txt);
+    }
 }

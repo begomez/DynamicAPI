@@ -1,4 +1,4 @@
-package com.myapps.padelapp.view;
+package com.myapps.padelapp.view.interfaces;
 
 /**
  * Created by bernatgomez on 2/3/17.

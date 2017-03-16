@@ -9,6 +9,7 @@ import android.os.Bundle;
  */
 
 public class NavigationUtis {
+
     public static void navigateToActivity(Context cntxt, Class c) {
         Intent i = new Intent(cntxt, c);
 

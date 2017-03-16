@@ -65,10 +65,21 @@ dependencies {
 
 // BUTTER
     compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
 
 // FIREBASE
     compile 'com.google.firebase:firebase-auth:9.4.0'
     compile 'com.google.firebase:firebase-database:9.4.0'
+
+// PAGER
+    compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+
+// DART
+    compile 'com.f2prateek.dart:dart:+'
+    provided 'com.f2prateek.dart:dart-processor:+'
+
+// HENSON
+    compile 'com.f2prateek.dart:henson:+'
+    provided 'com.f2prateek.dart:henson-processor:+'
 
 }

@@ -1,4 +1,4 @@
-package com.myapps.padelapp.navigation;
+package com.myapps.padelapp.navigation.interfaces;
 
 
 /**
@@ -7,6 +7,9 @@ package com.myapps.padelapp.navigation;
 
 public interface INavigation {
 
+    /**
+     *
+     */
     public void navigate();
 
 }

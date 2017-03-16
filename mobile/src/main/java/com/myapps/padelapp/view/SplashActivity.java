@@ -1,6 +1,5 @@
 package com.myapps.padelapp.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
@@ -8,23 +7,24 @@ import android.view.WindowManager;
 
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.navigation.BaseNavigation;
-import com.myapps.padelapp.navigation.INavigation;
+import com.myapps.padelapp.navigation.interfaces.INavigation;
 import com.myapps.padelapp.navigation.NavigationUtis;
 
 public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        this.setContentView(R.layout.activity_splash);
+        this.layoutId = R.layout.activity_splash;
+
+        super.onCreate(savedInstanceState);
 
         this.launchNextModule();
     }
 
     @Override
-    protected void configWindow() {
-        super.configWindow();
+    public void prepareWindow() {
+        super.prepareWindow();
 
         this.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
@@ -48,19 +48,19 @@ public class SplashActivity extends BaseActivity {
 /////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    protected void navigateToNext(INavigation cmd) {
+    public void navigateToNext(INavigation cmd) {
         super.navigateToNext(cmd);
     }
 
     @Override
-    protected INavigation getNavigationCmd() {
+    public INavigation getNavigationCmd() {
         super.getNavigationCmd();
 
         INavigation cmd = new BaseNavigation() {
 
             @Override
             public void navigate() {
-                NavigationUtis.navigateToActivity(SplashActivity.this, LoginActivity.class);
+                NavigationUtis.navigateToActivity(SplashActivity.this, TutorialActivity.class);
             }
         };
 

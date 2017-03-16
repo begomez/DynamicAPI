@@ -9,13 +9,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeFullScreen">
 
         <!-- SPLASH -->
         <activity
             android:name=".view.SplashActivity"
-            android:theme="@style/AppThemeFullScreen"
-            >
+            android:theme="@style/AppThemeFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +25,16 @@
         <!-- LOGIN -->
         <activity
             android:name=".view.LoginActivity"
-            android:label="@string/title_login_screen"
-            >
+            android:label="@string/title_login_screen">
 
         </activity>
 
+        <!-- TUTORIAL -->
+        <activity
+            android:name=".view.TutorialActivity"
+            android:label="@string/title_tutorial_screen">
 
+        </activity>
 
     </application>
 

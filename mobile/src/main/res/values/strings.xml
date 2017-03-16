@@ -1,6 +1,27 @@
 <resources>
+
+    <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
     <string name="app_sport">Padel</string>
 
+    <!-- TITLES -->
     <string name="title_login_screen">Login</string>
+    <string name="title_tutorial_screen">Tutorial</string>
+
+    <!-- SPLASH -->
+    <string name="splash_title">@string/app_sport</string>
+
+    <!-- TUTORIAL -->
+    <string name="btn_adelante">¡Adelante!</string>
+    <string name="tutorial_step_1_title">@string/app_sport</string>
+    <string name="tutorial_step_1_subtitle">Encuentra pistas fácilmente y reserva al momento</string>
+    <string name="tutorial_step_2_title">Busca pistas libres cerca de ti</string>
+    <string name="tutorial_step_2_subtitle">Busca por ciudad o por nombre de club, mira las valoraciones y servicios que ofrece</string>
+    <string name="tutorial_step_3_title">Reserva partidas al mejor precio</string>
+    <string name="tutorial_step_3_subtitle">@string/tutorial_step_2_subtitle</string>
+    <string name="tutorial_step_4_title">Guarda tus equipos y partidas habituales</string>
+    <string name="tutorial_step_4_subtitle">Sabemos que te gusta jugar en el mismo sitio con la misma gente ¿o no?</string>
+
+    <!-- LOGIN -->
+
 </resources>
