@@ -98,5 +98,4 @@ public class BaseActivity extends AppCompatActivity {
     protected INavigation getNavigationCmd() {
         return null;
     }
-
 }
