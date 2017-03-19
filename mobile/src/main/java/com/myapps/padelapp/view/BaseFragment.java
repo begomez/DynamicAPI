@@ -145,7 +145,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 // UTILS
 /////////////////////////////////////////////////////////////////////////////////////////
 
-    protected String getComponentIdentifier() {
+    public String getComponentIdentifier() {
         return this.getClass().getSimpleName();
     }
 
