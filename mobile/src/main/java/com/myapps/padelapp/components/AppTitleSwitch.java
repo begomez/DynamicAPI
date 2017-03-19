@@ -13,6 +13,8 @@ import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.interfaces.IAppView;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
 
+import java.io.Serializable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -69,7 +71,7 @@ public class AppTitleSwitch extends FrameLayout implements IAppView {
         
         this.extractAttrs(context, attrs);
 
-        this.configViews();
+        //this.configViews();
     }
 
     private void createData() {
@@ -105,18 +107,33 @@ public class AppTitleSwitch extends FrameLayout implements IAppView {
 
         // TITLE
         if (this.isTitle()) {
-            this.title.setCustomText(this.data.text);
 
             this.title.setVisibility(View.VISIBLE);
             this.content.setVisibility(View.GONE);
 
         // CONTENT
         } else {
-            this.content.setCustomText(this.data.text);
-
             this.title.setVisibility(View.GONE);
             this.content.setVisibility(View.VISIBLE);
+        }
+    }
 
+    public void setType(Type type) {
+        this.configViews();
+
+        this.data.type = type;
+    }
+
+    public void setCustomText(int text) {
+        this.configViews();
+
+        // TITLE
+        if (this.isTitle()) {
+            this.title.setCustomText(text);
+
+        // CONTENT
+        } else {
+            this.content.setCustomText(text);
         }
     }
 
@@ -132,9 +149,9 @@ public class AppTitleSwitch extends FrameLayout implements IAppView {
 // DATA
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    enum Type {TITLE, CONTENT};
+    public enum Type {TITLE, CONTENT};
 
-    public class Data {
+    public static final class Data implements Serializable {
         private AppTitleSwitch.Type type = AppTitleSwitch.Type.TITLE;
         private String text = "";
     }

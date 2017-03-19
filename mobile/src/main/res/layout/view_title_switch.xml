@@ -12,7 +12,6 @@
     android:background="@color/colorAccent"
     >
 
-
     <!-- TITLE -->
     <com.myapps.padelapp.components.AppTextView
         android:id="@+id/switch_title_title"
@@ -26,10 +25,8 @@
 
         android:visibility="visible"
 
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-         />
+        android:layout_centerInParent="true"
+        />
 
     <!-- CONTENT -->
     <com.myapps.padelapp.components.AppTextView
@@ -38,15 +35,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        style="@style/BaseText.Content.White"
+        style="@style/BaseText.ContentLarge.White"
+
+        android:paddingTop="@dimen/tutorial_title_padding_top"
+        android:paddingLeft="@dimen/tutorial_subtitle_horizontal_pad"
+        android:paddingRight="@dimen/tutorial_subtitle_horizontal_pad"
 
         tools:text="@string/app_sport"
 
         android:visibility="visible"
 
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         />
 
 </RelativeLayout>
