@@ -1,5 +1,8 @@
 <resources>
 
+    <!-- ACTIONS -->
+    <string name="btn_adelante">¡Adelante!</string>
+
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
     <string name="app_sport">Padel</string>
@@ -12,7 +15,6 @@
     <string name="splash_title">@string/app_sport</string>
 
     <!-- TUTORIAL -->
-    <string name="btn_adelante">¡Adelante!</string>
     <string name="tutorial_step_1_title">@string/app_sport</string>
     <string name="tutorial_step_1_subtitle">Encuentra pistas fácilmente y reserva al momento</string>
     <string name="tutorial_step_2_title">Busca pistas libres cerca de ti</string>
@@ -23,5 +25,9 @@
     <string name="tutorial_step_4_subtitle">Sabemos que te gusta jugar en el mismo sitio con la misma gente ¿o no?</string>
 
     <!-- LOGIN -->
+    <string name="login_selection_description">Para reservar pista necesitamos saber algunos datos tuyos. Para buscar puedes acceder sin registrarte.</string>
+    <string name="login_selection_register_facebook">Registrarse con Facebook</string>
+    <string name="login_selection_register_manually">Registrarse manualmente</string>
+    <string name="login_selection_register_later">Ya me registraré más tarde</string>
 
 </resources>

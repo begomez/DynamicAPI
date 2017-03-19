@@ -8,5 +8,6 @@
     <color name="colorWhiteTrans">#AFFFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTrans">#55000000</color>
+    <color name="colorBlue">#435F9F</color>
 
 </resources>
