@@ -9,13 +9,14 @@ android {
         applicationId "com.myapps.padelapp"
         minSdkVersion 19
         targetSdkVersion 25
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -37,6 +38,9 @@ dependencies {
         DAGGER_VERSION = "2.4"
         ANDROID_VERSION = "25.2.0"
     }
+
+// DEX
+    compile 'com.android.support:multidex:1.0.1'
 
 // TEST
     testCompile 'junit:junit:4.12'
