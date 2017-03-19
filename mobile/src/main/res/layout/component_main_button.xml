@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.myapps.padelapp.components.AppButton
+        android:id="@+id/tutorial_frag_btn"
+
+        style="@style/Button.Green"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_h"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+
+        android:text="@string/btn_adelante"
+        />
+
+</FrameLayout>
