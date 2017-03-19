@@ -31,6 +31,9 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     @BindView(R.id.login_selection_btn_later)
     protected AppTextView btnLater;
 
+    private ILoginTransaction callback;
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,13 +57,24 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
         this.layoutId = R.layout.fragment_login_selection;
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (this.getActivity() instanceof ILoginTransaction) {
+            this.callback = (ILoginTransaction) this.getActivity();
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
 // INTERACTION
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     @OnClick(R.id.login_selection_btn_facebook)
     public void onFacebookBtnClick() {
-
+        if (this.callback != null) {
+            this.callback.launchFacebookLogin();
+        }
     }
 
     @OnClick(R.id.login_selection_btn_manual)
@@ -86,4 +100,13 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     public void hideLoading() {
 
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// INTERFACE DECL
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+    public interface ILoginTransaction {
+        public void launchFacebookLogin();
+    }
+
 }

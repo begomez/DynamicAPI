@@ -12,7 +12,7 @@ import com.myapps.padelapp.navigation.NavigationUtis;
 /**
  * Created by bernatgomez on 7/3/17.
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements LoginSelectionFragment.ILoginTransaction {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
@@ -30,5 +30,14 @@ public class LoginActivity extends BaseActivity {
 
         NavigationUtis.launchFragment(
             this.getSupportFragmentManager(), LoginSelectionFragment.newInstance(), R.id.content_frame);
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void launchFacebookLogin() {
+        NavigationUtis.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame);
     }
 }

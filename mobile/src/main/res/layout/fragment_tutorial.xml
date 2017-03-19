@@ -50,19 +50,13 @@
         tools:text="Subtitle"
         />
 
-    <com.myapps.padelapp.components.AppButton
-        android:id="@+id/tutorial_frag_btn"
-
-        style="@style/Button.Green"
+    <include
+        layout="@layout/component_main_button"
 
         android:layout_width="match_parent"
-        android:layout_height="@dimen/button_h"
+        android:layout_height="wrap_content"
 
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-
-        android:text="@string/btn_adelante"
         />
-
 
 </RelativeLayout>
