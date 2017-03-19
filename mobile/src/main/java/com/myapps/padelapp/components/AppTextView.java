@@ -5,11 +5,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.myapps.padelapp.components.interfaces.IAppView;
+
 /**
  * Created by bernatgomez on 7/3/17.
  */
 
-public class AppTextView extends TextView {
+public class AppTextView extends TextView implements IAppView {
 
     public AppTextView(Context context) {
         super(context);
@@ -34,5 +36,10 @@ public class AppTextView extends TextView {
 
     public void setCustomText(String txt) {
         this.setText(txt);
+    }
+
+    @Override
+    public void init(Context context, AttributeSet attrs) {
+        //TODO:
     }
 }
