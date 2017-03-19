@@ -6,14 +6,12 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.interfaces.IAppView;
 import com.myapps.padelapp.utils.AndroidLoggerUtils;
-
-import junit.framework.Assert;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,12 +20,12 @@ import butterknife.ButterKnife;
  * Created by bernatgomez on 19/3/17.
  */
 
-public class AppTitleSwitch extends View implements IAppView {
+public class AppTitleSwitch extends FrameLayout implements IAppView {
 
     private static final String TAG = AppTitleSwitch.class.getSimpleName();
 
     @BindView(R.id.switch_title_container)
-    protected FrameLayout container;
+    protected RelativeLayout container;
 
     @BindView(R.id.switch_title_title)
     protected AppTextView title;
@@ -65,6 +63,8 @@ public class AppTitleSwitch extends View implements IAppView {
 
     @Override
     public void init(Context context, AttributeSet attrs) {
+        this.createData();
+
         this.bindViews(context);
         
         this.extractAttrs(context, attrs);
@@ -72,8 +72,12 @@ public class AppTitleSwitch extends View implements IAppView {
         this.configViews();
     }
 
+    private void createData() {
+        this.data = new Data();
+    }
+
     private void bindViews(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.view_title_switch, null);
+        LayoutInflater.from(context).inflate(R.layout.view_title_switch, this, true);
 
         ButterKnife.bind(this);
     }
