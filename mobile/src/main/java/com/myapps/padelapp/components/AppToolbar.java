@@ -5,11 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 
+import com.myapps.padelapp.components.interfaces.IAppView;
+
 /**
  * Created by bernatgomez on 9/3/17.
  */
 
-public class AppToolbar extends Toolbar {
+public class AppToolbar extends Toolbar implements IAppView {
 
     public AppToolbar(Context context) {
         super(context);
@@ -23,4 +25,8 @@ public class AppToolbar extends Toolbar {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    public void init(Context context, AttributeSet attrs) {
+        //TODO
+    }
 }
