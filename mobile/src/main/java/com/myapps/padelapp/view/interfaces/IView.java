@@ -5,4 +5,8 @@ package com.myapps.padelapp.view.interfaces;
  */
 
 public interface IView {
+
+    public void showLoading();
+
+    public void hideLoading();
 }

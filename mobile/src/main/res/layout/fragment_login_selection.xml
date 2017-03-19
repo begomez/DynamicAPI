@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/login_selection_container"
+
+    style="@style/Container"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/login_selection_icon"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="@id/login_selection_container"
+
+        android:src="@drawable/splash_icon"
+        />
+
+    <com.myapps.padelapp.components.AppTextView
+        android:id="@+id/login_selection_title"
+
+        style="@style/BaseText.Content.Black"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/login_selection_icon"
+
+        android:text="@string/app_name"
+        />
+
+    <com.myapps.padelapp.components.AppTextView
+        android:id="@+id/login_selection_description"
+
+        style="@style/BaseText.Content.Black"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/login_selection_title"
+
+        android:text="@string/login_selection_description"
+        />
+
+    <com.myapps.padelapp.components.AppButton
+        android:id="@+id/login_selection_btn_facebook"
+
+        style="@style/Button.Blue"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/login_selection_description"
+
+        android:text="@string/login_selection_register_facebook"
+        />
+
+    <com.myapps.padelapp.components.AppButton
+        android:id="@+id/login_selection_btn_manual"
+
+        style="@style/Button.White"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/login_selection_btn_facebook"
+
+        android:text="@string/login_selection_register_manually"
+        />
+
+    <com.myapps.padelapp.components.AppTextView
+        android:id="@+id/login_selection_btn_later"
+
+        style="@style/BaseText.Content"
+        android:textColor="@color/colorAccent"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/login_selection_btn_manual"
+
+        android:text="@string/login_selection_register_later"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -53,7 +53,7 @@
     <com.myapps.padelapp.components.AppButton
         android:id="@+id/tutorial_frag_btn"
 
-        style="@style/Button"
+        style="@style/Button.Green"
 
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_h"
