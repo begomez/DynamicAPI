@@ -9,4 +9,9 @@
     <!-- tutorial -->
     <dimen name="pager_indicator_marginBottom">60dp</dimen>
 
+    <!-- texts -->
+    <dimen name="title_size">46sp</dimen>
+    <dimen name="subtitle_size">30sp</dimen>
+    <dimen name="content_size_normal">20sp</dimen>
+
 </resources>
