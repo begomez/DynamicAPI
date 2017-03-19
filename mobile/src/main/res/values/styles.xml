@@ -33,6 +33,8 @@
         <item name="android:background">@color/colorWhite</item>
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:clickable">true</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="Tutorial" parent="Common">

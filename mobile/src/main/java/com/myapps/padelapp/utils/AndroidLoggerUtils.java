@@ -16,4 +16,8 @@ public abstract class AndroidLoggerUtils {
     public static void logMsg(String tag, String msg) {
         Log.d(tag, msg);
     }
+
+    public static void logError(String tag, String msg, Exception e) {
+        Log.e(tag, msg);
+    }
 }

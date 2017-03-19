@@ -9,6 +9,7 @@ import com.f2prateek.dart.InjectExtra;
 import com.myapps.padelapp.R;
 import com.myapps.padelapp.components.AppButton;
 import com.myapps.padelapp.components.AppTextView;
+import com.myapps.padelapp.components.AppTitleSwitch;
 import com.myapps.padelapp.view.interfaces.INavigable;
 
 import java.io.Serializable;
@@ -33,7 +34,7 @@ public class TutorialFragment extends BaseFragment {
     protected ImageView tutIcon;
 
     @BindView(R.id.tutorial_frag_title)
-    protected AppTextView tutTitle;
+    protected AppTitleSwitch tutTitle;
 
     @BindView(R.id.tutorial_frag_subtitle)
     protected AppTextView tutSubtitle;
@@ -95,15 +96,19 @@ public class TutorialFragment extends BaseFragment {
 
         switch (this.data.position) {
             case PAGE_1:
+                this.tutTitle.setType(AppTitleSwitch.Type.TITLE);
                 this.setTextsAndIcon(R.string.tutorial_step_1_title, R.string.tutorial_step_1_subtitle, R.drawable.tut_step_1);
                 break;
             case PAGE_2:
+                this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_2_title, R.string.tutorial_step_2_subtitle, R.drawable.tut_step_2);
                 break;
             case PAGE_3:
+                this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_3_title, R.string.tutorial_step_3_subtitle, R.drawable.tut_step_3);
                 break;
             case PAGE_4:
+                this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_4_title, R.string.tutorial_step_4_subtitle, R.drawable.tut_step_4);
                 break;
             default:
@@ -130,7 +135,7 @@ public class TutorialFragment extends BaseFragment {
 // DATA
 /////////////////////////////////////////////////////////////////////////////////////////
 
-    static final class Data implements Serializable {
+    public static final class Data implements Serializable {
         public int position;
 
         public Data(int position) {

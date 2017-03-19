@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/switch_title_container"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/colorAccent"
+    >
+
+    <!-- TITLE -->
+    <com.myapps.padelapp.components.AppTextView
+        android:id="@+id/switch_title_title"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        style="@style/BaseText.Title.Black"
+
+        tools:text="@string/app_sport"
+
+        android:visibility="visible"
+
+        android:layout_centerInParent="true"
+        />
+
+    <!-- CONTENT -->
+    <com.myapps.padelapp.components.AppTextView
+        android:id="@+id/switch_title_content"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        style="@style/BaseText.ContentLarge.White"
+
+        android:paddingTop="@dimen/tutorial_title_padding_top"
+        android:paddingLeft="@dimen/tutorial_subtitle_horizontal_pad"
+        android:paddingRight="@dimen/tutorial_subtitle_horizontal_pad"
+
+        tools:text="@string/app_sport"
+
+        android:visibility="visible"
+
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>
