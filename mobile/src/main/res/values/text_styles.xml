@@ -4,14 +4,6 @@
         <item name="android:fontFamily">ROBOTO_LIGHT</item>
     </style>
 
-    <style name="BaseText.White">
-        <item name="android:textColor">@color/colorWhite</item>
-    </style>
-
-    <style name="BaseText.Black">
-        <item name="android:textColor">@color/colorBlackTrans</item>
-    </style>
-
     <style name="BaseText.Title" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">normal</item>
@@ -28,6 +20,11 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="BaseText.ContentLarge" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/content_size_large</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="BaseText.Title.White">
         <item name="android:textColor">@color/colorWhite</item>
     </style>
@@ -41,9 +38,12 @@
     </style>
 
     <style name="BaseText.Content.White">
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhiteTrans</item>
     </style>
 
+    <style name="BaseText.ContentLarge.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
 
     <style name="BaseText.Widget" parent="TextAppearance.AppCompat.Widget.Button">
         <item name="android:textColor">@color/colorWhite</item>

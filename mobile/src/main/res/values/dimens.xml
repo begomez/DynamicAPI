@@ -3,15 +3,29 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+<!-- GENERAL -->
+
     <!-- toolbar -->
     <dimen name="toolbar_elevation">4dp</dimen>
-
-    <!-- tutorial -->
-    <dimen name="pager_indicator_marginBottom">60dp</dimen>
 
     <!-- texts -->
     <dimen name="title_size">46sp</dimen>
     <dimen name="subtitle_size">30sp</dimen>
-    <dimen name="content_size_normal">20sp</dimen>
+    <dimen name="content_size_normal">16.66sp</dimen>
+    <dimen name="content_size_large">20sp</dimen>
+    <dimen name="button_text_size">18.33sp</dimen>
+
+    <!-- button -->
+    <dimen name="button_h">66.33dp</dimen>
+
+<!-- TUTORIAL -->
+
+    <dimen name="tutorial_title_padding_top">25dp</dimen>
+    <dimen name="tutorial_icon_margin_top">106dp</dimen>
+    <dimen name="tutorial_title_margin_top">2dp</dimen>
+    <dimen name="tutorial_subtitle_margin_top">20dp</dimen>
+    <dimen name="tutorial_subtitle_horizontal_pad">60dp</dimen>
+    <dimen name="pager_indicator_marginBottom">131dp</dimen><!-- includes btn height -->
+
 
 </resources>
