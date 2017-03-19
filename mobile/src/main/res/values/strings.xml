@@ -2,6 +2,7 @@
 
     <!-- ACTIONS -->
     <string name="btn_adelante">¡Adelante!</string>
+    <string name="btn_aceptar">Aceptar</string>
 
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
@@ -29,5 +30,11 @@
     <string name="login_selection_register_facebook">Registrarse con Facebook</string>
     <string name="login_selection_register_manually">Registrarse manualmente</string>
     <string name="login_selection_register_later">Ya me registraré más tarde</string>
+
+    <!-- FACEBOOK -->
+    <string name="login_facebook_user">Nombre</string>
+    <string name="login_facebook_pass">Email</string>
+    <string name="login_facebook_btn">Conectar con Facebook</string>
+    <string name="login_facebook_description">Necesitamos saber estos datos para verificar tu identidad</string>
 
 </resources>
