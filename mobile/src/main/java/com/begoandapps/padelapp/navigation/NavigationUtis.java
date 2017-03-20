@@ -20,11 +20,23 @@ public class NavigationUtis {
      * @param contentFrame
      */
     public static void launchFragment(FragmentManager mgr, BaseFragment frag, int contentFrame) {
+        NavigationUtis.launchFragment(mgr, frag, contentFrame, false);
+    }
+
+    /**
+     *
+     * @param mgr
+     * @param frag
+     * @param contentFrame
+     */
+    public static void launchFragment(FragmentManager mgr, BaseFragment frag, int contentFrame, boolean addToBackStack) {
         FragmentTransaction trans = mgr.beginTransaction();
 
         trans.replace(contentFrame, frag);
 
-        trans.addToBackStack(frag.getComponentIdentifier());
+        if (addToBackStack) {
+            trans.addToBackStack(frag.getComponentIdentifier());
+        }
 
         trans.commit();
 

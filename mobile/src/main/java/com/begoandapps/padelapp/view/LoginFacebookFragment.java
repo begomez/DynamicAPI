@@ -63,10 +63,15 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginView {
 // INTERACTION
 ////////////////////////////////////////////////////////////////////////////////////////
 
+    @OnClick(R.id.login_facebook_btn)
+    public void onFacebookBtnClick(View v) {
+        MessageUtils.showToast(this.getContext(), "1");
+    }
+
     @OnClick(R.id.login_facebook_main_btn)
     @Override
     public void onMainBtnClick(View v) {
-        MessageUtils.showToast(this.getContext(), "Click");
+        MessageUtils.showToast(this.getContext(), "2");
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
