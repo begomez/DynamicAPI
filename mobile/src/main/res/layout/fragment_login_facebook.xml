@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
 
         android:hint="@string/login_facebook_pass"
+        android:inputType="textPassword"
 
         app:layout_constraintTop_toBottomOf="@+id/login_facebook_user"
         tools:layout_editor_absoluteX="8dp" />

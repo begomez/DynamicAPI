@@ -5,4 +5,16 @@ package com.myapps.padelapp.view.interfaces;
  */
 
 public interface ILoginView extends IView {
+
+    /**
+     *
+     * @return
+     */
+    public String getUser();
+
+    /**
+     *
+     * @return
+     */
+    public String getPassword();
 }
