@@ -1,6 +1,7 @@
 package com.begoandapps.padelapp.view;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
@@ -8,7 +9,11 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
 import com.begoandapps.padelapp.utils.MessageUtils;
-import com.begoandapps.padelapp.view.interfaces.ILoginView;
+import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.myapps.utils.TextUtils;
 
 import butterknife.BindView;
@@ -18,7 +23,7 @@ import butterknife.OnClick;
  * Created by bernatgomez on 19/3/17.
  */
 
-public class LoginFacebookFragment extends BaseFragment implements ILoginView {
+public class LoginFacebookFragment extends BaseFragment implements ILoginFacebookView {
 
     private static final String TAG = LoginFacebookFragment.class.getSimpleName();
 
@@ -65,7 +70,9 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginView {
 
     @OnClick(R.id.login_facebook_btn)
     public void onFacebookBtnClick(View v) {
-        MessageUtils.showToast(this.getContext(), "1");
+        //MessageUtils.showToast(this.getContext(), "1");
+
+        test();
     }
 
     @OnClick(R.id.login_facebook_main_btn)
@@ -97,4 +104,26 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginView {
     public String getPassword() {
         return TextUtils.trim(this.txtPass.getText().toString());
     }
+
+////////////////////////////////////////////////////////////////////////////////////////
+// ILOGINVIEW IMPL
+////////////////////////////////////////////////////////////////////////////////////////
+
+    private void test() {
+        FirebaseAuth.getInstance()
+            .createUserWithEmailAndPassword(this.getUser(), this.getPassword())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            MessageUtils.showToast(getContext(), "Success!");
+
+                        } else {
+                            MessageUtils.showToast(getContext(), "Error " + task.getException().toString());
+                        }
+                    }
+                }
+            );
+    }
+
 }
