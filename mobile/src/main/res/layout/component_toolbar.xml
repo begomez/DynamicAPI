@@ -10,7 +10,7 @@
     android:textAlignment="center"
     >
 
-    <com.myapps.padelapp.components.AppToolbar
+    <com.begoandapps.padelapp.components.AppToolbar
         android:id="@+id/app_toolbar"
 
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         android:titleTextColor="@color/colorWhite"
         >
 
-    </com.myapps.padelapp.components.AppToolbar>
+    </com.begoandapps.padelapp.components.AppToolbar>
 
 
 </android.support.design.widget.AppBarLayout>

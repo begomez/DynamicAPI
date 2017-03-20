@@ -23,7 +23,7 @@
         android:src="@drawable/splash_icon"
         />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/login_selection_title"
 
         style="@style/BaseText.Content.Black"
@@ -36,7 +36,7 @@
         android:text="@string/app_name"
         />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/login_selection_description"
 
         style="@style/BaseText.Content.Black"
@@ -49,7 +49,7 @@
         android:text="@string/login_selection_description"
         />
 
-    <com.myapps.padelapp.components.AppButton
+    <com.begoandapps.padelapp.components.AppButton
         android:id="@+id/login_selection_btn_facebook"
 
         style="@style/Button.Blue"
@@ -62,7 +62,7 @@
         android:text="@string/login_selection_register_facebook"
         />
 
-    <com.myapps.padelapp.components.AppButton
+    <com.begoandapps.padelapp.components.AppButton
         android:id="@+id/login_selection_btn_manual"
 
         style="@style/Button.White"
@@ -75,7 +75,7 @@
         android:text="@string/login_selection_register_manually"
         />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/login_selection_btn_later"
 
         style="@style/BaseText.Content"

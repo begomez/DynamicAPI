@@ -16,7 +16,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
 
-    tools:context="com.myapps.padelapp.view.SplashActivity">
+    tools:context="com.begoandapps.padelapp.view.SplashActivity">
 
     <ImageView
         android:id="@+id/splashIcon"
@@ -30,7 +30,7 @@
 
         />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/splashText"
 
         style="@style/BaseText.Title.Black"

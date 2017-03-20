@@ -24,7 +24,7 @@
         android:src="@drawable/tut_step_1"
         />
 
-    <com.myapps.padelapp.components.AppTitleSwitch
+    <com.begoandapps.padelapp.components.AppTitleSwitch
         android:id="@+id/tutorial_frag_title"
 
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:layout_marginTop="@dimen/tutorial_title_margin_top"
         />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/tutorial_frag_subtitle"
 
         style="@style/BaseText.Content.White"

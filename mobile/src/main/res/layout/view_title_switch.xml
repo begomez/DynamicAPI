@@ -13,7 +13,7 @@
     >
 
     <!-- TITLE -->
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/switch_title_title"
 
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         />
 
     <!-- CONTENT -->
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/switch_title_content"
 
         android:layout_width="match_parent"

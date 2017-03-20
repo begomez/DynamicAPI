@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.myapps.padelapp.components.AppEditText
+    <com.begoandapps.padelapp.components.AppEditText
         android:id="@+id/login_facebook_user"
 
         android:layout_width="368dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp" />
 
-    <com.myapps.padelapp.components.AppEditText
+    <com.begoandapps.padelapp.components.AppEditText
         android:id="@+id/login_facebook_password"
 
         android:layout_width="368dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_facebook_user"
         tools:layout_editor_absoluteX="8dp" />
 
-    <com.myapps.padelapp.components.AppButton
+    <com.begoandapps.padelapp.components.AppButton
         android:id="@+id/login_facebook_btn"
 
         style="@style/Button.Blue"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_facebook_password"
         tools:layout_editor_absoluteX="8dp" />
 
-    <com.myapps.padelapp.components.AppTextView
+    <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/login_facebook_info"
 
         style="@style/BaseText.Content.Black"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_facebook_btn"
         tools:layout_editor_absoluteX="8dp" />
 
-    <com.myapps.padelapp.components.AppButton
+    <com.begoandapps.padelapp.components.AppButton
         android:id="@+id/login_facebook_main_btn"
 
         style="@style/Button.GreenReverse"
