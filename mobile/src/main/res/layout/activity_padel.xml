@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/dashboard_main_container"
+
+    style="@style/Container"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.myapps.padelapp.view.PadelActivity">
+
+    <ImageView
+        android:id="@+id/dashboard_icon"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="@id/dashboard_main_container"
+        app:layout_constraintBottom_toBottomOf="@id/dashboard_main_container"
+
+        android:src="@drawable/splash_icon"
+        />
+
+    <include
+        layout="@layout/component_main_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toLeftOf="@id/dashboard_main_container"
+        app:layout_constraintRight_toRightOf="@id/dashboard_main_container"
+        app:layout_constraintBottom_toBottomOf="@id/dashboard_main_container"
+        />
+
+</android.support.constraint.ConstraintLayout>

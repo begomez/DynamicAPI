@@ -36,6 +36,11 @@
 
         </activity>
 
+        <!-- DASHBOARD -->
+        <activity android:name=".view.PadelActivity">
+
+        </activity>
+        
     </application>
 
 </manifest>
