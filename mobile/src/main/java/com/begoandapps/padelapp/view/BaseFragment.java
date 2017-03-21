@@ -35,6 +35,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
         this.prepareWindow();
 
+        if (savedInstanceState == null) {
+            this.initPresenters();
+        }
+
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreate()");
     }
 
@@ -105,6 +109,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     @Override
     public void prepareWindow() {
 
+    }
+
+    protected void initPresenters() {
+        //TODO: use Dagger if needed
     }
 
     @Override

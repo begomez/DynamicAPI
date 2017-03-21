@@ -8,6 +8,8 @@ import android.view.View;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
+import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
+import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 import com.begoandapps.padelapp.utils.MessageUtils;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.myapps.utils.TextUtils;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,6 +40,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @BindView(R.id.login_facebook_main_btn)
     protected AppButton btnLogin;
 
+    protected LoginFacebookPresenter presenter;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -57,11 +62,34 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+
+        this.presenter.start();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        this.presenter.stop();
+    }
+
+    @Override
     public void configViews() {
         super.configViews();
 
-        this.txtUser.setText("bego.and.apps@gmail.com");
-        this.txtPass.setText("Temp2015oral");
+        this.txtUser.setText("bego.and.apps.test1@gmail.com");
+        this.txtPass.setText("begotest1");
+    }
+
+    @Override
+    protected void initPresenters() {
+        super.initPresenters();
+
+        this.presenter = new LoginFacebookPresenter();
+
+        this.presenter.attachView(this);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +100,9 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     public void onFacebookBtnClick(View v) {
         //MessageUtils.showToast(this.getContext(), "1");
 
-        test();
+        //test();
+
+        this.presenter.doLogin();
     }
 
     @OnClick(R.id.login_facebook_main_btn)
@@ -103,6 +133,17 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @Override
     public String getPassword() {
         return TextUtils.trim(this.txtPass.getText().toString());
+    }
+
+    @Override
+    public void onLoginSuccess() {
+        MessageUtils.showToast(getContext(), "Success!");
+
+    }
+
+    @Override
+    public void onLoginError(String msg) {
+        MessageUtils.showToast(getContext(), "Error " + msg);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
