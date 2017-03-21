@@ -15,9 +15,10 @@ public class PadelActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.layoutId = R.layout.activity_padel;
+
         super.onCreate(savedInstanceState);
 
-        this.setContentView(R.layout.activity_padel);
     }
 
 //////////////////////////////////////////////////////////////////////////////////

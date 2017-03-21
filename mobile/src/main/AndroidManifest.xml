@@ -15,11 +15,13 @@
         <activity
             android:name=".view.SplashActivity"
             android:theme="@style/AppThemeFullScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- LOGIN -->
@@ -37,10 +39,11 @@
         </activity>
 
         <!-- DASHBOARD -->
-        <activity android:name=".view.PadelActivity">
+        <activity
+            android:name=".view.PadelActivity">
 
         </activity>
-        
+
     </application>
 
 </manifest>

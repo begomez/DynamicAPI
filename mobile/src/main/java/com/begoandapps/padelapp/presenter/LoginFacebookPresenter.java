@@ -26,14 +26,22 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 // OPERATIONS
 ////////////////////////////////////////////////////////////////////////////////////////
     public void doLogin() {
-        String user = this.view.getPassword();
-        String pass = this.view.getUser();
+        final String user = this.view.getPassword();
+        final String pass = this.view.getUser();
 
-        this.loginWithFacebook(user, pass);
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                loginWithFacebook(user, pass);
+            }
+        }.start();
+
     }
 
     //TODO: move to controller
     private void loginWithFacebook(final String user, final String pass) {
+
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(user, pass)
                 .addOnCompleteListener(
@@ -45,6 +53,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 
                            } else {
                                view.onLoginError(task.getException().toString());
+                               //view.onLoginSuccess();
                            }
                        }
                    }

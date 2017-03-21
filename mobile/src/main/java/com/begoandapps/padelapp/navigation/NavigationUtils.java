@@ -51,6 +51,8 @@ public class NavigationUtils {
     public static void navigateToActivity(Context cntxt, Class c) {
         Intent i = new Intent(cntxt, c);
 
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         cntxt.startActivity(i);
     }
 }
