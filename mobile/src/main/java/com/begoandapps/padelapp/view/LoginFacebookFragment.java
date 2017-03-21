@@ -1,5 +1,6 @@
 package com.begoandapps.padelapp.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,7 +10,6 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
 import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
-import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 import com.begoandapps.padelapp.utils.MessageUtils;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,8 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.myapps.utils.TextUtils;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -40,7 +38,9 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @BindView(R.id.login_facebook_main_btn)
     protected AppButton btnLogin;
 
-    protected LoginFacebookPresenter presenter;
+    private IDashboardNavigation callback;
+
+    private LoginFacebookPresenter presenter;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -92,6 +92,15 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
         this.presenter.attachView(this);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (this.getActivity() instanceof IDashboardNavigation) {
+            this.callback = (IDashboardNavigation) this.getActivity();
+        }
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // INTERACTION
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -139,6 +148,9 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     public void onLoginSuccess() {
         MessageUtils.showToast(getContext(), "Success!");
 
+        if (this.callback != null) {
+            this.callback.launchDashboard();
+        }
     }
 
     @Override
@@ -165,6 +177,14 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
                     }
                 }
             );
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////
+// INTERFACE DECL
+////////////////////////////////////////////////////////////////////////////////////////
+
+    public interface IDashboardNavigation {
+        public void launchDashboard();
     }
 
 }

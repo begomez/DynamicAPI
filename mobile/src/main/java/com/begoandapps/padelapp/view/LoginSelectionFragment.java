@@ -1,5 +1,7 @@
 package com.begoandapps.padelapp.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -55,8 +57,8 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
         if (this.getActivity() instanceof ILoginTransaction) {
             this.callback = (ILoginTransaction) this.getActivity();
