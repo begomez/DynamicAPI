@@ -3,6 +3,7 @@
     <!-- ACTIONS -->
     <string name="btn_adelante">¡Adelante!</string>
     <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_reservar">Reserva partida</string>
 
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
@@ -36,5 +37,8 @@
     <string name="login_facebook_pass">Email</string>
     <string name="login_facebook_btn">Conectar con Facebook</string>
     <string name="login_facebook_description">Necesitamos saber estos datos para verificar tu identidad</string>
+
+    <!-- DASHBOARD -->
+    <string name="dashboard_empty_msg">Todavía no has reservado ninguna partida</string>
 
 </resources>
