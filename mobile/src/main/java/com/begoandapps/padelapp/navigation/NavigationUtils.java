@@ -11,7 +11,7 @@ import com.begoandapps.padelapp.view.BaseFragment;
  * Created by bernatgomez on 7/3/17.
  */
 
-public class NavigationUtis {
+public class NavigationUtils {
 
     /**
      *
@@ -20,7 +20,7 @@ public class NavigationUtis {
      * @param contentFrame
      */
     public static void launchFragment(FragmentManager mgr, BaseFragment frag, int contentFrame) {
-        NavigationUtis.launchFragment(mgr, frag, contentFrame, false);
+        NavigationUtils.launchFragment(mgr, frag, contentFrame, false);
     }
 
     /**

@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.navigation.BaseNavigation;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
-import com.begoandapps.padelapp.navigation.NavigationUtis;
+import com.begoandapps.padelapp.navigation.NavigationUtils;
 
 public class SplashActivity extends BaseActivity {
 
@@ -60,7 +60,7 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void navigate() {
-                NavigationUtis.navigateToActivity(SplashActivity.this, TutorialActivity.class);
+                NavigationUtils.navigateToActivity(SplashActivity.this, TutorialActivity.class);
             }
         };
 

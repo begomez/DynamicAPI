@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
-import com.begoandapps.padelapp.navigation.NavigationUtis;
+import com.begoandapps.padelapp.navigation.NavigationUtils;
 
 /**
  * Created by bernatgomez on 7/3/17.
  */
-public class LoginActivity extends BaseActivity implements LoginSelectionFragment.ILoginTransaction {
+public class LoginActivity extends BaseActivity implements LoginSelectionFragment.ILoginTransaction, LoginFacebookFragment.IDashboardNavigation {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
@@ -26,7 +26,7 @@ public class LoginActivity extends BaseActivity implements LoginSelectionFragmen
     public void launchContentFragment() {
         super.launchContentFragment();
 
-        NavigationUtis.launchFragment(
+        NavigationUtils.launchFragment(
             this.getSupportFragmentManager(), LoginSelectionFragment.newInstance(), R.id.content_frame);
     }
 
@@ -36,6 +36,11 @@ public class LoginActivity extends BaseActivity implements LoginSelectionFragmen
 
     @Override
     public void launchFacebookLogin() {
-        NavigationUtis.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame);
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame);
+    }
+
+    @Override
+    public void launchDashboard() {
+        NavigationUtils.navigateToActivity(this, PadelActivity.class);
     }
 }

@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.TutorialAdapter;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
-import com.begoandapps.padelapp.navigation.NavigationUtis;
+import com.begoandapps.padelapp.navigation.NavigationUtils;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import butterknife.BindView;
@@ -49,7 +49,7 @@ public class TutorialActivity extends BaseActivity {
         return new INavigation() {
             @Override
             public void navigate() {
-                NavigationUtis.navigateToActivity(TutorialActivity.this, LoginActivity.class);
+                NavigationUtils.navigateToActivity(TutorialActivity.this, LoginActivity.class);
             }
         };
     }
