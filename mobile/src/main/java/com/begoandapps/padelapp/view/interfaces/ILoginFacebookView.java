@@ -17,4 +17,14 @@ public interface ILoginFacebookView extends IView {
      * @return
      */
     public String getPassword();
+
+    /**
+     *
+     */
+    public void onLoginSuccess();
+
+    /**
+     *
+     */
+    public void onLoginError(String msg);
 }
