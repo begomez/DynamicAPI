@@ -1,9 +1,12 @@
 package com.begoandapps.padelapp.presenter;
 
-import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
-import com.begoandapps.padelapp.view.interfaces.IView;
+import android.support.annotation.NonNull;
 
-import javax.inject.Inject;
+import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Created by bernatgomez on 20/3/17.
@@ -19,14 +22,33 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
         super();
     }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 // OPERATIONS
 ////////////////////////////////////////////////////////////////////////////////////////
     public void doLogin() {
         String user = this.view.getPassword();
         String pass = this.view.getUser();
+
+        this.loginWithFacebook(user, pass);
     }
 
+    //TODO: move to controller
+    private void loginWithFacebook(final String user, final String pass) {
+        FirebaseAuth.getInstance()
+            .createUserWithEmailAndPassword(user, pass)
+                .addOnCompleteListener(
+                    new OnCompleteListener<AuthResult>() {
+                       @Override
+                       public void onComplete(@NonNull Task<AuthResult> task) {
+                           if (task.isSuccessful()) {
+                               view.onLoginSuccess();
+
+                           } else {
+                               view.onLoginError(task.getException().toString());
+                           }
+                       }
+                   }
+                );
+    }
 
 }
