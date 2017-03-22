@@ -52,7 +52,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
                                view.onLoginSuccess();
 
                            } else {
-                               view.onLoginError(task.getException().toString());
+                               view.onLoginError(task.getException().getCause() + "///" + task.getException().getMessage());
                                //view.onLoginSuccess();
                            }
                        }

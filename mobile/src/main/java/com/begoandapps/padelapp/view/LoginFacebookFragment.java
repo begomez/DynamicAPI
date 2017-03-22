@@ -79,8 +79,8 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     public void configViews() {
         super.configViews();
 
-        this.txtUser.setText("bego.and.apps.test1@gmail.com");
-        this.txtPass.setText("begotest1");
+        this.txtUser.setText(this.getString(R.string.facebook_user));
+        this.txtPass.setText(this.getString(R.string.facebook_pass));
     }
 
     @Override
@@ -160,7 +160,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
         MessageUtils.showToast(getContext(), "Error " + msg);
 
         if (this.callback != null) {
-            this.callback.launchDashboard();
+            //this.callback.launchDashboard();
         }
 
     }
