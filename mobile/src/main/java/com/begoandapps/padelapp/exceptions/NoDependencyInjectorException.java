@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.exceptions;
 
 /**
  * Created by bernatgomez on 22/3/17.
