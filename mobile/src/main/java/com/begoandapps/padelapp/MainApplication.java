@@ -4,6 +4,8 @@ package com.begoandapps.padelapp;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import com.begoandapps.padelapp.dependencies.ApplicationComponent;
+import com.begoandapps.padelapp.dependencies.DaggerApplicationComponent;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 
 
@@ -17,9 +19,18 @@ public class MainApplication extends Application {
 
     private static final String TAG = MainApplication.class.getSimpleName();
 
+    private ApplicationComponent injector;
+
+
+/////////////////////////////////////////////////////////////////////////
+// LIFE CYCLE
+/////////////////////////////////////////////////////////////////////////
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        this.initInjector();
 
         AndroidLoggerUtils.logMsg(TAG, "onCreate()");
     }
@@ -52,4 +63,21 @@ public class MainApplication extends Application {
 
         AndroidLoggerUtils.logMsg(TAG, "onTrimMemory()");
     }
+
+/////////////////////////////////////////////////////////////////////////
+// HELPERS
+/////////////////////////////////////////////////////////////////////////
+
+    private void initInjector() {
+        this.injector = DaggerApplicationComponent.builder().build();
+    }
+
+/////////////////////////////////////////////////////////////////////////
+// ACCESSORS
+/////////////////////////////////////////////////////////////////////////
+
+    public ApplicationComponent getInjector() {
+        return injector;
+    }
+
 }
