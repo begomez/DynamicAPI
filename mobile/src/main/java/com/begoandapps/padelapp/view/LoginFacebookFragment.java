@@ -2,7 +2,6 @@ package com.begoandapps.padelapp.view;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
@@ -12,10 +11,6 @@ import com.begoandapps.padelapp.components.AppEditText;
 import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
 import com.begoandapps.padelapp.utils.MessageUtils;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.myapps.utils.TextUtils;
 
 import butterknife.BindView;
@@ -107,13 +102,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
 
     @OnClick(R.id.login_facebook_btn)
     public void onFacebookBtnClick(View v) {
-        //MessageUtils.showToast(this.getContext(), "1");
-
-        //test();
-
         this.presenter.doLogin();
-
-        //onLoginSuccess();
     }
 
     @OnClick(R.id.login_facebook_main_btn)
@@ -158,27 +147,6 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @Override
     public void onLoginError(String msg) {
         MessageUtils.showToast(getContext(), "Error " + msg);
-    }
-
-////////////////////////////////////////////////////////////////////////////////////////
-// ILOGINVIEW IMPL
-////////////////////////////////////////////////////////////////////////////////////////
-
-    private void test() {
-        FirebaseAuth.getInstance()
-            .createUserWithEmailAndPassword(this.getUser(), this.getPassword())
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            MessageUtils.showToast(getContext(), "Success!");
-
-                        } else {
-                            MessageUtils.showToast(getContext(), "Error " + task.getException().toString());
-                        }
-                    }
-                }
-            );
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
