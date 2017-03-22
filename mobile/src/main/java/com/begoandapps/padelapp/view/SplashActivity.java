@@ -31,6 +31,7 @@ public class SplashActivity extends BaseActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    //FIXME: disable when back
     private void launchNextModule() {
         new Handler().postDelayed(
             new Runnable() {

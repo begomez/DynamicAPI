@@ -8,6 +8,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import javax.inject.Inject;
+
 /**
  * Created by bernatgomez on 20/3/17.
  */
@@ -18,6 +20,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////
 
+    //@Inject
     public LoginFacebookPresenter() {
         super();
     }

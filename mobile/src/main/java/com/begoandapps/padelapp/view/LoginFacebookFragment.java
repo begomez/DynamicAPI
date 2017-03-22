@@ -13,6 +13,8 @@ import com.begoandapps.padelapp.utils.MessageUtils;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
 import com.myapps.utils.TextUtils;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -35,7 +37,8 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
 
     private IDashboardNavigation callback;
 
-    private LoginFacebookPresenter presenter;
+    @Inject
+    protected LoginFacebookPresenter presenter;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -71,6 +74,26 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (this.getActivity() instanceof IDashboardNavigation) {
+            this.callback = (IDashboardNavigation) this.getActivity();
+        }
+    }
+
+    @Override
+    protected void injectDependencies() {
+        super.injectDependencies();
+
+        this.getInjector().inject(this);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+// ARCHITECTURE
+////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
     public void configViews() {
         super.configViews();
 
@@ -82,18 +105,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     protected void initPresenters() {
         super.initPresenters();
 
-        this.presenter = new LoginFacebookPresenter();
-
         this.presenter.attachView(this);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        if (this.getActivity() instanceof IDashboardNavigation) {
-            this.callback = (IDashboardNavigation) this.getActivity();
-        }
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////

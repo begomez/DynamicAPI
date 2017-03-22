@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.begoandapps.padelapp.MainApplication;
+import com.begoandapps.padelapp.dependencies.ApplicationComponent;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
@@ -126,8 +128,16 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
 
     @Override
     public void injectComponents() {
+        this.injectDependencies();
         this.injectViews();
         this.injectExtras();
+    }
+
+    /**
+     *
+     */
+    protected void injectDependencies() {
+
     }
 
     /**
@@ -169,6 +179,11 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     @Override
     public void launchContentFragment() {
         //TODO: implement on subclasses
+    }
+
+    @Override
+    public ApplicationComponent getInjector()  {
+        return ((MainApplication) this.getApplication()).getInjector();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////

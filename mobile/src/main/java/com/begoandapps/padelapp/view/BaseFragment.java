@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.begoandapps.padelapp.dependencies.ApplicationComponent;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.view.interfaces.IBase;
 import com.begoandapps.padelapp.view.interfaces.IMainAction;
@@ -34,10 +35,6 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
         super.onCreate(savedInstanceState);
 
         this.prepareWindow();
-
-        if (savedInstanceState == null) {
-            this.initPresenters();
-        }
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreate()");
     }
@@ -73,6 +70,8 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     @Override
     public void onStart() {
         super.onStart();
+
+        this.initPresenters();
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onStart()");
 
@@ -117,8 +116,13 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     @Override
     public void injectComponents() {
+        this.injectDependencies();
         this.injectViews();
         this.injectExtras();
+    }
+
+    protected void injectDependencies() {
+
     }
 
     protected void injectViews() {
@@ -137,6 +141,11 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     @Override
     public void launchContentFragment() {
 
+    }
+
+    @Override
+    public ApplicationComponent getInjector() {
+        return ((BaseActivity) this.getActivity()).getInjector();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
