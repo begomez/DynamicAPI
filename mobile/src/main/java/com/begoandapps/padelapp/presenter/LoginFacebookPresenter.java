@@ -26,8 +26,8 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 // OPERATIONS
 ////////////////////////////////////////////////////////////////////////////////////////
     public void doLogin() {
-        final String user = this.view.getPassword();
-        final String pass = this.view.getUser();
+        final String user = this.view.getUser();
+        final String pass = this.view.getPassword();
 
         new Thread() {
             @Override
@@ -52,7 +52,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
                                view.onLoginSuccess();
 
                            } else {
-                               view.onLoginError(task.getException().getCause() + "///" + task.getException().getMessage());
+                               view.onLoginError(task.getException().toString());
                                //view.onLoginSuccess();
                            }
                        }

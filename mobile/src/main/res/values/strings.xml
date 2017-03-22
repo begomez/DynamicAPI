@@ -1,8 +1,8 @@
 <resources>
 
     <!-- DATA -->
-    <string name="facebook_user">bego.and.apps.test1@gmail.com</string>
-    <string name="facebook_pass">begotest1</string>
+    <string name="facebook_user">begoandapps.test2@gmail.com</string>
+    <string name="facebook_pass">begotest2</string>
 
     <!-- ACTIONS -->
     <string name="btn_adelante">¡Adelante!</string>

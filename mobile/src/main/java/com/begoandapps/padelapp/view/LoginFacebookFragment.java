@@ -158,11 +158,6 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @Override
     public void onLoginError(String msg) {
         MessageUtils.showToast(getContext(), "Error " + msg);
-
-        if (this.callback != null) {
-            //this.callback.launchDashboard();
-        }
-
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
