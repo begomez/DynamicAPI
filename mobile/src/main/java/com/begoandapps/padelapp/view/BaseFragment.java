@@ -71,7 +71,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onStart() {
         super.onStart();
 
-        this.initPresenters();
+        this.bindPresentersAndViews();
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onStart()");
 
@@ -110,7 +110,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     }
 
-    protected void initPresenters() {
+    protected void bindPresentersAndViews() {
         //TODO: use Dagger if needed
     }
 

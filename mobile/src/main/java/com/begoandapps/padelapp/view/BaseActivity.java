@@ -156,10 +156,6 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         this.configToolBar();
     }
 
-    private boolean hasToolbar() {
-        return this.toolbar != null;
-    }
-
     /**
      *
      */
@@ -171,6 +167,10 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
             bar.setDisplayHomeAsUpEnabled(true);
             bar.setDisplayShowTitleEnabled(true);
         }
+    }
+
+    private boolean hasToolbar() {
+        return this.toolbar != null;
     }
 
     /**

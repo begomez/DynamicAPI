@@ -11,17 +11,31 @@ import com.begoandapps.padelapp.components.interfaces.IAppView;
 
 public class AppEditText extends android.support.v7.widget.AppCompatEditText implements IAppView {
 
+//////////////////////////////////////////////////////////////////////////////////
+// CONSTRUCTORS
+//////////////////////////////////////////////////////////////////////////////////
+
     public AppEditText(Context context) {
         super(context);
+
+        this.init(context, null);
     }
 
     public AppEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        this.init(context, attrs);
     }
 
     public AppEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        this.init(context, attrs);
     }
+
+//////////////////////////////////////////////////////////////////////////////////
+// IAPPVIEW IMPL
+//////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void init(Context context, AttributeSet attrs) {

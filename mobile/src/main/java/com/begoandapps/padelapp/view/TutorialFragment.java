@@ -49,6 +49,10 @@ public class TutorialFragment extends BaseFragment {
     protected INavigable navCallback;
 
 
+//////////////////////////////////////////////////////////////////////////////////
+// CONSTRUCTORS
+//////////////////////////////////////////////////////////////////////////////////
+
     public static TutorialFragment newInstance(int position) {
         TutorialFragment frag = new TutorialFragment();
 
@@ -60,19 +64,6 @@ public class TutorialFragment extends BaseFragment {
 
         return frag;
     }
-
-/////////////////////////////////////////////////////////////////////////////////////////
-// NAVIGATION
-/////////////////////////////////////////////////////////////////////////////////////////
-
-    @Override
-    @OnClick(R.id.tutorial_frag_btn)
-    public void onMainBtnClick(View v) {
-        if (this.navCallback != null) {
-            this.navCallback.navigateToNext(this.navCallback.getNavigationCmd());
-        }
-    }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -130,6 +121,17 @@ public class TutorialFragment extends BaseFragment {
         this.tutIcon.setImageDrawable(this.getResources().getDrawable(icon));
     }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+// NAVIGATION
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    @OnClick(R.id.tutorial_frag_btn)
+    public void onMainBtnClick(View v) {
+        if (this.navCallback != null) {
+            this.navCallback.navigateToNext(this.navCallback.getNavigationCmd());
+        }
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // DATA

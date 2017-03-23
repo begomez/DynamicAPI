@@ -13,17 +13,32 @@ import com.begoandapps.padelapp.components.interfaces.IAppView;
 
 public class AppToolbar extends Toolbar implements IAppView {
 
+//////////////////////////////////////////////////////////////////////////////////
+// CONSTRUCTORS
+//////////////////////////////////////////////////////////////////////////////////
+
     public AppToolbar(Context context) {
         super(context);
+
+        this.init(context, null);
     }
 
     public AppToolbar(Context context, @Nullable AttributeSet attrs) {
+
         super(context, attrs);
+
+        this.init(context, attrs);
     }
 
     public AppToolbar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        this.init(context, attrs);
     }
+
+//////////////////////////////////////////////////////////////////////////////////
+// IAAPVIEW IMPL
+//////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void init(Context context, AttributeSet attrs) {

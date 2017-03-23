@@ -13,6 +13,10 @@ import com.begoandapps.padelapp.components.interfaces.IAppView;
 
 public class AppTextView extends TextView implements IAppView {
 
+//////////////////////////////////////////////////////////////////////////////////
+// CONSTRUCTORS
+//////////////////////////////////////////////////////////////////////////////////
+
     public AppTextView(Context context) {
         super(context);
     }
@@ -30,6 +34,19 @@ public class AppTextView extends TextView implements IAppView {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+//////////////////////////////////////////////////////////////////////////////////
+// IAPPVIEW IMPL
+//////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void init(Context context, AttributeSet attrs) {
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////
+// ACCESSORS
+//////////////////////////////////////////////////////////////////////////////////
+
     public void setCustomText(int id) {
         this.setCustomText(this.getResources().getString(id));
     }
@@ -38,8 +55,4 @@ public class AppTextView extends TextView implements IAppView {
         this.setText(txt);
     }
 
-    @Override
-    public void init(Context context, AttributeSet attrs) {
-        //TODO:
-    }
 }

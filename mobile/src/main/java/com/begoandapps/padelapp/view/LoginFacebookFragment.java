@@ -40,6 +40,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @Inject
     protected LoginFacebookPresenter presenter;
 
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -82,16 +83,16 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
         }
     }
 
+////////////////////////////////////////////////////////////////////////////////////////
+// ARCHITECTURE
+////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     protected void injectDependencies() {
         super.injectDependencies();
 
         this.getInjector().inject(this);
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-// ARCHITECTURE
-////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void configViews() {
@@ -102,8 +103,8 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     }
 
     @Override
-    protected void initPresenters() {
-        super.initPresenters();
+    protected void bindPresentersAndViews() {
+        super.bindPresentersAndViews();
 
         this.presenter.attachView(this);
     }
