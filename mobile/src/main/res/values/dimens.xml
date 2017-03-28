@@ -27,5 +27,14 @@
     <dimen name="tutorial_subtitle_horizontal_pad">60dp</dimen>
     <dimen name="pager_indicator_marginBottom">131dp</dimen><!-- includes btn height -->
 
+<!-- LOGIN SELECTION -->
+    <dimen name="login_selection_icon_padding_top">85dp</dimen>
+    <dimen name="login_selection_btn_later_margin_bottom">50dp</dimen>
+    <dimen name="login_selection_btn_radius">25dp</dimen>
+    <dimen name="login_selection_btn_horiz_margin">50dp</dimen>
+    <dimen name="login_selection_btn_horiz_padding">50dp</dimen>
+    <dimen name="login_selection_btn_elevation">5dp</dimen>
+    <dimen name="login_selection_btn_margin_separator">10dp</dimen>
+
 
 </resources>

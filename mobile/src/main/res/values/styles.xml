@@ -41,14 +41,23 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="Button.Round" parent="Widget.AppCompat.ActionButton">
+        <item name="android:layout_marginStart">@dimen/login_selection_btn_horiz_margin</item>
+        <item name="android:layout_marginLeft">@dimen/login_selection_btn_horiz_margin</item>
+        <item name="android:layout_marginEnd">@dimen/login_selection_btn_horiz_margin</item>
+        <item name="android:layout_marginRight">@dimen/login_selection_btn_horiz_margin</item>
+        <item name="android:paddingLeft">@dimen/login_selection_btn_horiz_padding</item>
+        <item name="android:paddingRight">@dimen/login_selection_btn_horiz_padding</item>
+    </style>
 
-    <style name="Button.Blue" parent="Widget.AppCompat.ActionButton">
-        <item name="android:background">@color/colorBlue</item>
+
+    <style name="Button.Round.Blue">
+        <item name="android:background">@drawable/shape_rectangle_fill_blue</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
-    <style name="Button.White" parent="Widget.AppCompat.ActionButton">
-        <item name="android:background">@color/colorWhite</item>
+    <style name="Button.Round.White">
+        <item name="android:background">@drawable/shape_rectangle_fill_white</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
