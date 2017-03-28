@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity implements LoginSelectionFragmen
 
     @Override
     public void launchFacebookLogin() {
-        NavigationUtils.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame);
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame, true);
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
