@@ -3,6 +3,7 @@ package com.begoandapps.padelapp.dependencies.modules;
 
 import com.begoandapps.padel.usecases.login.RegisterUseCase;
 import com.begoandapps.padel.usecases.login.RegisterUseCaseImpl;
+import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
 import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
 import com.squareup.otto.Bus;
 
@@ -25,13 +26,13 @@ public class LoginModule extends BaseModule {
      * @return
      */
     @Provides
-    //@Singleton
+    @PerActivity
     public LoginFacebookPresenter provideFacebookPresenter(RegisterUseCase useCase) {
         return new LoginFacebookPresenter(useCase);
     }
 
     @Provides
-    //@Singleton
+    @PerActivity
     public RegisterUseCase provideLoginUsecase(Bus bus, RestDataSource rest) {
         return new RegisterUseCaseImpl(bus, rest);
     }

@@ -14,7 +14,7 @@ import dagger.Component;
 /**
  * Created by bernatgomez on 22/3/17.
  */
-//@Singleton
+@PerActivity
 @Component(dependencies = ApplicationComponent.class, modules={LoginModule.class})
 public interface LoginComponent {
     public void inject(LoginFacebookFragment frag);

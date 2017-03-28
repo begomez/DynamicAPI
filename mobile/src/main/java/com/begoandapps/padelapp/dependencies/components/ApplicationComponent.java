@@ -13,7 +13,7 @@ import dagger.Component;
 /**
  * Created by bernatgomez on 22/3/17.
  */
-//@Singleton
+@Singleton
 @Component(modules={ApplicationModule.class})
 public interface ApplicationComponent {
 
