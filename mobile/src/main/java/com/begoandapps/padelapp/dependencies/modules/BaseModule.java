@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import rest.RestDataSource;
+import rest.interfaces.IDataSource;
 
 
 /**
