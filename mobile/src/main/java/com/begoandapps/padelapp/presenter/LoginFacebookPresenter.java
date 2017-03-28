@@ -2,6 +2,7 @@ package com.begoandapps.padelapp.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.begoandapps.padel.usecases.login.RegisterUseCase;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,13 +17,20 @@ import javax.inject.Inject;
 
 public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 
+    /**
+     *
+     */
+    protected RegisterUseCase usecase;
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    //@Inject
-    public LoginFacebookPresenter() {
+    @Inject
+    public LoginFacebookPresenter(RegisterUseCase useCase) {
         super();
+
+        this.usecase = useCase;
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +48,16 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
             }
         }.start();
 
+    }
+
+    public void doLogout() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                FirebaseAuth.getInstance().signOut();
+            }
+        }.start();
     }
 
     //TODO: move to controller

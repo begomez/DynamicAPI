@@ -1,6 +1,6 @@
 package com.begoandapps.padelapp.view.interfaces;
 
-import com.begoandapps.padelapp.dependencies.ApplicationComponent;
+import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.exceptions.NoDependencyInjectorException;
 
 /**

@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.begoandapps.padelapp.dependencies.ApplicationComponent;
+import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.view.interfaces.IBase;
 import com.begoandapps.padelapp.view.interfaces.IMainAction;

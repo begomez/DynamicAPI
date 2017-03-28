@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.begoandapps.padelapp.MainApplication;
-import com.begoandapps.padelapp.dependencies.ApplicationComponent;
+import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
