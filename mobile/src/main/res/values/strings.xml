@@ -16,6 +16,7 @@
     <!-- TITLES -->
     <string name="title_login_screen">Login</string>
     <string name="title_tutorial_screen">Tutorial</string>
+    <string name="title_dashboard_screen">Dashboard</string>
 
     <!-- SPLASH -->
     <string name="splash_title">@string/app_sport</string>
