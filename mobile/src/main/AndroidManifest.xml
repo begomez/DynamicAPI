@@ -15,7 +15,9 @@
         <!-- SPLASH -->
         <activity
             android:name=".view.SplashActivity"
-            android:theme="@style/AppThemeFullScreen">
+            android:theme="@style/AppThemeFullScreen"
+            android:screenOrientation="portrait"
+            >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,20 +30,27 @@
         <!-- LOGIN -->
         <activity
             android:name=".view.LoginActivity"
-            android:label="@string/title_login_screen">
+            android:label="@string/title_login_screen"
+            android:screenOrientation="portrait"
+            >
 
         </activity>
 
         <!-- TUTORIAL -->
         <activity
             android:name=".view.TutorialActivity"
-            android:label="@string/title_tutorial_screen">
+            android:label="@string/title_tutorial_screen"
+            android:screenOrientation="portrait"
+            >
 
         </activity>
 
         <!-- DASHBOARD -->
         <activity
-            android:name=".view.PadelActivity">
+            android:name=".view.PadelActivity"
+            android:label="@string/title_dashboard_screen"
+            android:screenOrientation="portrait"
+            >
 
         </activity>
 
