@@ -8,7 +8,7 @@ import android.view.View;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
-import com.begoandapps.padelapp.dependencies.components.DaggerLoginComponent;
+import com.begoandapps.padelapp.dependencies.components.DaggerRegisterComponent;
 import com.begoandapps.padelapp.dependencies.modules.RegisterModule;
 import com.begoandapps.padelapp.presenter.RegisterFacebookPresenter;
 import com.begoandapps.padelapp.utils.MessageUtils;
@@ -98,7 +98,7 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
     protected void injectDependencies() {
         super.injectDependencies();
 
-        DaggerLoginComponent.builder().applicationComponent(this.getApplicationComponent()).loginModule(new RegisterModule()).build().inject(this);
+        DaggerRegisterComponent.builder().applicationComponent(this.getApplicationComponent()).registerModule(new RegisterModule()).build().inject(this);
     }
 
     @Override
