@@ -1,8 +1,14 @@
 package rest.interfaces;
 
+import java.util.List;
+
 import apimodels.ApiSessionModel;
+import apimodels.Sample;
+import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -11,10 +17,8 @@ import rx.Observable;
 
 public interface API {
 
-    @POST
-    public Observable<ApiSessionModel> login(@Body String user, @Body String pass);
 
-    @POST
-    public Observable<Boolean> logout(@Body ApiSessionModel session);
+    @GET("changes/")
+    public Call<List<Sample>> sampleCall(@Query("q") String q);
 
 }

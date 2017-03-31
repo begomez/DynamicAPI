@@ -17,13 +17,13 @@ import rest.RestDataSource;
 public class ApplicationModule {
 
     @Provides
-    //@Singleton
+    @Singleton
     public Bus provideBus() {
         return new Bus();
     }
 
     @Provides
-    //@Singleton
+    @Singleton
     public RestDataSource provideRest(Bus bus) {
         return new RestDataSource(bus);
     }

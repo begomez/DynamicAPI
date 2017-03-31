@@ -1,4 +1,4 @@
-package com.begoandapps.padel.usecases.login;
+package com.begoandapps.padel.usecases.register;
 
 /**
  * Created by bernatgomez on 28/3/17.

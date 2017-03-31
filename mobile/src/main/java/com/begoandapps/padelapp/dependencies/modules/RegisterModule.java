@@ -1,8 +1,8 @@
 package com.begoandapps.padelapp.dependencies.modules;
 
 
-import com.begoandapps.padel.usecases.login.RegisterUseCase;
-import com.begoandapps.padel.usecases.login.RegisterUseCaseImpl;
+import com.begoandapps.padel.usecases.register.RegisterUseCase;
+import com.begoandapps.padel.usecases.register.RegisterUseCaseImpl;
 import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
 import com.begoandapps.padelapp.presenter.RegisterFacebookPresenter;
 import com.squareup.otto.Bus;
