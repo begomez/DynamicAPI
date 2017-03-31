@@ -29,7 +29,7 @@
 
         <!-- LOGIN -->
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.RegisterActivity"
             android:label="@string/title_login_screen"
             android:screenOrientation="portrait"
             >

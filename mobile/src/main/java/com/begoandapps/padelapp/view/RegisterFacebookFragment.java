@@ -9,10 +9,10 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
 import com.begoandapps.padelapp.dependencies.components.DaggerLoginComponent;
-import com.begoandapps.padelapp.dependencies.modules.LoginModule;
-import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
+import com.begoandapps.padelapp.dependencies.modules.RegisterModule;
+import com.begoandapps.padelapp.presenter.RegisterFacebookPresenter;
 import com.begoandapps.padelapp.utils.MessageUtils;
-import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
+import com.begoandapps.padelapp.view.interfaces.IRegisterFacebookView;
 import com.myapps.utils.TextUtils;
 
 import javax.inject.Inject;
@@ -24,9 +24,9 @@ import butterknife.OnClick;
  * Created by bernatgomez on 19/3/17.
  */
 
-public class LoginFacebookFragment extends BaseFragment implements ILoginFacebookView {
+public class RegisterFacebookFragment extends BaseFragment implements IRegisterFacebookView {
 
-    private static final String TAG = LoginFacebookFragment.class.getSimpleName();
+    private static final String TAG = RegisterFacebookFragment.class.getSimpleName();
 
     @BindView(R.id.login_facebook_user)
     protected AppEditText txtUser;
@@ -37,18 +37,18 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @BindView(R.id.login_facebook_main_btn)
     protected AppButton btnLogin;
 
-    private IDashboardNavigation callback;
+    private IDashboardNav callback;
 
     @Inject
-    protected LoginFacebookPresenter presenter;
+    protected RegisterFacebookPresenter presenter;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    public static LoginFacebookFragment newInstance() {
-        return new LoginFacebookFragment();
+    public static RegisterFacebookFragment newInstance() {
+        return new RegisterFacebookFragment();
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.layoutId = R.layout.fragment_login_facebook;
+        this.layoutId = R.layout.fragment_register_facebook;
     }
 
     @Override
@@ -85,8 +85,8 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (this.getActivity() instanceof IDashboardNavigation) {
-            this.callback = (IDashboardNavigation) this.getActivity();
+        if (this.getActivity() instanceof IDashboardNav) {
+            this.callback = (IDashboardNav) this.getActivity();
         }
     }
 
@@ -98,7 +98,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     protected void injectDependencies() {
         super.injectDependencies();
 
-        DaggerLoginComponent.builder().applicationComponent(this.getApplicationComponent()).loginModule(new LoginModule()).build().inject(this);
+        DaggerLoginComponent.builder().applicationComponent(this.getApplicationComponent()).loginModule(new RegisterModule()).build().inject(this);
     }
 
     @Override
@@ -123,7 +123,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     @OnClick(R.id.login_facebook_btn)
     public void onFacebookBtnClick(View v) {
 
-        this.presenter.doLogin();
+        this.presenter.doRegistration();
     }
 
     @OnClick(R.id.login_facebook_main_btn)
@@ -157,7 +157,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     }
 
     @Override
-    public void onLoginSuccess() {
+    public void onRegisterSuccess() {
         MessageUtils.showToast(getContext(), "Success!");
 
         if (this.callback != null) {
@@ -166,7 +166,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     }
 
     @Override
-    public void onLoginError(String msg) {
+    public void onRegisterError(String msg) {
         MessageUtils.showToast(getContext(), "Error " + msg);
     }
 
@@ -174,7 +174,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
 // INTERFACE DECL
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    public interface IDashboardNavigation {
+    public interface IDashboardNav {
         public void launchDashboard();
     }
 

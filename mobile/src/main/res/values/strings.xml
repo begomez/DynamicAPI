@@ -14,7 +14,7 @@
     <string name="app_sport">Padel</string>
 
     <!-- TITLES -->
-    <string name="title_login_screen">Login</string>
+    <string name="title_login_screen">Register</string>
     <string name="title_tutorial_screen">Tutorial</string>
     <string name="title_dashboard_screen">Dashboard</string>
 

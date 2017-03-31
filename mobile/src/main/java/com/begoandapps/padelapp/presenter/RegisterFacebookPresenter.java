@@ -2,8 +2,8 @@ package com.begoandapps.padelapp.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.begoandapps.padel.usecases.login.LoginUseCase;
-import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
+import com.begoandapps.padel.usecases.login.RegisterUseCase;
+import com.begoandapps.padelapp.view.interfaces.IRegisterFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -15,19 +15,19 @@ import javax.inject.Inject;
  * Created by bernatgomez on 20/3/17.
  */
 
-public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
+public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookView> {
 
     /**
      *
      */
-    protected LoginUseCase usecase;
+    protected RegisterUseCase usecase;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public LoginFacebookPresenter(LoginUseCase useCase) {
+    public RegisterFacebookPresenter(RegisterUseCase useCase) {
         super();
 
         this.usecase = useCase;
@@ -36,7 +36,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
 ////////////////////////////////////////////////////////////////////////////////////////
 // OPERATIONS
 ////////////////////////////////////////////////////////////////////////////////////////
-    public void doLogin() {
+    public void doRegistration() {
         final String user = this.view.getUser();
         final String pass = this.view.getPassword();
 
@@ -44,7 +44,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
             @Override
             public void run() {
                 super.run();
-                loginWithFacebook(user, pass);
+                registerWithFacebook(user, pass);
             }
         }.start();
 
@@ -61,7 +61,7 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
     }
 
     //TODO: move to controller
-    private void loginWithFacebook(final String user, final String pass) {
+    private void registerWithFacebook(final String user, final String pass) {
 
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(user, pass)
@@ -70,10 +70,10 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()) {
-                               view.onLoginSuccess();
+                               view.onRegisterSuccess();
 
                            } else {
-                               view.onLoginError(task.getException().toString());
+                               view.onRegisterError(task.getException().toString());
                            }
                        }
                    }

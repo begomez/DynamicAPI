@@ -10,14 +10,14 @@ import com.begoandapps.padelapp.navigation.NavigationUtils;
 /**
  * Created by bernatgomez on 7/3/17.
  */
-public class LoginActivity extends BaseActivity implements LoginSelectionFragment.ILoginTransaction, LoginFacebookFragment.IDashboardNavigation {
+public class RegisterActivity extends BaseActivity implements RegisterSelectionFragment.IFacebookRegisterNav, RegisterFacebookFragment.IDashboardNav {
 
-    private static final String TAG = LoginActivity.class.getSimpleName();
+    private static final String TAG = RegisterActivity.class.getSimpleName();
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        this.layoutId = R.layout.activity_login;
+        this.layoutId = R.layout.activity_register;
 
         super.onCreate(savedInstanceState);
     }
@@ -27,7 +27,7 @@ public class LoginActivity extends BaseActivity implements LoginSelectionFragmen
         super.launchContentFragment();
 
         NavigationUtils.launchFragment(
-            this.getSupportFragmentManager(), LoginSelectionFragment.newInstance(), R.id.content_frame);
+            this.getSupportFragmentManager(), RegisterSelectionFragment.newInstance(), R.id.content_frame);
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,8 +35,8 @@ public class LoginActivity extends BaseActivity implements LoginSelectionFragmen
 //////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void launchFacebookLogin() {
-        NavigationUtils.launchFragment(this.getSupportFragmentManager(), LoginFacebookFragment.newInstance(), R.id.content_frame, true);
+    public void launchFacebookRegister() {
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), RegisterFacebookFragment.newInstance(), R.id.content_frame, true);
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////

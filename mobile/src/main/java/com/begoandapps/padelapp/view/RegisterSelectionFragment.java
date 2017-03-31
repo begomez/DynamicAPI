@@ -1,6 +1,5 @@
 package com.begoandapps.padelapp.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,9 +16,9 @@ import butterknife.OnClick;
  * Created by bernatgomez on 19/3/17.
  */
 
-public class LoginSelectionFragment extends BaseFragment implements ILoginSelectionView {
+public class RegisterSelectionFragment extends BaseFragment implements ILoginSelectionView {
 
-    private static final String TAG = LoginSelectionFragment.class.getSimpleName();
+    private static final String TAG = RegisterSelectionFragment.class.getSimpleName();
 
     @BindView(R.id.login_selection_btn_facebook)
     protected AppButton btnFacebook;
@@ -30,18 +29,18 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     @BindView(R.id.login_selection_btn_later)
     protected AppTextView btnLater;
 
-    private ILoginTransaction callback;
+    private IFacebookRegisterNav callback;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static LoginSelectionFragment newInstance() {
-        return new LoginSelectionFragment();
+    public static RegisterSelectionFragment newInstance() {
+        return new RegisterSelectionFragment();
     }
 
-    public LoginSelectionFragment() {
+    public RegisterSelectionFragment() {
         super();
     }
 
@@ -53,15 +52,15 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.layoutId = R.layout.fragment_login_selection;
+        this.layoutId = R.layout.fragment_register_selection;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (this.getActivity() instanceof ILoginTransaction) {
-            this.callback = (ILoginTransaction) this.getActivity();
+        if (this.getActivity() instanceof IFacebookRegisterNav) {
+            this.callback = (IFacebookRegisterNav) this.getActivity();
         }
     }
 
@@ -72,7 +71,7 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
     @OnClick(R.id.login_selection_btn_facebook)
     public void onFacebookBtnClick() {
         if (this.callback != null) {
-            this.callback.launchFacebookLogin();
+            this.callback.launchFacebookRegister();
         }
     }
 
@@ -83,7 +82,9 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
 
     @OnClick(R.id.login_selection_btn_later)
     public void onLaterBtnClick() {
-
+        if (this.callback != null) {
+            this.callback.launchDashboard();
+        }
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,8 +105,8 @@ public class LoginSelectionFragment extends BaseFragment implements ILoginSelect
 // INTERFACE DECL
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-    public interface ILoginTransaction {
-        public void launchFacebookLogin();
+    public interface IFacebookRegisterNav extends RegisterFacebookFragment.IDashboardNav {
+        public void launchFacebookRegister();
     }
 
 }

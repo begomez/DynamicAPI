@@ -57,7 +57,7 @@ public class TutorialActivity extends BaseActivity {
         return new INavigation() {
             @Override
             public void navigate() {
-                NavigationUtils.navigateToActivity(TutorialActivity.this, LoginActivity.class);
+                NavigationUtils.navigateToActivity(TutorialActivity.this, RegisterActivity.class);
             }
         };
     }

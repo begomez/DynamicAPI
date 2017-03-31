@@ -9,26 +9,26 @@ import rest.RestDataSource;
  * Created by bernatgomez on 20/3/17.
  */
 
-public class LoginUseCaseImpl extends BaseUseCase implements LoginUseCase {
+public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase {
 
 
-    public LoginUseCaseImpl() {
+    public RegisterUseCaseImpl() {
         super();
     }
 
 
     //@Inject
-    public LoginUseCaseImpl(Bus bus, RestDataSource rest) {
+    public RegisterUseCaseImpl(Bus bus, RestDataSource rest) {
         super(bus, rest);
     }
 
     @Override
-    public void login(String user, String pass) {
+    public void signUp(String user, String pass) {
 
     }
 
     @Override
-    public void logout() {
+    public void signOut() {
 
     }
 }

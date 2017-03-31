@@ -4,7 +4,7 @@ package com.begoandapps.padelapp.view.interfaces;
  * Created by bernatgomez on 19/3/17.
  */
 
-public interface ILoginFacebookView extends IView {
+public interface IRegisterFacebookView extends IView {
 
     /**
      *
@@ -21,10 +21,10 @@ public interface ILoginFacebookView extends IView {
     /**
      *
      */
-    public void onLoginSuccess();
+    public void onRegisterSuccess();
 
     /**
      *
      */
-    public void onLoginError(String msg);
+    public void onRegisterError(String msg);
 }
