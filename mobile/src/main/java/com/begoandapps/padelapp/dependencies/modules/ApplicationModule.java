@@ -2,6 +2,7 @@ package com.begoandapps.padelapp.dependencies.modules;
 
 
 import com.squareup.otto.Bus;
+import com.squareup.otto.ThreadEnforcer;
 
 import javax.inject.Singleton;
 
@@ -19,7 +20,7 @@ public class ApplicationModule {
     @Provides
     @Singleton
     public Bus provideBus() {
-        return new Bus();
+        return new Bus(ThreadEnforcer.MAIN);
     }
 
     @Provides

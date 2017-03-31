@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
@@ -31,8 +32,8 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
 ////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public RegisterFacebookPresenter(RegisterUseCase useCase) {
-        super();
+    public RegisterFacebookPresenter(RegisterUseCase useCase, Bus bus) {
+        super(bus);
 
         this.usecase = useCase;
     }

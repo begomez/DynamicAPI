@@ -5,6 +5,8 @@ import com.begoandapps.padelapp.view.interfaces.IView;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import javax.inject.Inject;
+
 import apimodels.ApiErrorModel;
 
 /**
@@ -15,17 +17,17 @@ public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
 
     private static final String TAG = BasePresenter.class.getSimpleName();
 
-    protected Bus bus = null;
+    protected final Bus bus;
     protected T view = null;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////
 
-    public BasePresenter() {
-        this.bus = new Bus();
-
+    public BasePresenter(Bus bus) {
         AndroidLoggerUtils.logMsg(TAG, "BasePresenter()");
+
+        this.bus = bus;
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////

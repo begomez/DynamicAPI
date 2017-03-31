@@ -8,6 +8,7 @@ import java.util.List;
 
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
+import okhttp3.OkHttpClient;
 import rest.interfaces.API;
 import rest.interfaces.IDataSource;
 import retrofit2.Call;
@@ -25,7 +26,7 @@ public class RestDataSource implements IDataSource {
 
     private static final String BASE_URL = "https://git.eclipse.org/r/";
 
-    private Bus bus;
+    private final Bus bus;
 
     private API api;
 
@@ -38,9 +39,9 @@ public class RestDataSource implements IDataSource {
 
     public RestDataSource createAPI() {
 
-        Gson converter = new GsonBuilder().create();
+        Gson converter = new GsonBuilder().setLenient().create();
 
-        Retrofit adapter = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(converter)).build();
+        Retrofit adapter = new Retrofit.Builder().client(new OkHttpClient()).baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(converter)).build();
 
         API api = adapter.create(API.class);
 

@@ -6,8 +6,8 @@ import rest.RestDataSource;
 
 public class BaseUseCase {
 
-    protected Bus bus;
-    protected RestDataSource rest;
+    protected final Bus bus;
+    protected final RestDataSource rest;
 
     public BaseUseCase(Bus bus, RestDataSource rest) {
         this.bus = bus;

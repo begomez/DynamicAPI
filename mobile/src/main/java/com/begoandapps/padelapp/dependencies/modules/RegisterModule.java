@@ -24,8 +24,8 @@ public class RegisterModule {
      */
     @Provides
     @PerActivity
-    public RegisterFacebookPresenter provideFacebookPresenter(RegisterUseCase useCase) {
-        return new RegisterFacebookPresenter(useCase);
+    public RegisterFacebookPresenter provideFacebookPresenter(RegisterUseCase useCase, Bus bus) {
+        return new RegisterFacebookPresenter(useCase, bus);
     }
 
     @Provides

@@ -33,13 +33,14 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
 
     @Subscribe
     public void onSuccess(Sample sample) {
-        this.bus.post(sample);
         this.unregister();
+        this.bus.post(sample);
+
     }
 
     @Subscribe
     public void onError(ApiErrorModel error) {
-        this.bus.post(error);
         this.unregister();
+        this.bus.post(error);
     }
 }

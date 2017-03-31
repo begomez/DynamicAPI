@@ -14,5 +14,10 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules={RegisterModule.class})
 public interface RegisterComponent {
+
+    /**
+     *
+     * @param frag
+     */
     public void inject(RegisterFacebookFragment frag);
 }
