@@ -4,7 +4,7 @@ package com.begoandapps.padel.usecases.login;
  * Created by bernatgomez on 28/3/17.
  */
 
-public interface RegisterUseCase {
+public interface LoginUseCase {
 
     /**
      *
