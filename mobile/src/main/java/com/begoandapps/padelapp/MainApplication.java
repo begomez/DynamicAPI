@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.res.Configuration;
 
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
+import com.begoandapps.padelapp.dependencies.components.DaggerApplicationComponent;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 
 
@@ -68,7 +69,7 @@ public class MainApplication extends Application {
 /////////////////////////////////////////////////////////////////////////
 
     private void initInjector() {
-        //this.injector = DaggerApplicationComponent.builder().build();
+        this.injector = DaggerApplicationComponent.builder().build();
     }
 
 /////////////////////////////////////////////////////////////////////////

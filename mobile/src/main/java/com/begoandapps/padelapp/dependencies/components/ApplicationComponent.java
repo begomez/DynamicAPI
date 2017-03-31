@@ -4,10 +4,12 @@ package com.begoandapps.padelapp.dependencies.components;
 import com.begoandapps.padelapp.dependencies.modules.ApplicationModule;
 import com.begoandapps.padelapp.dependencies.modules.LoginModule;
 import com.begoandapps.padelapp.dependencies.scopes.CustomScope;
+import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
+import rest.RestDataSource;
 
 
 /**
@@ -17,4 +19,15 @@ import dagger.Component;
 @Component(modules={ApplicationModule.class})
 public interface ApplicationComponent {
 
+    /**
+     *
+     * @return
+     */
+    Bus getBus();
+
+    /**
+     *
+     * @return
+     */
+    RestDataSource getRest();
 }

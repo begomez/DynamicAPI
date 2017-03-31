@@ -16,5 +16,16 @@ import rest.RestDataSource;
 @Module
 public class ApplicationModule {
 
+    @Provides
+    //@Singleton
+    public Bus provideBus() {
+        return new Bus();
+    }
+
+    @Provides
+    //@Singleton
+    public RestDataSource provideRest(Bus bus) {
+        return new RestDataSource(bus);
+    }
 
 }
