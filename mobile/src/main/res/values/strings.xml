@@ -1,5 +1,14 @@
 <resources>
 
+    <!-- DATA -->
+    <string name="facebook_user">begoandapps.test2@gmail.com</string>
+    <string name="facebook_pass">begotest2</string>
+
+    <!-- ACTIONS -->
+    <string name="btn_adelante">¡Adelante!</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_reservar">Reserva partida</string>
+
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
     <string name="app_sport">Padel</string>
@@ -7,12 +16,12 @@
     <!-- TITLES -->
     <string name="title_login_screen">Login</string>
     <string name="title_tutorial_screen">Tutorial</string>
+    <string name="title_dashboard_screen">Dashboard</string>
 
     <!-- SPLASH -->
     <string name="splash_title">@string/app_sport</string>
 
     <!-- TUTORIAL -->
-    <string name="btn_adelante">¡Adelante!</string>
     <string name="tutorial_step_1_title">@string/app_sport</string>
     <string name="tutorial_step_1_subtitle">Encuentra pistas fácilmente y reserva al momento</string>
     <string name="tutorial_step_2_title">Busca pistas libres cerca de ti</string>
@@ -23,5 +32,18 @@
     <string name="tutorial_step_4_subtitle">Sabemos que te gusta jugar en el mismo sitio con la misma gente ¿o no?</string>
 
     <!-- LOGIN -->
+    <string name="login_selection_description">Para reservar pista necesitamos saber algunos datos tuyos. Para buscar puedes acceder sin registrarte.</string>
+    <string name="login_selection_register_facebook">Registrarse con Facebook</string>
+    <string name="login_selection_register_manually">Registrarse manualmente</string>
+    <string name="login_selection_register_later">Ya me registraré más tarde</string>
+
+    <!-- FACEBOOK -->
+    <string name="login_facebook_user">Nombre</string>
+    <string name="login_facebook_pass">Email</string>
+    <string name="login_facebook_btn">Conectar con Facebook</string>
+    <string name="login_facebook_description">Necesitamos saber estos datos para verificar tu identidad</string>
+
+    <!-- DASHBOARD -->
+    <string name="dashboard_empty_msg">Todavía no has reservado ninguna partida</string>
 
 </resources>
