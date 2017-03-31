@@ -2,7 +2,7 @@ package com.begoandapps.padelapp.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.begoandapps.padel.usecases.login.RegisterUseCase;
+import com.begoandapps.padel.usecases.login.LoginUseCase;
 import com.begoandapps.padelapp.view.interfaces.ILoginFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,14 +20,14 @@ public class LoginFacebookPresenter extends BasePresenter<ILoginFacebookView> {
     /**
      *
      */
-    protected RegisterUseCase usecase;
+    protected LoginUseCase usecase;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS
 ////////////////////////////////////////////////////////////////////////////////////////
 
     @Inject
-    public LoginFacebookPresenter(RegisterUseCase useCase) {
+    public LoginFacebookPresenter(LoginUseCase useCase) {
         super();
 
         this.usecase = useCase;

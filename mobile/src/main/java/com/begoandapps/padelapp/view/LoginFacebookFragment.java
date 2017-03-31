@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.begoandapps.padelapp.MainApplication;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
-import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.dependencies.components.DaggerLoginComponent;
 import com.begoandapps.padelapp.dependencies.modules.LoginModule;
 import com.begoandapps.padelapp.presenter.LoginFacebookPresenter;
@@ -100,7 +98,7 @@ public class LoginFacebookFragment extends BaseFragment implements ILoginFaceboo
     protected void injectDependencies() {
         super.injectDependencies();
 
-        DaggerLoginComponent.builder().loginModule(new LoginModule()).build().inject(this);
+        DaggerLoginComponent.builder().applicationComponent(this.getApplicationComponent()).loginModule(new LoginModule()).build().inject(this);
     }
 
     @Override

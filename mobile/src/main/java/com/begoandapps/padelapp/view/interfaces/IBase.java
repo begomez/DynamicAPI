@@ -17,7 +17,7 @@ public interface IBase {
     /**
      *
      */
-    public void injectComponents();
+    public void injectViewsAndExtras();
 
     /**
      *
@@ -33,5 +33,5 @@ public interface IBase {
      *
      * @return
      */
-    public ApplicationComponent getInjector() throws NoDependencyInjectorException;
+    public ApplicationComponent getApplicationComponent() throws NoDependencyInjectorException;
 }
