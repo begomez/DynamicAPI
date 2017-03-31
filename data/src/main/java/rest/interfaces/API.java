@@ -1,9 +1,9 @@
 package rest.interfaces;
 
 import apimodels.ApiSessionModel;
-import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import rx.Observable;
 
 /**
  * Created by bernatgomez on 29/3/17.
