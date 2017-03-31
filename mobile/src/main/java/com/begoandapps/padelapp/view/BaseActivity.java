@@ -56,7 +56,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         //XXX: 2. content
         this.setContentView(this.layoutId);
 
-        this.injectComponents();
+        this.injectViewsAndExtras();
 
         //XXX: 3. toolbar and others
         this.configViews();
@@ -127,7 +127,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     }
 
     @Override
-    public void injectComponents() {
+    public void injectViewsAndExtras() {
         this.injectDependencies();
         this.injectViews();
         this.injectExtras();
@@ -182,7 +182,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     }
 
     @Override
-    public ApplicationComponent getInjector()  {
+    public ApplicationComponent getApplicationComponent()  {
         return ((MainApplication) this.getApplication()).getInjector();
     }
 

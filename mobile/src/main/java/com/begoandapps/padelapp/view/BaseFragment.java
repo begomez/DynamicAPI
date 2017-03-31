@@ -53,10 +53,17 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        this.injectComponents();
+        this.injectViewsAndExtras();
 
         this.configViews();
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        this.injectDependencies();
     }
 
     @Override
@@ -115,8 +122,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     }
 
     @Override
-    public void injectComponents() {
-        this.injectDependencies();
+    public void injectViewsAndExtras() {
         this.injectViews();
         this.injectExtras();
     }
@@ -144,8 +150,8 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     }
 
     @Override
-    public ApplicationComponent getInjector() {
-        return ((BaseActivity) this.getActivity()).getInjector();
+    public ApplicationComponent getApplicationComponent() {
+        return ((BaseActivity) this.getActivity()).getApplicationComponent();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
