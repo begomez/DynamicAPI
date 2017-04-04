@@ -39,7 +39,13 @@ public class SplashActivity extends BaseActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-    //FIXME: disable when back
+    @Override
+    public void launchContentFragment() {
+        super.launchContentFragment();
+
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), SplashFragment.newInstance(), CONTENT_FRAME);
+    }
+
     private void launchNextModule() {
         new Handler().postDelayed(
             new Runnable() {
