@@ -38,26 +38,26 @@ public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
     public void start() {
         this.bus.register(this);
 
-        AndroidLoggerUtils.logMsg(TAG, "start()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + "start()");
     }
 
     @Override
     public void stop() {
         this.bus.unregister(this);
 
-        AndroidLoggerUtils.logMsg(TAG, "stop()");
+        AndroidLoggerUtils.logMsg(TAG,this.getClass().getSimpleName() +  "stop()");
     }
 
     public void attachView(T view) {
         this.view = view;
 
-        AndroidLoggerUtils.logMsg(TAG, "attachView() " + view.getClass().getSimpleName());
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + "attachView() " + view.getClass().getSimpleName());
     }
 
     public void unattachView() {
         this.view = null;
 
-        AndroidLoggerUtils.logMsg(TAG, "unattachView()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + "unattachView()");
     }
 
     public T getView() {
