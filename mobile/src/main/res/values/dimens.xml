@@ -38,4 +38,10 @@
     <dimen name="login_selection_text_horiz_padding">20dp</dimen>
 
 
+<!-- LOGIN FACEBOOK -->
+    <dimen name="login_facebook_user_margin_top">25dp</dimen>
+    <dimen name="login_facebook_user_margin_bottom">25dp</dimen>
+    <dimen name="login_facebook_btn_margin_bottom">25dp</dimen>
+    <dimen name="login_facebook_descrip_margin_bottom">150dp</dimen>
+
 </resources>

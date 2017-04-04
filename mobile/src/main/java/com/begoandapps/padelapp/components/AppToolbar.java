@@ -44,4 +44,8 @@ public class AppToolbar extends Toolbar implements IAppView {
     public void init(Context context, AttributeSet attrs) {
         //TODO
     }
+
+    public void setTitle(String title) {
+        this.setTitle(title);
+    }
 }

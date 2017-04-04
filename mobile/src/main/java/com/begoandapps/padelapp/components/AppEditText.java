@@ -1,8 +1,10 @@
 package com.begoandapps.padelapp.components;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.interfaces.IAppView;
 
 /**
@@ -39,6 +41,12 @@ public class AppEditText extends android.support.v7.widget.AppCompatEditText imp
 
     @Override
     public void init(Context context, AttributeSet attrs) {
-
+        this.setBackground(context);
     }
+
+    @TargetApi(21)
+    private void setBackground(Context context) {
+        this.setBackgroundDrawable(context.getDrawable(R.drawable.border_grey));
+    }
+
 }
