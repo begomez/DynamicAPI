@@ -27,7 +27,7 @@ public class RegisterActivity extends BaseActivity implements RegisterSelectionF
         super.launchContentFragment();
 
         NavigationUtils.launchFragment(
-            this.getSupportFragmentManager(), RegisterSelectionFragment.newInstance(), R.id.content_frame);
+            this.getSupportFragmentManager(), RegisterSelectionFragment.newInstance(), CONTENT_FRAME);
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////

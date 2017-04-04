@@ -110,6 +110,13 @@ public class BaseFragment extends Fragment implements IBase, IMainAction, IToggl
 
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        this.saveCallback(context);
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // IBASE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -154,6 +161,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction, IToggl
     @Override
     public ApplicationComponent getApplicationComponent() {
         return ((BaseActivity) this.getActivity()).getApplicationComponent();
+    }
+
+    protected void saveCallback(Context cntxt) {
+
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////

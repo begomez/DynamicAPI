@@ -82,9 +82,7 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
+    public void saveCallback(Context context) {
         if (this.getActivity() instanceof IDashboardNav) {
             this.callback = (IDashboardNav) this.getActivity();
         }
@@ -93,6 +91,14 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 ////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @Override
+    public void prepareWindow() {
+        super.prepareWindow();
+
+        this.showToolbar();
+    }
 
     @Override
     protected void injectDependencies() {

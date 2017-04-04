@@ -8,6 +8,7 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.view.interfaces.ILoginSelectionView;
+import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -56,12 +57,20 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    protected void saveCallback(Context context) {
 
         if (this.getActivity() instanceof IFacebookRegisterNav) {
             this.callback = (IFacebookRegisterNav) this.getActivity();
         }
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// ARCH
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void prepareWindow() {
+        this.hideToolbar();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
