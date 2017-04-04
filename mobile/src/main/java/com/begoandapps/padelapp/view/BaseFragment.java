@@ -38,7 +38,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreate()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onCreate()");
     }
 
     @Nullable
@@ -46,7 +46,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreateView()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onCreateView()");
 
         return LayoutInflater.from(this.getContext()).inflate(this.layoutId, container, false);
     }
@@ -74,7 +74,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onDestroy() {
         super.onDestroy();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onDestroy()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onDestroy()");
 
     }
 
@@ -84,7 +84,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
         this.bindPresentersAndViews();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onStart()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStart()");
 
     }
 
@@ -92,7 +92,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onStop() {
         super.onStop();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onStop()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStop()");
 
     }
 
@@ -100,7 +100,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onResume() {
         super.onResume();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onResume()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onResume()");
 
     }
 
@@ -108,7 +108,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onPause() {
         super.onPause();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onPause()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onPause()");
 
     }
 

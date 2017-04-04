@@ -48,7 +48,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreate()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onCreate()");
 
         ActivityRepository.getInstance().add(this);
 
@@ -74,7 +74,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     protected void onDestroy() {
         super.onDestroy();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onDestroy()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onDestroy()");
 
         ActivityRepository.getInstance().remove(this);
     }
@@ -83,35 +83,35 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     protected void onResume() {
         super.onResume();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onResume()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onPause()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onPause()");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onStart()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onStop()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStop()");
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
-        AndroidLoggerUtils.logMsg(TAG, TAG + ".onNewIntent()");
+        AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onNewIntent()");
     }
 
     @Override
