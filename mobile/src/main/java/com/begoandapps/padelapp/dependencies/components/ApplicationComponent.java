@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import rest.RestDataSource;
+import rest.interfaces.API;
 
 
 /**
@@ -22,6 +23,12 @@ public interface ApplicationComponent {
      * @return
      */
     Bus getBus();
+
+    /**
+     *
+     * @return
+     */
+    API getAPI();
 
     /**
      *
