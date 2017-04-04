@@ -23,7 +23,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
 
     @Override
     public void signUp(String user, String pass) {
-        rest.createAPI().sampleCall();
+        this.rest.sampleCall();
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.squareup.otto.Bus;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
 import okhttp3.OkHttpClient;
@@ -31,23 +33,11 @@ public class RestDataSource implements IDataSource {
     private API api;
 
 
-    public RestDataSource(Bus bus) {
+    @Inject
+    public RestDataSource(Bus bus, API api) {
         this.bus = bus;
 
-        this.createAPI();
-    }
-
-    public RestDataSource createAPI() {
-
-        Gson converter = new GsonBuilder().setLenient().create();
-
-        Retrofit adapter = new Retrofit.Builder().client(new OkHttpClient()).baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(converter)).build();
-
-        API api = adapter.create(API.class);
-
         this.api = api;
-
-        return this;
     }
 
     public void sampleCall() {
@@ -57,13 +47,13 @@ public class RestDataSource implements IDataSource {
             @Override
             public void onResponse(Call<List<Sample>> call, Response<List<Sample>> response) {
                 if (response.isSuccessful()) {
-                    bus.post(response.body().get(0));
+                    this.bus.post(response.body().get(0));
                 }
             }
 
             @Override
             public void onFailure(Call<List<Sample>> call, Throwable t) {
-                bus.post(new ApiErrorModel());
+                this.bus.post(new ApiErrorModel());
             }
         });
     }
