@@ -22,11 +22,13 @@ import butterknife.ButterKnife;
  * Created by bernatgomez on 9/3/17.
  */
 
-public class BaseFragment extends Fragment implements IBase, IMainAction, IToggleToolbar {
+public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     private static final String TAG = BaseFragment.class.getSimpleName();
 
     protected int layoutId;
+
+    protected IToggleToolbar callbackToolbar;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -164,7 +166,9 @@ public class BaseFragment extends Fragment implements IBase, IMainAction, IToggl
     }
 
     protected void saveCallback(Context cntxt) {
-
+        if (this.getActivity() instanceof IToggleToolbar) {
+            this.callbackToolbar = (IToggleToolbar) this.getActivity();
+        }
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -181,17 +185,15 @@ public class BaseFragment extends Fragment implements IBase, IMainAction, IToggl
 // ITOGGLETOOLBAR
 /////////////////////////////////////////////////////////////////////////////////////////
 
-    @Override
     public void showToolbar() {
-        if (this.getActivity() instanceof IToggleToolbar) {
-            ((IToggleToolbar) this.getActivity()).showToolbar();
+        if (this.callbackToolbar != null) {
+            this.callbackToolbar.showToolbar();
         }
     }
 
-    @Override
     public void hideToolbar() {
-        if (this.getActivity() instanceof IToggleToolbar) {
-            ((IToggleToolbar) this.getActivity()).hideToolbar();
+        if (this.callbackToolbar != null) {
+            this.callbackToolbar.hideToolbar();
         }
     }
 

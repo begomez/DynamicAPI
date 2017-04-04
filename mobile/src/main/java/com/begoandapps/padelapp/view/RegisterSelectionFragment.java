@@ -58,6 +58,7 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
 
     @Override
     protected void saveCallback(Context context) {
+        super.saveCallback(context);
 
         if (this.getActivity() instanceof IFacebookRegisterNav) {
             this.callback = (IFacebookRegisterNav) this.getActivity();

@@ -83,6 +83,8 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @Override
     public void saveCallback(Context context) {
+        super.saveCallback(context);
+
         if (this.getActivity() instanceof IDashboardNav) {
             this.callback = (IDashboardNav) this.getActivity();
         }
