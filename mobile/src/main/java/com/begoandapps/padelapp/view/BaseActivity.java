@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.begoandapps.padelapp.MainApplication;
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
+import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
@@ -26,9 +27,11 @@ import butterknife.ButterKnife;
  * Created by bernatgomez on 6/3/17.
  */
 
-public class BaseActivity extends AppCompatActivity implements IBase, IMainAction, INavigable {
+public class BaseActivity extends AppCompatActivity implements IBase, IMainAction, INavigable, IToggleToolbar {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
+
+    protected static final int CONTENT_FRAME = R.id.content_frame;
 
     @Nullable
     @BindView(R.id.app_toolbar)
@@ -215,6 +218,21 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         //TODO: implement on subclasses
         return null;
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// TOOLBAR IMPL
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void showToolbar() {
+        this.toolbar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideToolbar() {
+        this.toolbar.setVisibility(View.GONE);
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // BACK NAVIGATION

@@ -1,5 +1,6 @@
 package com.begoandapps.padelapp.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
+import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.view.interfaces.IBase;
 import com.begoandapps.padelapp.view.interfaces.IMainAction;
@@ -20,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by bernatgomez on 9/3/17.
  */
 
-public class BaseFragment extends Fragment implements IBase, IMainAction {
+public class BaseFragment extends Fragment implements IBase, IMainAction, IToggleToolbar {
 
     private static final String TAG = BaseFragment.class.getSimpleName();
 
@@ -33,8 +35,6 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        this.prepareWindow();
 
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onCreate()");
     }
@@ -62,6 +62,8 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        this.prepareWindow();
 
         this.injectDependencies();
     }
@@ -165,9 +167,26 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
-// UTILS
+// ITOGGLETOOLBAR
 /////////////////////////////////////////////////////////////////////////////////////////
 
+    @Override
+    public void showToolbar() {
+        if (this.getActivity() instanceof IToggleToolbar) {
+            ((IToggleToolbar) this.getActivity()).showToolbar();
+        }
+    }
+
+    @Override
+    public void hideToolbar() {
+        if (this.getActivity() instanceof IToggleToolbar) {
+            ((IToggleToolbar) this.getActivity()).hideToolbar();
+        }
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// UTILS
+/////////////////////////////////////////////////////////////////////////////////////////
     public String getComponentIdentifier() {
         return this.getClass().getSimpleName();
     }
