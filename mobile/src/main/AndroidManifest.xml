@@ -17,6 +17,7 @@
             android:name=".view.SplashActivity"
             android:theme="@style/AppThemeFullScreen"
             android:screenOrientation="portrait"
+            android:noHistory="true"
             >
 
             <intent-filter>
