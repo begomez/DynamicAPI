@@ -130,7 +130,7 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @OnClick(R.id.login_facebook_btn)
     public void onFacebookBtnClick(View v) {
-
+        v.setClickable(false);
         this.presenter.doRegistration();
     }
 
@@ -166,6 +166,8 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @Override
     public void onRegisterSuccess() {
+        this.btnLogin.setClickable(true);
+
         if (this.callback != null) {
             this.callback.launchDashboard();
         }
@@ -173,6 +175,8 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @Override
     public void onRegisterError(String msg) {
+        this.btnLogin.setClickable(true);
+
         MessageUtils.showToast(getContext(), "Error " + msg);
     }
 
