@@ -8,7 +8,6 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.view.interfaces.ILoginSelectionView;
-import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,7 +29,7 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
     @BindView(R.id.login_selection_btn_later)
     protected AppTextView btnLater;
 
-    private IFacebookRegisterNav callback;
+    private IFacebookRegisterNav callbackNav;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +60,7 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
         super.saveCallback(context);
 
         if (this.getActivity() instanceof IFacebookRegisterNav) {
-            this.callback = (IFacebookRegisterNav) this.getActivity();
+            this.callbackNav = (IFacebookRegisterNav) this.getActivity();
         }
     }
 
@@ -80,8 +79,8 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
 
     @OnClick(R.id.login_selection_btn_facebook)
     public void onFacebookBtnClick() {
-        if (this.callback != null) {
-            this.callback.launchFacebookRegister();
+        if (this.callbackNav != null) {
+            this.callbackNav.launchFacebookRegister();
         }
     }
 
@@ -92,8 +91,8 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
 
     @OnClick(R.id.login_selection_btn_later)
     public void onLaterBtnClick() {
-        if (this.callback != null) {
-            this.callback.launchDashboard();
+        if (this.callbackNav != null) {
+            this.callbackNav.launchDashboard();
         }
     }
 

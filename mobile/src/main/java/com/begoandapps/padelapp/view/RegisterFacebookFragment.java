@@ -37,7 +37,7 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
     @BindView(R.id.login_facebook_main_btn)
     protected AppButton btnLogin;
 
-    private IDashboardNav callback;
+    private IDashboardNav callbackNav;
 
     @Inject
     protected RegisterFacebookPresenter presenter;
@@ -86,7 +86,7 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
         super.saveCallback(context);
 
         if (this.getActivity() instanceof IDashboardNav) {
-            this.callback = (IDashboardNav) this.getActivity();
+            this.callbackNav = (IDashboardNav) this.getActivity();
         }
     }
 
@@ -168,8 +168,8 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
     public void onRegisterSuccess() {
         this.btnLogin.setClickable(true);
 
-        if (this.callback != null) {
-            this.callback.launchDashboard();
+        if (this.callbackNav != null) {
+            this.callbackNav.launchDashboard();
         }
     }
 
