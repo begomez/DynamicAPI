@@ -47,13 +47,13 @@ public class RestDataSource implements IDataSource {
             @Override
             public void onResponse(Call<List<Sample>> call, Response<List<Sample>> response) {
                 if (response.isSuccessful()) {
-                    this.bus.post(response.body().get(0));
+                    bus.post(response.body().get(0));
                 }
             }
 
             @Override
             public void onFailure(Call<List<Sample>> call, Throwable t) {
-                this.bus.post(new ApiErrorModel());
+                bus.post(new ApiErrorModel());
             }
         });
     }
