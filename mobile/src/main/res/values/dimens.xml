@@ -35,6 +35,7 @@
     <dimen name="login_selection_btn_horiz_padding">50dp</dimen>
     <dimen name="login_selection_btn_elevation">5dp</dimen>
     <dimen name="login_selection_btn_margin_separator">10dp</dimen>
+    <dimen name="login_selection_text_horiz_padding">20dp</dimen>
 
 
 </resources>

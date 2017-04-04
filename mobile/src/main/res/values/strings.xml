@@ -11,7 +11,7 @@
 
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
-    <string name="app_sport">Padel</string>
+    <string name="app_sport">Paddel</string>
 
     <!-- TITLES -->
     <string name="title_login_screen">Register</string>
