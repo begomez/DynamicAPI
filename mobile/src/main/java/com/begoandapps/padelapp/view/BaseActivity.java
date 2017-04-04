@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.begoandapps.padelapp.MainApplication;
@@ -113,7 +114,22 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         AndroidLoggerUtils.logMsg(TAG, TAG + ".onNewIntent()");
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                this.onBackPressed();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////
 // IBASE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
 
