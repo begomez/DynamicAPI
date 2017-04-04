@@ -164,8 +164,6 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @Override
     public void onRegisterSuccess() {
-        MessageUtils.showToast(getContext(), "Success!");
-
         if (this.callback != null) {
             this.callback.launchDashboard();
         }

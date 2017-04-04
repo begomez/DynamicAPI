@@ -3,6 +3,7 @@ package com.begoandapps.padelapp.presenter;
 import android.support.annotation.NonNull;
 
 import com.begoandapps.padel.usecases.register.RegisterUseCase;
+import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 import com.begoandapps.padelapp.view.interfaces.IRegisterFacebookView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,8 @@ import apimodels.Sample;
  */
 
 public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookView> {
+
+    private static final String TAG = RegisterFacebookPresenter.class.getSimpleName();
 
     /**
      *
@@ -85,12 +88,11 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
 
     @Subscribe
     public void onSuccessResponse(Sample sample) {
-        this.view.onRegisterSuccess();
+        AndroidLoggerUtils.logMsg(TAG, "sample: " + sample);
     }
 
     @Subscribe
     public void onErrorResponse(ApiErrorModel error) {
         this.manageError(error);
-        this.view.onRegisterSuccess();
     }
 }
