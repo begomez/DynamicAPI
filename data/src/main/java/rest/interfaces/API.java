@@ -19,6 +19,6 @@ public interface API {
 
 
     @GET("changes/")
-    public Call<List<Sample>> sampleCall(@Query("q") String q);
+    public Observable<List<Sample>> sampleCall(@Query("q") String q);
 
 }
