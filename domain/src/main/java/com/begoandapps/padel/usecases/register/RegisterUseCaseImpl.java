@@ -34,7 +34,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
     @Subscribe
     public void onSuccess(Sample sample) {
         this.unregister();
-        this.bus.post(sample);
+        this.bus.post(sample.getSubject());
 
     }
 
