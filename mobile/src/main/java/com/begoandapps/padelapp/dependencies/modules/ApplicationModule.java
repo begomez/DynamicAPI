@@ -22,6 +22,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import rest.RestDataSource;
 import rest.interfaces.API;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
@@ -34,7 +35,7 @@ public class ApplicationModule {
     @Provides
     @Singleton
     public Bus provideBus() {
-        return new Bus(ThreadEnforcer.MAIN);
+        return new Bus(ThreadEnforcer.ANY);
     }
 
     @Provides
@@ -91,6 +92,8 @@ public class ApplicationModule {
         retroBuilder.client(client);
 
         retroBuilder.baseUrl(BASE_URL);
+
+        retroBuilder.addCallAdapterFactory(RxJavaCallAdapterFactory.create());
 
         retroBuilder.addConverterFactory(GsonConverterFactory.create(converter));
 
