@@ -41,14 +41,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public API provideAPI(Retrofit retrofit) {
-        return retrofit.create(API.class);
-    }
-
-    @Provides
-    @Singleton
-    public RestDataSource provideRest(Bus bus, API api, Retrofit retrofit) {
-        return new RestDataSource(bus, api, retrofit);
+    public RestDataSource provideRest(Bus bus, Retrofit retrofit) {
+        return new RestDataSource(bus, retrofit);
     }
 
     @Provides

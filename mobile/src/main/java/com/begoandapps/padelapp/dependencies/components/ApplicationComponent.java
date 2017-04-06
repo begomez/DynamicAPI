@@ -29,13 +29,5 @@ public interface ApplicationComponent {
      *
      * @return
      */
-    API getAPI();
-
-    /**
-     *
-     * @return
-     */
     RestDataSource getRest();
-
-    GithubImpl getGit();
 }

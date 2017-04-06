@@ -34,17 +34,13 @@ public class RestDataSource implements IDataSource {
 
     private final Bus bus;
 
-    private API api;
-
     private Retrofit retrofit;
 
     private GithubImpl github;
 
     @Inject
-    public RestDataSource(Bus bus, API api, Retrofit retrofit) {
+    public RestDataSource(Bus bus, Retrofit retrofit) {
         this.bus = bus;
-
-        this.api = api;
 
         this.retrofit = retrofit;
 
