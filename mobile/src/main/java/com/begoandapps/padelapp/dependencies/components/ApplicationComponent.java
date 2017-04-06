@@ -7,9 +7,7 @@ import com.squareup.otto.Bus;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import rest.GithubImpl;
 import rest.RestDataSource;
-import rest.interfaces.API;
 
 
 /**

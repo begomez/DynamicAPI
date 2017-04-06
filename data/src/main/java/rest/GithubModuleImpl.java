@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
-import rest.interfaces.IAPIModule;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -21,18 +20,18 @@ import rx.schedulers.Schedulers;
  * Created by bernatgomez on 6/4/17.
  */
 
-public class GithubImpl extends BaseImpl<GithubImpl.IGithub> {
+public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubModule> {
 
-    private static final String TAG = GithubImpl.class.getSimpleName();
+    private static final String TAG = GithubModuleImpl.class.getSimpleName();
 
     @Inject
-    public GithubImpl(Bus bus, Retrofit retrofit) {
+    public GithubModuleImpl(Bus bus, Retrofit retrofit) {
         super(bus, retrofit);
     }
 
     @Override
-    protected void createAPI() {
-        this.api = retrofit.create(IGithub.class);
+    protected void createModuleAPI() {
+        this.api = this.retrofit.create(IGithubModule.class);
     }
 
     public void sampleCall(String status) {
@@ -64,7 +63,7 @@ public class GithubImpl extends BaseImpl<GithubImpl.IGithub> {
 
     }
 
-    public interface IGithub {
+    public interface IGithubModule {
 
         @GET("changes/")
         public Observable<List<Sample>> sampleCall(@Query("q") String status);

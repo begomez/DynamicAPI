@@ -1,10 +1,7 @@
 package com.begoandapps.padelapp.dependencies.modules;
 
 
-import android.os.Build;
-
 import com.begoandapps.padelapp.BuildConfig;
-import com.google.firebase.database.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.otto.Bus;
@@ -19,9 +16,7 @@ import dagger.Provides;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import rest.GithubImpl;
 import rest.RestDataSource;
-import rest.interfaces.API;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

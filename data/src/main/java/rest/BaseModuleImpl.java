@@ -4,14 +4,13 @@ import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
 
-import rest.interfaces.IAPIModule;
 import retrofit2.Retrofit;
 
 /**
  * Created by bernatgomez on 6/4/17.
  */
 
-public abstract class BaseImpl<T> {
+public abstract class BaseModuleImpl<T> {
 
     protected Bus bus;
 
@@ -20,13 +19,13 @@ public abstract class BaseImpl<T> {
     protected T api;
 
     @Inject
-    public BaseImpl(Bus bus, Retrofit retrofit) {
+    public BaseModuleImpl(Bus bus, Retrofit retrofit) {
         this.bus = bus;
         this.retrofit = retrofit;
 
-        createAPI();
+        this.createModuleAPI();
     }
 
-    protected abstract void createAPI();
+    protected abstract void createModuleAPI();
 
 }
