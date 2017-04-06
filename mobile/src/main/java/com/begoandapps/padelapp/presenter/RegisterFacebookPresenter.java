@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.ProviderQueryResult;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -48,10 +49,15 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
         final String user = this.view.getUser();
         final String pass = this.view.getPassword();
 
-        this.usecase.signUp(user, pass);
+        //TODO: un/comment
+
+        this.isRegistered(user, pass, completion);
+
+        //this.usecase.signUp(user, pass);
     }
 
-    private void launchThread(final String user, final String pass) {
+
+    private void launchRegister(final String user, final String pass) {
         new Thread() {
             @Override
             public void run() {
@@ -60,6 +66,35 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
             }
         }.start();
 
+    }
+
+    private void launchLogin(final String user, final String pass) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+
+                loginWithFacebook(user, pass);
+            }
+        }.start();
+    }
+
+    private void isRegistered(final String user, final String pass, final ICompletion completion) {
+        Task<ProviderQueryResult> result = FirebaseAuth.getInstance().fetchProvidersForEmail(user).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+            @Override
+            public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                if (task.isSuccessful()) {
+                    for (String str : task.getResult().getProviders()) {
+                        AndroidLoggerUtils.logMsg(TAG, "provider: " + str);
+                    }
+
+                    completion.done(user, pass, !task.getResult().getProviders().isEmpty());
+
+                } else {
+                    completion.done(user, pass, false);
+                }
+            }
+        });
     }
 
     //TODO: move to controller
@@ -75,6 +110,7 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
                                view.onRegisterSuccess();
 
                            } else {
+                               //view.onRegisterSuccess();
                                view.onRegisterError(task.getException().toString());
                            }
                        }
@@ -82,13 +118,50 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
                 );
     }
 
+    private void logOut() {
+        FirebaseAuth.getInstance().signOut();
+    }
+
+    private void loginWithFacebook(final String user, final String pass) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    view.onRegisterSuccess();
+                } else {
+                    view.onRegisterError(task.getException().toString());
+                }
+            }
+        });
+    }
+
+    public interface ICompletion {
+        public void done(final String user, final String pass, boolean registered);
+    }
+
+    ICompletion completion = new ICompletion() {
+        @Override
+        public void done(final String user, final String pass, boolean registered) {
+            if (registered) {
+                launchLogin(user, pass);
+
+            } else {
+
+                //TODO: do something else...
+                //launchRegister(user, pass);
+            }
+        }
+    };
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // SUSCRIPTIONS
 ////////////////////////////////////////////////////////////////////////////////////////
 
     @Subscribe
-    public void onSuccessResponse(Sample sample) {
+    public void onSuccessResponse(String sample) {
         AndroidLoggerUtils.logMsg(TAG, "sample: " + sample);
+
+        view.onRegisterSuccess();
     }
 
     @Subscribe
