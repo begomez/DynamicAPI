@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
  * Created by bernatgomez on 6/4/17.
  */
 
-public abstract class BaseImpl<T extends IAPIModule> {
+public abstract class BaseImpl<T> {
 
     protected Bus bus;
 
@@ -24,6 +24,7 @@ public abstract class BaseImpl<T extends IAPIModule> {
         this.bus = bus;
         this.retrofit = retrofit;
 
+        createAPI();
     }
 
     protected abstract void createAPI();

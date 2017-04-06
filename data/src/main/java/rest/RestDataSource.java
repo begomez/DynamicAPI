@@ -36,41 +36,23 @@ public class RestDataSource implements IDataSource {
 
     private API api;
 
+    private Retrofit retrofit;
+
+    private GithubImpl github;
 
     @Inject
-    public RestDataSource(Bus bus, API api) {
+    public RestDataSource(Bus bus, API api, Retrofit retrofit) {
         this.bus = bus;
 
         this.api = api;
+
+        this.retrofit = retrofit;
+
+        this.github = new GithubImpl(bus, retrofit);
     }
 
     public void sampleCall() {
-        this.api.sampleCall("status:open")
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(Schedulers.immediate())
-            .subscribe(new Subscriber<List<Sample>>() {
-                @Override
-                public void onCompleted() {
-                    Logger.getAnonymousLogger().log(Level.INFO, "onCompleted()");
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    Logger.getAnonymousLogger().log(Level.INFO, "onError()");
-
-                    bus.post(new ApiErrorModel());
-                }
-
-                @Override
-                public void onNext(List<Sample> samples) {
-                    Logger.getAnonymousLogger().log(Level.INFO, "onNext()");
-                    bus.post(samples.get(0));
-                }
-            });
-
-
-
-
+        this.github.sampleCall("status:open");
     }
 
 }

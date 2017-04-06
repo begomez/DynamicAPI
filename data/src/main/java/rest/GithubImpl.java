@@ -64,7 +64,7 @@ public class GithubImpl extends BaseImpl<GithubImpl.IGithub> {
 
     }
 
-    public interface IGithub extends IAPIModule {
+    public interface IGithub {
 
         @GET("changes/")
         public Observable<List<Sample>> sampleCall(@Query("q") String status);

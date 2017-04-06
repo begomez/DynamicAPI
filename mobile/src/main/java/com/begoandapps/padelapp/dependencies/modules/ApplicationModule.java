@@ -19,6 +19,7 @@ import dagger.Provides;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import rest.GithubImpl;
 import rest.RestDataSource;
 import rest.interfaces.API;
 import retrofit2.Retrofit;
@@ -46,8 +47,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public RestDataSource provideRest(Bus bus, API api) {
-        return new RestDataSource(bus, api);
+    public RestDataSource provideRest(Bus bus, API api, Retrofit retrofit) {
+        return new RestDataSource(bus, api, retrofit);
     }
 
     @Provides
