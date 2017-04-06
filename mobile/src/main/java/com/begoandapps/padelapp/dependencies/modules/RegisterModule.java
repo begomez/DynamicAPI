@@ -9,7 +9,7 @@ import com.squareup.otto.Bus;
 
 import dagger.Module;
 import dagger.Provides;
-import rest.RestDataSource;
+import rest.RestModuleDataSource;
 
 
 /**
@@ -30,7 +30,7 @@ public class RegisterModule {
 
     @Provides
     @PerActivity
-    public RegisterUseCase provideLoginUsecase(Bus bus, RestDataSource rest) {
+    public RegisterUseCase provideLoginUsecase(Bus bus, RestModuleDataSource rest) {
         return new RegisterUseCaseImpl(bus, rest);
     }
 }

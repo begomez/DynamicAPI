@@ -2,14 +2,14 @@ package com.begoandapps.padel.usecases;
 
 import com.squareup.otto.Bus;
 
-import rest.RestDataSource;
+import rest.RestModuleDataSource;
 
 public class BaseUseCase {
 
     protected final Bus bus;
-    protected final RestDataSource rest;
+    protected final RestModuleDataSource rest;
 
-    public BaseUseCase(Bus bus, RestDataSource rest) {
+    public BaseUseCase(Bus bus, RestModuleDataSource rest) {
         this.bus = bus;
         this.rest = rest;
     }

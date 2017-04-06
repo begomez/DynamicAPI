@@ -4,11 +4,9 @@ import com.begoandapps.padel.usecases.BaseUseCase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import javax.inject.Inject;
-
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
-import rest.RestDataSource;
+import rest.RestModuleDataSource;
 
 /**
  * Created by bernatgomez on 20/3/17.
@@ -16,7 +14,7 @@ import rest.RestDataSource;
 
 public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase {
 
-    public RegisterUseCaseImpl(Bus bus, RestDataSource rest) {
+    public RegisterUseCaseImpl(Bus bus, RestModuleDataSource rest) {
         super(bus, rest);
         this.register();
     }

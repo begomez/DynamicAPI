@@ -16,7 +16,7 @@ import dagger.Provides;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import rest.RestDataSource;
+import rest.RestModuleDataSource;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -36,8 +36,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public RestDataSource provideRest(Bus bus, Retrofit retrofit) {
-        return new RestDataSource(bus, retrofit);
+    public RestModuleDataSource provideRest(Bus bus, Retrofit retrofit) {
+        return new RestModuleDataSource(bus, retrofit);
     }
 
     @Provides

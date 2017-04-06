@@ -7,7 +7,7 @@ import com.squareup.otto.Bus;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import rest.RestDataSource;
+import rest.RestModuleDataSource;
 
 
 /**
@@ -27,5 +27,5 @@ public interface ApplicationComponent {
      *
      * @return
      */
-    RestDataSource getRest();
+    RestModuleDataSource getRest();
 }

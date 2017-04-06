@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
  * Created by bernatgomez on 23/3/17.
  */
 
-public class RestDataSource implements IDataSource {
+public class RestModuleDataSource implements IDataSource {
 
     private final Bus bus;
 
@@ -20,7 +20,7 @@ public class RestDataSource implements IDataSource {
     private GithubModuleImpl github;
 
     @Inject
-    public RestDataSource(Bus bus, Retrofit retrofit) {
+    public RestModuleDataSource(Bus bus, Retrofit retrofit) {
         this.bus = bus;
 
         this.retrofit = retrofit;
