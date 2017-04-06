@@ -18,7 +18,7 @@ public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
     private static final String TAG = BasePresenter.class.getSimpleName();
 
     protected final Bus bus;
-    protected T view = null;
+    private T view = null;
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTORS

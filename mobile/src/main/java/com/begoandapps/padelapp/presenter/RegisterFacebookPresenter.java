@@ -46,14 +46,14 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
 // OPERATIONS
 ////////////////////////////////////////////////////////////////////////////////////////
     public void doRegistration() {
-        final String user = this.view.getUser();
-        final String pass = this.view.getPassword();
+        final String user = this.getView().getUser();
+        final String pass = this.getView().getPassword();
 
         //TODO: un/comment
 
-        this.isRegistered(user, pass, completion);
+        //this.isRegistered(user, pass, completion);
 
-        //this.usecase.signUp(user, pass);
+        this.usecase.signUp(user, pass);
     }
 
 
@@ -107,11 +107,11 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()) {
-                               view.onRegisterSuccess();
+                               getView().onRegisterSuccess();
 
                            } else {
                                //view.onRegisterSuccess();
-                               view.onRegisterError(task.getException().toString());
+                               getView().onRegisterError(task.getException().toString());
                            }
                        }
                    }
@@ -127,9 +127,9 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    view.onRegisterSuccess();
+                    getView().onRegisterSuccess();
                 } else {
-                    view.onRegisterError(task.getException().toString());
+                    getView().onRegisterError(task.getException().toString());
                 }
             }
         });
@@ -161,7 +161,7 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
     public void onSuccessResponse(String sample) {
         AndroidLoggerUtils.logMsg(TAG, "sample: " + sample);
 
-        view.onRegisterSuccess();
+        getView().onRegisterSuccess();
     }
 
     @Subscribe
