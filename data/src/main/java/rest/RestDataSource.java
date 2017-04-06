@@ -32,8 +32,6 @@ import rx.schedulers.Schedulers;
 
 public class RestDataSource implements IDataSource {
 
-    private static final String BASE_URL = "https://git.eclipse.org/r/";
-
     private final Bus bus;
 
     private API api;

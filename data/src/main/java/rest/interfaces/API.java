@@ -17,7 +17,6 @@ import rx.Observable;
 
 public interface API {
 
-
     @GET("changes/")
     public Observable<List<Sample>> sampleCall(@Query("q") String q);
 
