@@ -36,22 +36,59 @@ public class RestModuleDataSource implements IDataSource {
 
         this.retrofit = retrofit;
 
-        this.moduleContainer = new ModuleContainer();
-
+        this.createModuleContainer();
     }
 
-    public void fakeRegistration2() {
-        IModuleContainerEntry entry = new ModuleContainerEntry(GithubModuleImpl.class);
+////////////////////////////////////////////////////////////////////////////////////
+// IDATASOURCE IMPL
+////////////////////////////////////////////////////////////////////////////////////
 
-        IModuleContainerEntry entry2 = new ModuleContainerEntry(AnotherModuleImpl.class);
+    @Override
+    public void createModuleContainer() {
+        this.moduleContainer = new ModuleContainer();
+    }
 
-        entry.set(GithubModuleImpl.class, new GithubModuleImpl(bus, retrofit));
+////////////////////////////////////////////////////////////////////////////////////
+// PUBLIC API
+////////////////////////////////////////////////////////////////////////////////////
 
-        entry2.set(AnotherModuleImpl.class, new AnotherModuleImpl(bus, retrofit));
+    public void registerGithubModule() {
+        this.register(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
 
-        this.moduleContainer.registerEntry("github", entry);
+        /*
+        IModuleContainerEntry githubApi = new ModuleContainerEntry(GithubModuleImpl.class);
 
-        this.moduleContainer.registerEntry("another", entry2);
+        githubApi.set(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit));
+
+        this.moduleContainer.registerEntry(IModuleContainer.MODULE_GITHUB, githubApi);
+        */
+    }
+
+    public void registerAnotherModule() {
+        this.register(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_ANOTHER);
+
+        /*
+        IModuleContainerEntry anotherApi = new ModuleContainerEntry(AnotherModuleImpl.class);
+
+        anotherApi.set(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit));
+
+        this.moduleContainer.registerEntry(IModuleContainer.MODULE_ANOTHER, anotherApi);
+        */
+    }
+
+    /**
+     *
+     * @param target Class to register
+     * @param instance Instance of the previous class
+     * @param name Name used to retrieve instance
+     * @param <T>
+     */
+    private <T>void register(Class<T> target, T instance, String name) {
+        IModuleContainerEntry api = new ModuleContainerEntry(target);
+
+        api.set(target, instance);
+
+        this.moduleContainer.registerEntry(name, api);
     }
 
 

@@ -5,4 +5,9 @@ package rest.interfaces;
  */
 
 public interface IDataSource {
+
+    /**
+     *
+     */
+    public void createModuleContainer();
 }

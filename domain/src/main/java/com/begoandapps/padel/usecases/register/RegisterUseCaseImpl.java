@@ -21,7 +21,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
 
     @Override
     public void signUp(String user, String pass) {
-        this.rest.fakeRegistration2();
+        this.rest.registerGithubModule();
 
         this.rest.sampleCall();
     }
