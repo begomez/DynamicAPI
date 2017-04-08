@@ -36,7 +36,7 @@ public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubMod
         this.api = this.retrofit.create(IGithubModule.class);
     }
 
-    public void sampleCall(String status) {
+    public void fakeSignUp(String status) {
 
         this.api.sampleCall(status)
             .subscribeOn(Schedulers.newThread())

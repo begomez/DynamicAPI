@@ -10,7 +10,6 @@ import rest.modulecontainer.ModuleContainer;
 import rest.modulecontainer.ModuleContainerEntry;
 import rest.modulecontainer.interfaces.IModuleContainer;
 import rest.modulecontainer.interfaces.IModuleContainerEntry;
-import rest.modules.AnotherModuleImpl;
 import rest.modules.GithubModuleImpl;
 import retrofit2.Retrofit;
 
@@ -85,10 +84,6 @@ public class RestModuleDataSource implements IDataSource {
 
     public void registerGithubModule() {
         this.registerModule(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
-    }
-
-    public void registerAnotherModule() {
-        this.registerModule(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_ANOTHER);
     }
 
 ////////////////////////////////////////////////////////////////////////////////////

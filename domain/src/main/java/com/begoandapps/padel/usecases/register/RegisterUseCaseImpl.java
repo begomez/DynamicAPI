@@ -8,9 +8,7 @@ import apimodels.ApiErrorModel;
 import apimodels.Sample;
 import rest.RestModuleDataSource;
 import rest.exceptions.ModuleNotFoundException;
-import rest.modulecontainer.ModuleContainerEntry;
 import rest.modulecontainer.interfaces.IModuleContainer;
-import rest.modulecontainer.interfaces.IModuleContainerEntry;
 import rest.modules.GithubModuleImpl;
 
 /**
@@ -33,7 +31,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
         try {
             GithubModuleImpl impl = this.rest.getModule(IModuleContainer.MODULE_GITHUB);
 
-            impl.sampleCall("status:open");
+            impl.fakeSignUp("status:open");
 
         } catch (ModuleNotFoundException e) {
             //TODO: do dome
@@ -44,6 +42,10 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
     public void signOut() {
 
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// SUSCRIPTIONS
+/////////////////////////////////////////////////////////////////////////////////////////////
 
     @Subscribe
     public void onSuccess(Sample sample) {
