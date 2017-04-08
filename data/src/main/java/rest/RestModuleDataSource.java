@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import rest.interfaces.IDataSource;
 import rest.modulecontainer.ModuleContainer;
 import rest.modulecontainer.ModuleContainerEntry;
+import rest.modulecontainer.interfaces.IModuleContainer;
+import rest.modulecontainer.interfaces.IModuleContainerEntry;
 import rest.modules.AnotherModuleImpl;
 import rest.modules.GithubModuleImpl;
 import retrofit2.Retrofit;
@@ -21,7 +23,7 @@ public class RestModuleDataSource implements IDataSource {
 
     private Retrofit retrofit;
 
-    private ModuleContainer moduleContainer;
+    private IModuleContainer moduleContainer;
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -39,9 +41,9 @@ public class RestModuleDataSource implements IDataSource {
     }
 
     public void fakeRegistration2() {
-        ModuleContainerEntry entry = new ModuleContainerEntry(GithubModuleImpl.class);
+        IModuleContainerEntry entry = new ModuleContainerEntry(GithubModuleImpl.class);
 
-        ModuleContainerEntry entry2 = new ModuleContainerEntry(AnotherModuleImpl.class);
+        IModuleContainerEntry entry2 = new ModuleContainerEntry(AnotherModuleImpl.class);
 
         entry.set(GithubModuleImpl.class, new GithubModuleImpl(bus, retrofit));
 
