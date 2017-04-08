@@ -6,4 +6,6 @@ package rest.interfaces;
 
 public interface IModuleContainerEntry<T extends IModule> {
     public T getEntry();
+
+    public void setEntry(T entry);
 }

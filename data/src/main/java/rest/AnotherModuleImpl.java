@@ -21,7 +21,7 @@ import rx.schedulers.Schedulers;
  * Created by bernatgomez on 6/4/17.
  */
 
-public class AnotherModuleImpl extends BaseModuleImpl<AnotherModuleImpl.IAnotherModule> implements IModule {
+public class AnotherModuleImpl extends BaseModuleImpl<AnotherModuleImpl.IAnotherModule> {
 
     private static final String TAG = AnotherModuleImpl.class.getSimpleName();
 

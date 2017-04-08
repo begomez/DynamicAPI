@@ -4,10 +4,7 @@ import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
 
-import rest.exceptions.ModuleNotFoundException;
 import rest.interfaces.IDataSource;
-import rest.interfaces.IModule;
-import rest.interfaces.IModuleContainer;
 import retrofit2.Retrofit;
 
 /**
@@ -19,8 +16,6 @@ public class RestModuleDataSource implements IDataSource {
     private final Bus bus;
 
     private Retrofit retrofit;
-
-    private GithubModuleImpl github;
 
     private ModuleContainer moduleContainer;
 
@@ -35,21 +30,33 @@ public class RestModuleDataSource implements IDataSource {
 
         this.retrofit = retrofit;
 
-        this.github = new GithubModuleImpl(bus, retrofit);
-
         this.moduleContainer = new ModuleContainer();
 
-        this.fakeRegistration();
     }
 
-    public void fakeRegistration() {
-        this.moduleContainer.registerModule(IModuleContainer.MODULE_GITHUB, new ModuleContainerEntry(new GithubModuleImpl(bus, retrofit)));
-        this.moduleContainer.registerModule(IModuleContainer.MODULE_ANOTHER, new ModuleContainerEntry(new AnotherModuleImpl(bus, retrofit)));
+    public void fakeRegistration2() {
+        ModuleContainerEntry entry = new ModuleContainerEntry(GithubModuleImpl.class);
+
+        ModuleContainerEntry entry2 = new ModuleContainerEntry(AnotherModuleImpl.class);
+
+        entry.set(GithubModuleImpl.class, new GithubModuleImpl(bus, retrofit));
+
+        entry2.set(AnotherModuleImpl.class, new AnotherModuleImpl(bus, retrofit));
+
+        this.moduleContainer.registerEntry("github", entry);
+
+        this.moduleContainer.registerEntry("another", entry2);
     }
+
 
     public void sampleCall() {
-        //this.getModuleContainer().getModuleByName(IModuleContainer.MODULE_GITHUB).getEntry().getEntry()
-        this.github.sampleCall("status:open");
+        try {
+
+            this.moduleContainer.getEntryByName("github").get(GithubModuleImpl.class).sampleCall("status:open");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -57,14 +64,6 @@ public class RestModuleDataSource implements IDataSource {
 ////////////////////////////////////////////////////////////////////////////////////
 //  ACCESSORS
 ////////////////////////////////////////////////////////////////////////////////////
-
-    public ModuleContainer getModuleContainer() {
-        return moduleContainer;
-    }
-
-    public void setModuleContainer(ModuleContainer moduleContainer) {
-        this.moduleContainer = moduleContainer;
-    }
 
 
 

@@ -3,6 +3,7 @@ package rest.interfaces;
 import java.util.List;
 
 import apimodels.Sample;
+import rest.BaseModuleImpl;
 import rx.Observable;
 
 /**

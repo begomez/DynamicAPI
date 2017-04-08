@@ -1,24 +1,30 @@
 package rest;
 
 import rest.interfaces.IModule;
-import rest.interfaces.IModuleContainer;
 import rest.interfaces.IModuleContainerEntry;
 
 /**
  * Created by bernatgomez on 7/4/17.
  */
 
-public class ModuleContainerEntry<T extends IModule> implements IModuleContainerEntry<T> {
+public class ModuleContainerEntry {
 
-    public T getEntry() {
-        return entry;
+    public Class<?> type;
+
+    public Object data;
+
+    public ModuleContainerEntry(Class<?> type) {
+        this.type = type;
+        this.data = null;
+    };
+
+    public <T>void set(Class<T> param, T data) {
+        this.type = param;
+        this.data = param.cast(data);
     }
 
-    protected T entry;
-
-    public ModuleContainerEntry(T entry) {
-        this.entry = entry;
+    public <T>T get(Class<T> param) {
+        return param.cast(data);
     }
-
 
 }

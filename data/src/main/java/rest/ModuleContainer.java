@@ -3,15 +3,11 @@ package rest;
 import java.util.HashMap;
 import java.util.Map;
 
-import rest.exceptions.ModuleNotFoundException;
-import rest.interfaces.IModule;
-import rest.interfaces.IModuleContainer;
-
 /**
  * Created by bernatgomez on 23/3/17.
  */
 
-public class ModuleContainer implements IModuleContainer {
+public class ModuleContainer {
 
     private Map<String, ModuleContainerEntry> map;
 
@@ -31,8 +27,7 @@ public class ModuleContainer implements IModuleContainer {
 // IMODULE IMPL
 ////////////////////////////////////////////////////////////////////////////////////
 
-    @Override
-    public <T extends IModule>boolean registerModule(String name, ModuleContainerEntry<T> entry) {
+    public boolean registerEntry(String name, ModuleContainerEntry entry) {
 
         // ALREADY REG
         if (this.isModuleRegistered(name)) {
@@ -46,20 +41,17 @@ public class ModuleContainer implements IModuleContainer {
         }
     }
 
-    @Override
-    public boolean unregisterModule(String name) {
+    public boolean unregisterEntry(String name) {
         this.map.remove(name);
 
         return true;
     }
 
-    @Override
     public boolean isModuleRegistered(String name) {
         return this.map.containsKey(name) && this.map.get(name) != null;
     }
 
-    @Override
-    public <T extends IModule>ModuleContainerEntry<T> getModuleByName(String name) throws ModuleNotFoundException {
+    public ModuleContainerEntry getEntryByName(String name) {
 
         return this.map.get(name);
         /*

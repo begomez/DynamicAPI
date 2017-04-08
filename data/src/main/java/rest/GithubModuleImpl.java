@@ -21,7 +21,7 @@ import rx.schedulers.Schedulers;
  * Created by bernatgomez on 6/4/17.
  */
 
-public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubModule> implements IModule {
+public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubModule> {
 
     private static final String TAG = GithubModuleImpl.class.getSimpleName();
 

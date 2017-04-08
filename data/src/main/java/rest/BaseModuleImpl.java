@@ -29,5 +29,4 @@ public abstract class BaseModuleImpl<T> implements IModule {
     }
 
     protected abstract void createModuleAPI();
-
 }
