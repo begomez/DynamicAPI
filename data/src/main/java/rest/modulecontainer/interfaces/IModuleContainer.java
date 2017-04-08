@@ -8,9 +8,8 @@ import rest.exceptions.ModuleNotFoundException;
  */
 
 public interface IModuleContainer {
-
     public static final String MODULE_GITHUB = "github";
-    public static final String MODULE_ANOTHER = "another";
+
 
     public boolean registerEntry(String name, IModuleContainerEntry entry);
 

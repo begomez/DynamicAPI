@@ -52,7 +52,14 @@ public class RestModuleDataSource implements IDataSource {
     public <T>T getModule(String name) throws ModuleNotFoundException {
 
         try {
-            return this.getModule(name, (Class<T>) Class.forName(GithubModuleImpl.class.getName()));
+
+            // GITHUB
+            if (name.equals(IModuleContainer.MODULE_GITHUB)) {
+                return this.getModule(name, (Class<T>) Class.forName(GithubModuleImpl.class.getName()));
+
+            } else {
+                throw new ModuleNotFoundException(name);
+            }
 
         } catch (ClassNotFoundException e) {
             throw new ModuleNotFoundException(name);
@@ -73,23 +80,29 @@ public class RestModuleDataSource implements IDataSource {
     private <T>void registerModule(Class<T> target, T instance, String name) {
         IModuleContainerEntry api = new ModuleContainerEntry(target);
 
-        api.set(target, instance);
+        api.setEntryData(target, instance);
 
         this.moduleContainer.registerEntry(name, api);
     }
 
+    /**
+     * 
+     * @param name
+     * @param target
+     * @param <T>
+     * @return
+     * @throws ModuleNotFoundException
+     */
     private <T>T getModule(String name, Class<T> target) throws ModuleNotFoundException {
-        return this.moduleContainer.getEntryByName(name).get(target);
+        return this.moduleContainer.getEntryByName(name).getEntryData(target);
     }
+
+////////////////////////////////////////////////////////////////////////////////////
+// PUBLIC API
+////////////////////////////////////////////////////////////////////////////////////
 
     public void registerGithubModule() {
         this.registerModule(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
     }
-
-////////////////////////////////////////////////////////////////////////////////////
-//  ACCESSORS
-////////////////////////////////////////////////////////////////////////////////////
-
-
 
 }

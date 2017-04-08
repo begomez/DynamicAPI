@@ -7,9 +7,7 @@ import rest.modules.interfaces.IModule;
  */
 
 public interface IModuleContainerEntry {
-    public Class<?> getType();
+    public <T> T getEntryData(Class<T> param);
 
-    public <T> T get(Class<T> param);
-
-    public <T> void set(Class<T> param, T data);
+    public <T> void setEntryData(Class<T> param, T data);
 }

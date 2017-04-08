@@ -8,10 +8,6 @@ import rest.modulecontainer.interfaces.IModuleContainerEntry;
 
 public class ModuleContainerEntry implements IModuleContainerEntry {
 
-    public Class<?> getType() {
-        return type;
-    }
-
     public Class<?> type;
 
     public Object data;
@@ -26,14 +22,14 @@ public class ModuleContainerEntry implements IModuleContainerEntry {
 /////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public <T>void set(Class<T> param, T data) {
+    public <T>void setEntryData(Class<T> param, T data) {
         this.type = param;
         this.data = param.cast(data);
     }
 
     @Override
-    public <T>T get(Class<T> param) {
-        return param.cast(data);
+    public <T>T getEntryData(Class<T> param) {
+        return param.cast(this.data);
     }
 
 }
