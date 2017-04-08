@@ -4,6 +4,7 @@ import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
 
+import rest.exceptions.ModuleNotFoundException;
 import rest.interfaces.IDataSource;
 import rest.modulecontainer.ModuleContainer;
 import rest.modulecontainer.ModuleContainerEntry;
@@ -48,12 +49,33 @@ public class RestModuleDataSource implements IDataSource {
         this.moduleContainer = new ModuleContainer();
     }
 
+    /**
+     *
+     * @param target Class to registerModule
+     * @param instance Instance of the previous class
+     * @param name Name used to retrieve instance
+     * @param <T>
+     */
+    @Override
+    public <T>void registerModule(Class<T> target, T instance, String name) {
+        IModuleContainerEntry api = new ModuleContainerEntry(target);
+
+        api.set(target, instance);
+
+        this.moduleContainer.registerEntry(name, api);
+    }
+
+    @Override
+    public <T>T getModule(String name, Class<T> target) throws ModuleNotFoundException {
+        return this.moduleContainer.getEntryByName(name).get(target);
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////
-// PUBLIC API
+// HELPERS
 ////////////////////////////////////////////////////////////////////////////////////
 
     public void registerGithubModule() {
-        this.register(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
+        this.registerModule(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
 
         /*
         IModuleContainerEntry githubApi = new ModuleContainerEntry(GithubModuleImpl.class);
@@ -65,7 +87,7 @@ public class RestModuleDataSource implements IDataSource {
     }
 
     public void registerAnotherModule() {
-        this.register(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_ANOTHER);
+        this.registerModule(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_ANOTHER);
 
         /*
         IModuleContainerEntry anotherApi = new ModuleContainerEntry(AnotherModuleImpl.class);
@@ -75,22 +97,6 @@ public class RestModuleDataSource implements IDataSource {
         this.moduleContainer.registerEntry(IModuleContainer.MODULE_ANOTHER, anotherApi);
         */
     }
-
-    /**
-     *
-     * @param target Class to register
-     * @param instance Instance of the previous class
-     * @param name Name used to retrieve instance
-     * @param <T>
-     */
-    private <T>void register(Class<T> target, T instance, String name) {
-        IModuleContainerEntry api = new ModuleContainerEntry(target);
-
-        api.set(target, instance);
-
-        this.moduleContainer.registerEntry(name, api);
-    }
-
 
     public void sampleCall() {
         try {
