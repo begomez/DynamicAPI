@@ -1,5 +1,6 @@
 package rest.interfaces;
 
+import rest.ModuleContainerEntry;
 import rest.exceptions.ModuleNotFoundException;
 
 /**

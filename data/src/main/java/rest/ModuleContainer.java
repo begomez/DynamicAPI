@@ -3,17 +3,21 @@ package rest;
 import java.util.HashMap;
 import java.util.Map;
 
+import rest.interfaces.IModuleContainer;
+import rest.interfaces.IModuleContainerEntry;
+
 /**
  * Created by bernatgomez on 23/3/17.
  */
 
-public class ModuleContainer {
+public class ModuleContainer implements IModuleContainer {
 
-    private Map<String, ModuleContainerEntry> map;
+    private Map<String, IModuleContainerEntry> map;
 
     public ModuleContainer() {
         this.createMap();
     }
+
     private void createMap() {
         this.map = new HashMap<>();
     }
@@ -27,7 +31,8 @@ public class ModuleContainer {
 // IMODULE IMPL
 ////////////////////////////////////////////////////////////////////////////////////
 
-    public boolean registerEntry(String name, ModuleContainerEntry entry) {
+    @Override
+    public boolean registerEntry(String name, IModuleContainerEntry entry) {
 
         // ALREADY REG
         if (this.isModuleRegistered(name)) {
@@ -41,26 +46,20 @@ public class ModuleContainer {
         }
     }
 
+    @Override
     public boolean unregisterEntry(String name) {
         this.map.remove(name);
 
         return true;
     }
 
+    @Override
     public boolean isModuleRegistered(String name) {
         return this.map.containsKey(name) && this.map.get(name) != null;
     }
 
-    public ModuleContainerEntry getEntryByName(String name) {
-
+    @Override
+    public IModuleContainerEntry getEntryByName(String name) {
         return this.map.get(name);
-        /*
-        for (Map.Entry<String, T> entry : this.map.entrySet()) {
-            if (entry.getKey().equals(name)) {
-                return entry.getValue();
-            }
-        }
-        throw new ModuleNotFoundException(name);
-        */
     }
 }
