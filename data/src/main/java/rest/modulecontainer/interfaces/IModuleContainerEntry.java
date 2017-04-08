@@ -6,8 +6,9 @@ import rest.modules.interfaces.IModule;
  * Created by bernatgomez on 7/4/17.
  */
 
-public interface IModuleContainerEntry<T extends IModule> {
-    public T getEntry();
+public interface IModuleContainerEntry {
 
-    public void setEntry(T entry);
+    public <T> T get(Class<T> param);
+
+    public <T> void set(Class<T> param, T data);
 }

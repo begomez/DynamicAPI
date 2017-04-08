@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rest.modulecontainer.interfaces.IModuleContainer;
+import rest.modulecontainer.interfaces.IModuleContainerEntry;
 
 /**
  * Created by bernatgomez on 23/3/17.
@@ -11,7 +12,7 @@ import rest.modulecontainer.interfaces.IModuleContainer;
 
 public class ModuleContainer implements IModuleContainer {
 
-    private Map<String, ModuleContainerEntry> map;
+    private Map<String, IModuleContainerEntry> map;
 
     public ModuleContainer() {
         this.createMap();
@@ -31,7 +32,7 @@ public class ModuleContainer implements IModuleContainer {
 ////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public boolean registerEntry(String name, ModuleContainerEntry entry) {
+    public boolean registerEntry(String name, IModuleContainerEntry entry) {
 
         // ALREADY REG
         if (this.isModuleRegistered(name)) {
@@ -58,7 +59,7 @@ public class ModuleContainer implements IModuleContainer {
     }
 
     @Override
-    public ModuleContainerEntry getEntryByName(String name) {
+    public IModuleContainerEntry getEntryByName(String name) {
         return this.map.get(name);
     }
 }
