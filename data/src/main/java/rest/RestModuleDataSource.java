@@ -49,6 +49,21 @@ public class RestModuleDataSource implements IDataSource {
         this.moduleContainer = new ModuleContainer();
     }
 
+    @Override
+    public <T>T getModule(String name) throws ModuleNotFoundException {
+
+        try {
+            return this.getModule(name, (Class<T>) Class.forName(GithubModuleImpl.class.getName()));
+
+        } catch (ClassNotFoundException e) {
+            throw new ModuleNotFoundException(name);
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////////
+// HELPERS
+////////////////////////////////////////////////////////////////////////////////////
+
     /**
      *
      * @param target Class to registerModule
@@ -56,8 +71,7 @@ public class RestModuleDataSource implements IDataSource {
      * @param name Name used to retrieve instance
      * @param <T>
      */
-    @Override
-    public <T>void registerModule(Class<T> target, T instance, String name) {
+    private <T>void registerModule(Class<T> target, T instance, String name) {
         IModuleContainerEntry api = new ModuleContainerEntry(target);
 
         api.set(target, instance);
@@ -65,50 +79,17 @@ public class RestModuleDataSource implements IDataSource {
         this.moduleContainer.registerEntry(name, api);
     }
 
-    @Override
-    public <T>T getModule(String name, Class<T> target) throws ModuleNotFoundException {
+    private <T>T getModule(String name, Class<T> target) throws ModuleNotFoundException {
         return this.moduleContainer.getEntryByName(name).get(target);
     }
 
-////////////////////////////////////////////////////////////////////////////////////
-// HELPERS
-////////////////////////////////////////////////////////////////////////////////////
-
     public void registerGithubModule() {
         this.registerModule(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
-
-        /*
-        IModuleContainerEntry githubApi = new ModuleContainerEntry(GithubModuleImpl.class);
-
-        githubApi.set(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit));
-
-        this.moduleContainer.registerEntry(IModuleContainer.MODULE_GITHUB, githubApi);
-        */
     }
 
     public void registerAnotherModule() {
         this.registerModule(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_ANOTHER);
-
-        /*
-        IModuleContainerEntry anotherApi = new ModuleContainerEntry(AnotherModuleImpl.class);
-
-        anotherApi.set(AnotherModuleImpl.class, new AnotherModuleImpl(this.bus, this.retrofit));
-
-        this.moduleContainer.registerEntry(IModuleContainer.MODULE_ANOTHER, anotherApi);
-        */
     }
-
-    public void sampleCall() {
-        try {
-
-            this.moduleContainer.getEntryByName("github").get(GithubModuleImpl.class).sampleCall("status:open");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //  ACCESSORS

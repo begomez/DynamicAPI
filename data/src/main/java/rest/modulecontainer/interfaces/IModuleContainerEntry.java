@@ -7,6 +7,7 @@ import rest.modules.interfaces.IModule;
  */
 
 public interface IModuleContainerEntry {
+    public Class<?> getType();
 
     public <T> T get(Class<T> param);
 

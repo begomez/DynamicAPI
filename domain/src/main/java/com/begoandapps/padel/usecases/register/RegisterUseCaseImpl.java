@@ -9,6 +9,7 @@ import apimodels.Sample;
 import rest.RestModuleDataSource;
 import rest.exceptions.ModuleNotFoundException;
 import rest.modulecontainer.ModuleContainerEntry;
+import rest.modulecontainer.interfaces.IModuleContainer;
 import rest.modulecontainer.interfaces.IModuleContainerEntry;
 import rest.modules.GithubModuleImpl;
 
@@ -20,26 +21,22 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
 
     public RegisterUseCaseImpl(Bus bus, RestModuleDataSource rest) {
         super(bus, rest);
+
         this.register();
+
+        this.rest.registerGithubModule();
     }
 
     @Override
     public void signUp(String user, String pass) {
-        /*
-        this.rest.registerGithubModule();
-
-        this.rest.sampleCall();
-        */
-
-        this.rest.registerGithubModule();
 
         try {
-            GithubModuleImpl impl = this.rest.getModule("github", GithubModuleImpl.class);
+            GithubModuleImpl impl = this.rest.getModule(IModuleContainer.MODULE_GITHUB);
 
             impl.sampleCall("status:open");
 
         } catch (ModuleNotFoundException e) {
-            e.printStackTrace();
+            //TODO: do dome
         }
     }
 

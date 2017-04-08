@@ -8,6 +8,10 @@ import rest.modulecontainer.interfaces.IModuleContainerEntry;
 
 public class ModuleContainerEntry implements IModuleContainerEntry {
 
+    public Class<?> getType() {
+        return type;
+    }
+
     public Class<?> type;
 
     public Object data;
