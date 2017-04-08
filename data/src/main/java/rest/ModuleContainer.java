@@ -12,7 +12,7 @@ import rest.interfaces.IModuleContainerEntry;
 
 public class ModuleContainer implements IModuleContainer {
 
-    private Map<String, IModuleContainerEntry> map;
+    private Map<String, ModuleContainerEntry> map;
 
     public ModuleContainer() {
         this.createMap();
@@ -32,7 +32,7 @@ public class ModuleContainer implements IModuleContainer {
 ////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public boolean registerEntry(String name, IModuleContainerEntry entry) {
+    public boolean registerEntry(String name, ModuleContainerEntry entry) {
 
         // ALREADY REG
         if (this.isModuleRegistered(name)) {
@@ -59,7 +59,7 @@ public class ModuleContainer implements IModuleContainer {
     }
 
     @Override
-    public IModuleContainerEntry getEntryByName(String name) {
+    public ModuleContainerEntry getEntryByName(String name) {
         return this.map.get(name);
     }
 }

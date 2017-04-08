@@ -12,11 +12,11 @@ public interface IModuleContainer {
     public static final String MODULE_GITHUB = "github";
     public static final String MODULE_ANOTHER = "another";
 
-    public boolean registerEntry(String name, IModuleContainerEntry entry);
+    public boolean registerEntry(String name, ModuleContainerEntry entry);
 
     public boolean unregisterEntry(String name);
 
     public boolean isModuleRegistered(String name);
 
-    public IModuleContainerEntry getEntryByName(String name) throws ModuleNotFoundException;
+    public ModuleContainerEntry getEntryByName(String name) throws ModuleNotFoundException;
 }
