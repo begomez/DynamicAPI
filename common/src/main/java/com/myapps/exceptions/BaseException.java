@@ -1,4 +1,4 @@
-package rest.exceptions;
+package com.myapps.exceptions;
 
 /**
  * Created by bernatgomez on 7/4/17.

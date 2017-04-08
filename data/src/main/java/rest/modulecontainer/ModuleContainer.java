@@ -1,10 +1,9 @@
-package rest;
+package rest.modulecontainer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import rest.interfaces.IModuleContainer;
-import rest.interfaces.IModuleContainerEntry;
+import rest.modulecontainer.interfaces.IModuleContainer;
 
 /**
  * Created by bernatgomez on 23/3/17.

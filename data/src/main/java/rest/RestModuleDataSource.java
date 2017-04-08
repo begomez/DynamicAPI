@@ -5,6 +5,10 @@ import com.squareup.otto.Bus;
 import javax.inject.Inject;
 
 import rest.interfaces.IDataSource;
+import rest.modulecontainer.ModuleContainer;
+import rest.modulecontainer.ModuleContainerEntry;
+import rest.modules.AnotherModuleImpl;
+import rest.modules.GithubModuleImpl;
 import retrofit2.Retrofit;
 
 /**

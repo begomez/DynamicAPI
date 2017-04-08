@@ -1,4 +1,6 @@
-package rest.interfaces;
+package rest.modulecontainer.interfaces;
+
+import rest.modules.interfaces.IModule;
 
 /**
  * Created by bernatgomez on 7/4/17.

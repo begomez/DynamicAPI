@@ -1,10 +1,10 @@
-package rest;
+package rest.modules;
 
 import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
 
-import rest.interfaces.IModule;
+import rest.modules.interfaces.IModule;
 import retrofit2.Retrofit;
 
 /**

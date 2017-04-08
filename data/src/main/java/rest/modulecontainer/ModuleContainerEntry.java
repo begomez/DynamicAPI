@@ -1,7 +1,4 @@
-package rest;
-
-import rest.interfaces.IModule;
-import rest.interfaces.IModuleContainerEntry;
+package rest.modulecontainer;
 
 /**
  * Created by bernatgomez on 7/4/17.

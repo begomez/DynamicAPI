@@ -1,6 +1,6 @@
-package rest.interfaces;
+package rest.modulecontainer.interfaces;
 
-import rest.ModuleContainerEntry;
+import rest.modulecontainer.ModuleContainerEntry;
 import rest.exceptions.ModuleNotFoundException;
 
 /**

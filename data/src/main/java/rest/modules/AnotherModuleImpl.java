@@ -1,4 +1,4 @@
-package rest;
+package rest.modules;
 
 import com.myapps.utils.LoggerUtils;
 import com.squareup.otto.Bus;
@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
-import rest.interfaces.IModule;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -21,25 +20,25 @@ import rx.schedulers.Schedulers;
  * Created by bernatgomez on 6/4/17.
  */
 
-public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubModule> {
+public class AnotherModuleImpl extends BaseModuleImpl<AnotherModuleImpl.IAnotherModule> {
 
-    private static final String TAG = GithubModuleImpl.class.getSimpleName();
+    private static final String TAG = AnotherModuleImpl.class.getSimpleName();
 
 
 
     @Inject
-    public GithubModuleImpl(Bus bus, Retrofit retrofit) {
+    public AnotherModuleImpl(Bus bus, Retrofit retrofit) {
         super(bus, retrofit);
     }
 
     @Override
     protected void createModuleAPI() {
-        this.api = this.retrofit.create(IGithubModule.class);
+        this.api = this.retrofit.create(IAnotherModule.class);
     }
 
-    public void sampleCall(String status) {
+    public void sampleCall2(String status) {
 
-        this.api.sampleCall(status)
+        this.api.sampleCall2(status)
             .subscribeOn(Schedulers.newThread())
             .observeOn(Schedulers.immediate())
             .subscribe(new Subscriber<List<Sample>>() {
@@ -67,9 +66,9 @@ public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubMod
     }
 
 
-    public interface IGithubModule {
+    public interface IAnotherModule {
 
         @GET("changes/")
-        public Observable<List<Sample>> sampleCall(@Query("q") String status);
+        public Observable<List<Sample>> sampleCall2(@Query("q") String status);
     }
 }

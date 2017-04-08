@@ -1,5 +1,7 @@
 package rest.exceptions;
 
+import com.myapps.exceptions.BaseException;
+
 /**
  * Created by bernatgomez on 7/4/17.
  */

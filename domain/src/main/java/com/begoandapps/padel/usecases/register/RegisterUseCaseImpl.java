@@ -4,12 +4,9 @@ import com.begoandapps.padel.usecases.BaseUseCase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
-
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
 import rest.RestModuleDataSource;
-import rest.interfaces.IModuleContainer;
 
 /**
  * Created by bernatgomez on 20/3/17.
