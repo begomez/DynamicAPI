@@ -9,6 +9,6 @@ import rx.Observable;
  * Created by bernatgomez on 6/4/17.
  */
 
-public interface IAPIModule {
+public interface IModule {
 
 }
