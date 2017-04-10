@@ -56,7 +56,7 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
     }
 
     private void configureList() {
-        this.list.setAdapter(new SearchSelectionAdapter(this.getContext()));
+        this.list.setAdapter(new SearchSelectionAdapter(this.getContext(), (ISelection) this.getActivity()));
         this.list.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         this.list.setHasFixedSize(true);
     }
@@ -71,7 +71,6 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
 
     }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // IVIEW IMPL
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,4 +84,13 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
     public void hideLoading() {
 
     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// IVIEW IMPL
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+    public interface ISelection {
+        public void onSelected(int position);
+    }
+
 }

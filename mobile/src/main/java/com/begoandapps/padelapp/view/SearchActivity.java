@@ -11,7 +11,7 @@ import com.begoandapps.padelapp.navigation.NavigationUtils;
  * Created by bernatgomez on 10/4/17.
  */
 
-public class SearchActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity implements SearchSelectionFragment.ISelection {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -33,5 +33,23 @@ public class SearchActivity extends BaseActivity {
         super.launchContentFragment();
 
         NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchSelectionFragment.newInstance(), BaseActivity.CONTENT_FRAME, false);
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////
+// ARCHITECTURE
+///////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onSelected(int position) {
+        switch (position) {
+            case 0:
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+            case 1:
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+            case 2:
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+            default:
+                break;
+        }
     }
 }

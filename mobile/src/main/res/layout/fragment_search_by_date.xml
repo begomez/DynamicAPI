@@ -13,6 +13,8 @@
 
         android:orientation="vertical"
 
+        android:layout_alignParentTop="true"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -39,12 +41,23 @@
     </LinearLayout>
 
     <!-- CALENDAR -->
-    <CalendarView
-        android:id="@+id/search_by_date_calendar"
-
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
 
-    </CalendarView>
+        android:layout_below="@+id/search_by_date_preview_container"
+        >
+
+        <CalendarView
+            android:id="@+id/search_by_date_calendar"
+
+            android:background="@color/colorBlue"
+
+            android:layout_width="@dimen/calendar_w"
+            android:layout_height="@dimen/calendar_h">
+
+        </CalendarView>
+
+    </FrameLayout>
 
 </RelativeLayout>

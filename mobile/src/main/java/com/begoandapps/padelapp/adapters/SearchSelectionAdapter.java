@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.utils.ArrayUtils;
+import com.begoandapps.padelapp.view.SearchSelectionFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +27,8 @@ public class SearchSelectionAdapter
 
     protected Context cntxt;
 
+    protected SearchSelectionFragment.ISelection callback;
+
     protected ArrayList<String> titles;
 
     protected ArrayList<String> subtitles;
@@ -36,10 +39,12 @@ public class SearchSelectionAdapter
      *
      * @param cntxt
      */
-    public SearchSelectionAdapter(Context cntxt) {
+    public SearchSelectionAdapter(Context cntxt, SearchSelectionFragment.ISelection callback) {
         super();
 
         this.cntxt = cntxt;
+
+        this.callback = callback;
 
         this.init();
     }
@@ -54,7 +59,9 @@ public class SearchSelectionAdapter
     public SearchSelectionHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(this.cntxt).inflate(R.layout.item_search_selection, parent, false);
 
-        return new SearchSelectionHolder(v);
+        SearchSelectionHolder vh = new SearchSelectionHolder(v);
+
+        return vh;
     }
 
     @Override
@@ -74,7 +81,7 @@ public class SearchSelectionAdapter
     /**
      *
      */
-    public class SearchSelectionHolder extends RecyclerView.ViewHolder {
+    public class SearchSelectionHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.search_selection_item_title)
         public AppTextView title;
@@ -87,6 +94,17 @@ public class SearchSelectionAdapter
             super(itemView);
 
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int pos = getAdapterPosition();
+
+            if (callback != null) {
+                callback.onSelected(pos);
+            }
         }
 
         public void setValuesForItem(int position) {

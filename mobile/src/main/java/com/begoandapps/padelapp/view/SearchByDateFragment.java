@@ -1,6 +1,7 @@
 package com.begoandapps.padelapp.view;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.CalendarView;
 import android.widget.LinearLayout;
@@ -54,11 +55,26 @@ public class SearchByDateFragment extends BaseFragment {
 /// ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-
     @Override
     public void configViews() {
         super.configViews();
 
         this.showToolbar();
+
+        this.configCalendar();
+    }
+
+    private void configCalendar() {
+        this.calendar.setShowWeekNumber(false);
+        this.calendar.setFirstDayOfWeek(2);
+        this.calendar.setSelectedWeekBackgroundColor(this.getResources().getColor(R.color.colorAccent));
+        this.calendar.setUnfocusedMonthDateColor(this.getResources().getColor(R.color.colorWhite));
+        this.calendar.setWeekSeparatorLineColor(this.getResources().getColor(android.R.color.transparent));
+        this.calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+            }
+        });
     }
 }
