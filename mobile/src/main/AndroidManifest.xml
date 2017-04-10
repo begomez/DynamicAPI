@@ -55,6 +55,14 @@
 
         </activity>
 
+        <!-- SEARCH -->
+        <activity
+            android:name=".view.SearchActivity"
+            android:label="@string/title_search"
+            android:screenOrientation="portrait">
+
+        </activity>
+
     </application>
 
 </manifest>
