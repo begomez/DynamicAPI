@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
+import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.view.BaseActivity;
 
 import butterknife.OnClick;
@@ -39,7 +40,17 @@ public class PadelActivity extends BaseActivity {
         this.navigateToSearch();
     }
 
+//////////////////////////////////////////////////////////////////////////////////
+// NAVIGATION
+//////////////////////////////////////////////////////////////////////////////////
+
     private void navigateToSearch() {
-        NavigationUtils.navigateToActivity(this.getApplicationContext(), SearchActivity.class);
+        new INavigation() {
+            @Override
+            public void navigate() {
+                NavigationUtils.navigateToActivity(PadelActivity.this, SearchActivity.class);
+            }
+        }.navigate();
+
     }
 }
