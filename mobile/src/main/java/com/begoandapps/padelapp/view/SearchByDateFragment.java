@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.TimePicker;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppTextView;
@@ -27,7 +29,7 @@ public class SearchByDateFragment extends BaseFragment {
     protected AppTextView selectionPreviewDate;
 
     @BindView(R.id.search_by_date_calendar)
-    protected CalendarView calendar;
+    protected DatePicker calendar;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,6 +67,8 @@ public class SearchByDateFragment extends BaseFragment {
     }
 
     private void configCalendar() {
+
+        /*
         this.calendar.setShowWeekNumber(false);
         this.calendar.setFirstDayOfWeek(2);
         this.calendar.setSelectedWeekBackgroundColor(this.getResources().getColor(R.color.colorAccent));
@@ -76,5 +80,6 @@ public class SearchByDateFragment extends BaseFragment {
 
             }
         });
+        */
     }
 }

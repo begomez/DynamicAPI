@@ -48,7 +48,7 @@
         android:layout_below="@+id/search_by_date_preview_container"
         >
 
-        <CalendarView
+        <DatePicker
             android:id="@+id/search_by_date_calendar"
 
             android:background="@color/colorBlue"
@@ -56,7 +56,7 @@
             android:layout_width="@dimen/calendar_w"
             android:layout_height="@dimen/calendar_h">
 
-        </CalendarView>
+        </DatePicker>
 
     </FrameLayout>
 
