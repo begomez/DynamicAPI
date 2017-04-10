@@ -8,6 +8,8 @@
     <string name="btn_adelante">¡Adelante!</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_reservar">Reserva partida</string>
+    <string name="btn_next">Siguiente</string>
+    <string name="btn_search">Buscar</string>
 
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
@@ -17,6 +19,7 @@
     <string name="title_login_screen">Register</string>
     <string name="title_tutorial_screen">Tutorial</string>
     <string name="title_dashboard_screen">Dashboard</string>
+    <string name="title_search">Search</string>
 
     <!-- SPLASH -->
     <string name="splash_title">@string/app_sport</string>
@@ -45,5 +48,14 @@
 
     <!-- DASHBOARD -->
     <string name="dashboard_empty_msg">Todavía no has reservado ninguna partida</string>
+
+    <!-- SEARCH -->
+    <string name="search_title">Búsqueda de pista</string>
+    <string name="search_subtitle_where">¿Dónde quieres jugar?</string>
+    <string name="search_subtitle_when_date">¿Qué dia quieres jugar?</string>
+    <string name="search_subtitle_when_time">¿A qué hora quieres jugar?</string>
+    <string name="search_default_where_value">Cerca de mi</string>
+    <string name="search_default_when_date_value">Hoy</string>
+    <string name="search_default_when_time_value">A cualquier hora</string>
 
 </resources>
