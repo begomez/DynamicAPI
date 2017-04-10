@@ -5,9 +5,9 @@
     <string name="facebook_pass">begotest2</string>
 
     <!-- ACTIONS -->
-    <string name="btn_adelante">¡Adelante!</string>
-    <string name="btn_aceptar">Aceptar</string>
-    <string name="btn_reservar">Reserva partida</string>
+    <string name="btn_forward">¡Adelante!</string>
+    <string name="btn_accept">Aceptar</string>
+    <string name="btn_make_reservation">Reserva partida</string>
     <string name="btn_next">Siguiente</string>
     <string name="btn_search">Buscar</string>
 

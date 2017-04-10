@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
 
-        android:text="@string/btn_adelante"
+        android:text="@string/btn_forward"
         />
 
 </FrameLayout>
