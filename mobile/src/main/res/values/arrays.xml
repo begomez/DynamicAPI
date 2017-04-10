@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="search_selection_options">
+        <item name="option_where">@string/search_subtitle_where</item>
+        <item name="option_date">@string/search_subtitle_when_date</item>
+        <item name="option_time">@string/search_subtitle_when_time</item>
+    </string-array>
+
+    <string-array name="search_selection_default_values">
+        <item name="default_where">@string/search_default_where_value</item>
+        <item name="default_date">@string/search_default_when_date_value</item>
+        <item name="default_time">@string/search_default_when_time_value</item>
+    </string-array>
+
+</resources>
