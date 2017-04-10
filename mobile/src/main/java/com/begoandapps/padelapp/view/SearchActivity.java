@@ -32,6 +32,6 @@ public class SearchActivity extends BaseActivity {
     public void launchContentFragment() {
         super.launchContentFragment();
 
-        NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchSelectionFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchSelectionFragment.newInstance(), BaseActivity.CONTENT_FRAME, false);
     }
 }
