@@ -17,7 +17,7 @@ public interface IBase {
     /**
      *
      */
-    public void injectViewsAndExtras();
+    public void injectElements();
 
     /**
      *

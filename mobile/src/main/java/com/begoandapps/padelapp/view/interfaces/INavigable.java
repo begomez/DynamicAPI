@@ -18,6 +18,6 @@ public interface INavigable {
      *
      * @param cmd
      */
-    public void navigateToNext(INavigation cmd);
+    public void navigateTo(INavigation cmd);
 
 }

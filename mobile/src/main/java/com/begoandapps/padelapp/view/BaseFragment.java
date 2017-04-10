@@ -30,6 +30,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     protected IToggleToolbar callbackToolbar;
 
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -55,10 +56,9 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        this.injectViewsAndExtras();
+        this.injectElements();
 
         this.configViews();
-
     }
 
     @Override
@@ -67,6 +67,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
         this.prepareWindow();
 
+        //XXX: activity injector is needed, so we should call dagger from here
         this.injectDependencies();
     }
 
@@ -93,7 +94,6 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
         super.onStop();
 
         AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStop()");
-
     }
 
     @Override
@@ -123,48 +123,81 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 // IBASE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     *
+     */
     @Override
     public void prepareWindow() {
 
     }
 
+    /**
+     *
+     */
     protected void bindPresentersAndViews() {
         //TODO: use Dagger if needed
     }
 
+    /**
+     *
+     */
     @Override
-    public void injectViewsAndExtras() {
+    public void injectElements() {
+        //XXX: dependencies cannot be injected here
         this.injectViews();
         this.injectExtras();
     }
 
+    /**
+     *
+     */
     protected void injectDependencies() {
 
     }
 
+    /**
+     *
+     */
     protected void injectViews() {
         ButterKnife.bind(this, this.getView());
     }
 
+    /**
+     *
+     */
     protected void injectExtras() {
         Dart.inject(this, this.getArguments());
     }
 
+    /**
+     *
+     */
     @Override
     public void configViews() {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void launchContentFragment() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ApplicationComponent getApplicationComponent() {
         return ((BaseActivity) this.getActivity()).getApplicationComponent();
     }
 
+    /**
+     *
+     * @param cntxt
+     */
     protected void saveCallback(Context cntxt) {
         if (this.getActivity() instanceof IToggleToolbar) {
             this.callbackToolbar = (IToggleToolbar) this.getActivity();
@@ -200,6 +233,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 /////////////////////////////////////////////////////////////////////////////////////////
 // UTILS
 /////////////////////////////////////////////////////////////////////////////////////////
+
     public String getComponentIdentifier() {
         return this.getClass().getSimpleName();
     }

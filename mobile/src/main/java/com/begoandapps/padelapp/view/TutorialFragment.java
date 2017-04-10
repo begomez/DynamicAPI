@@ -129,7 +129,7 @@ public class TutorialFragment extends BaseFragment {
     @OnClick(R.id.tutorial_frag_btn)
     public void onMainBtnClick(View v) {
         if (this.navCallback != null) {
-            this.navCallback.navigateToNext(this.navCallback.getNavigationCmd());
+            this.navCallback.navigateTo(this.navCallback.getNavigationCmd());
         }
     }
 

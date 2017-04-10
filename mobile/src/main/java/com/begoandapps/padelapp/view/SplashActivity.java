@@ -18,7 +18,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         this.layoutId = R.layout.activity_splash;
 
         super.onCreate(savedInstanceState);
@@ -51,7 +50,7 @@ public class SplashActivity extends BaseActivity {
             new Runnable() {
                 @Override
                 public void run() {
-                    navigateToNext(getNavigationCmd());
+                    navigateTo(getNavigationCmd());
                 }
             },
             this.getResources().getInteger(R.integer.splash_delay_time))
@@ -63,8 +62,8 @@ public class SplashActivity extends BaseActivity {
 /////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void navigateToNext(INavigation cmd) {
-        super.navigateToNext(cmd);
+    public void navigateTo(INavigation cmd) {
+        super.navigateTo(cmd);
     }
 
     @Override

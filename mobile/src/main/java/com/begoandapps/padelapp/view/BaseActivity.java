@@ -25,10 +25,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * Base class for activities
+ *
  * Created by bernatgomez on 6/3/17.
  */
-
-public class BaseActivity extends AppCompatActivity implements IBase, IMainAction, INavigable, IToggleToolbar {
+public class BaseActivity
+        extends AppCompatActivity
+        implements IBase, IMainAction, INavigable, IToggleToolbar {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
@@ -39,6 +42,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
     protected AppToolbar toolbar;
 
     protected int layoutId;
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -52,7 +56,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
 
         ActivityRepository.getInstance().add(this);
 
-    //XXX: features - content - toolbar
+    //XXX: features - content - injection - views (toolbar)
 
         //XXX: 1. features
         this.prepareWindow();
@@ -60,9 +64,10 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         //XXX: 2. content
         this.setContentView(this.layoutId);
 
-        this.injectViewsAndExtras();
+        //XXX: 3. injection
+        this.injectElements();
 
-        //XXX: 3. toolbar and others
+        //XXX: 4. views (toolbar and others)
         this.configViews();
 
         if (this.isActivityCreation(savedInstanceState)) {
@@ -133,6 +138,11 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
 // IBASE IMPL
 /////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     *
+     * @param state
+     * @return
+     */
     private boolean isActivityCreation(Bundle state) {
         return state == null;
     }
@@ -145,19 +155,21 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
 
     }
 
+    /**
+     *
+     */
     @Override
-    public void injectViewsAndExtras() {
+    public void injectElements() {
         this.injectDependencies();
         this.injectViews();
         this.injectExtras();
+        this.onInjectionFinished();
     }
 
     /**
      *
      */
-    protected void injectDependencies() {
-
-    }
+    protected void injectDependencies() {}
 
     /**
      *
@@ -166,9 +178,17 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         ButterKnife.bind(this);
     }
 
+    /**
+     *
+     */
     protected void injectExtras() {
         Dart.inject(this);
     }
+
+    /**
+     *
+     */
+    protected void onInjectionFinished() {}
 
     @Override
     public void configViews() {
@@ -179,6 +199,8 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
      *
      */
     protected void configToolBar() {
+
+        // TOOLBAR
         if (this.hasToolbar()) {
             this.setSupportActionBar(this.toolbar);
             ActionBar bar = this.getSupportActionBar();
@@ -188,6 +210,10 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean hasToolbar() {
         return this.toolbar != null;
     }
@@ -222,7 +248,7 @@ public class BaseActivity extends AppCompatActivity implements IBase, IMainActio
      *
      * @param cmd
      */
-    public void navigateToNext(INavigation cmd) {
+    public void navigateTo(INavigation cmd) {
         cmd.navigate();
     }
 
