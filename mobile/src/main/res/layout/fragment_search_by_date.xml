@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- PREVIEW -->
+    <LinearLayout
+        android:id="@+id/search_by_date_preview_container"
+
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- YEAR -->
+        <com.begoandapps.padelapp.components.AppTextView
+            android:id="@+id/search_by_date_preview_year"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/search_by_date_default_year"
+            />
+
+        <!-- DATE -->
+        <com.begoandapps.padelapp.components.AppTextView
+            android:id="@+id/search_by_date_preview_date"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/search_by_date_default_date"
+            />
+
+    </LinearLayout>
+
+    <!-- CALENDAR -->
+    <CalendarView
+        android:id="@+id/search_by_date_calendar"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </CalendarView>
+
+</RelativeLayout>
