@@ -130,7 +130,6 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 
     @OnClick(R.id.login_facebook_btn)
     public void onFacebookBtnClick(View v) {
-        v.setClickable(false);
         this.presenter.doRegistration();
     }
 
