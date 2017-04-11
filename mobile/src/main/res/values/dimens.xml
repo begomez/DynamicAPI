@@ -17,9 +17,13 @@
 
     <!-- button -->
     <dimen name="button_h">66.33dp</dimen>
+    <dimen name="button_default_elevation">10dp</dimen>
 
 <!-- TUTORIAL -->
 
+    <dimen name="tutorial_pager_line_pad_top">25dp</dimen>
+    <dimen name="tutorial_pager_line_pad_right">50dp</dimen>
+    <dimen name="tutorial_pager_radius">5dp</dimen>
     <dimen name="tutorial_title_padding_top">25dp</dimen>
     <dimen name="tutorial_icon_margin_top">106dp</dimen>
     <dimen name="tutorial_title_margin_top">2dp</dimen>

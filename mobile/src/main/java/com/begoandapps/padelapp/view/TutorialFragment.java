@@ -30,6 +30,9 @@ public class TutorialFragment extends BaseFragment {
     private static final int PAGE_3 = 2;
     private static final int PAGE_4 = 3;
 
+    @BindView(R.id.tutorial_frag_line)
+    protected ImageView tutLine;
+
     @BindView(R.id.tutorial_frag_icon)
     protected ImageView tutIcon;
 
@@ -87,18 +90,22 @@ public class TutorialFragment extends BaseFragment {
 
         switch (this.data.position) {
             case PAGE_1:
+                this.tutLine.setVisibility(View.VISIBLE);
                 this.tutTitle.setType(AppTitleSwitch.Type.TITLE);
                 this.setTextsAndIcon(R.string.tutorial_step_1_title, R.string.tutorial_step_1_subtitle, R.drawable.tut_step_1);
                 break;
             case PAGE_2:
+                this.tutLine.setVisibility(View.INVISIBLE);
                 this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_2_title, R.string.tutorial_step_2_subtitle, R.drawable.tut_step_2);
                 break;
             case PAGE_3:
+                this.tutLine.setVisibility(View.INVISIBLE);
                 this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_3_title, R.string.tutorial_step_3_subtitle, R.drawable.tut_step_3);
                 break;
             case PAGE_4:
+                this.tutLine.setVisibility(View.INVISIBLE);
                 this.tutTitle.setType(AppTitleSwitch.Type.CONTENT);
                 this.setTextsAndIcon(R.string.tutorial_step_4_title, R.string.tutorial_step_4_subtitle, R.drawable.tut_step_4);
                 break;

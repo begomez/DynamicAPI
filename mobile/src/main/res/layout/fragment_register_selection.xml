@@ -27,7 +27,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
-        android:src="@drawable/splash_icon"
+        android:src="@drawable/tennis_ball"
         />
 
     <!-- TITLE -->
@@ -75,6 +75,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="@dimen/login_selection_btn_margin_separator"
+        android:elevation="@dimen/button_default_elevation"
 
         app:layout_constraintBottom_toTopOf="@+id/login_selection_btn_manual"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -93,6 +94,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="@dimen/login_selection_btn_margin_separator"
+        android:elevation="@dimen/button_default_elevation"
 
         app:layout_constraintBottom_toTopOf="@+id/login_selection_btn_later"
         app:layout_constraintLeft_toLeftOf="parent"

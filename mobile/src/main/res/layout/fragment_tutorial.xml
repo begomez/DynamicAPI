@@ -11,6 +11,7 @@
 
     style="@style/Container.Green">
 
+
     <ImageView
         android:id="@+id/tutorial_frag_icon"
 
@@ -22,6 +23,20 @@
         android:layout_marginTop="@dimen/tutorial_icon_margin_top"
 
         android:src="@drawable/tut_step_1"
+        />
+
+    <ImageView
+        android:id="@+id/tutorial_frag_line"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignRight="@id/tutorial_frag_icon"
+        android:layout_alignTop="@id/tutorial_frag_icon"
+        android:paddingTop="@dimen/tutorial_pager_line_pad_top"
+        android:paddingRight="@dimen/tutorial_pager_line_pad_right"
+
+        android:src="@drawable/line"
         />
 
     <com.begoandapps.padelapp.components.AppTitleSwitch
