@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppTextView;
+import com.begoandapps.padelapp.utils.ViewUtils;
 import com.begoandapps.padelapp.view.interfaces.ILoginSelectionView;
 
 import butterknife.BindView;
@@ -73,7 +74,14 @@ public class RegisterSelectionFragment extends BaseFragment implements ILoginSel
         this.hideToolbar();
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public void configViews() {
+        super.configViews();
+
+        this.btnLater.setText(ViewUtils.getAsSpannable(this.getResources().getString(R.string.login_selection_register_later)));
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
 // INTERACTION
 /////////////////////////////////////////////////////////////////////////////////////////////
 
