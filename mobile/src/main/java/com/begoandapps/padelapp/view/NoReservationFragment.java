@@ -2,6 +2,7 @@ package com.begoandapps.padelapp.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.begoandapps.padelapp.R;
 
@@ -30,5 +31,14 @@ public class NoReservationFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
         this.layoutId = R.layout.fragment_no_reservation;
+    }
+
+//////////////////////////////////////////////////////////////////////////////////
+// INTERACTION
+//////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onMainBtnClick(View v) {
+        super.onMainBtnClick(v);
     }
 }
