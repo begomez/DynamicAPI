@@ -8,7 +8,7 @@
     android:weightSum="1"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <!-- 1 -->
     <ImageButton
@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:src="@drawable/splash_icon"
+        android:src="@drawable/ic_ic_tabbar_geo"
         />
 
     <!-- 2 -->
@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:src="@drawable/splash_icon"
+        android:src="@drawable/ic_ic_tabbar_search"
         />
 
 
@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:src="@drawable/splash_icon"
+        android:src="@drawable/ic_ic_tabbar_prof"
         />
 
 </LinearLayout>
