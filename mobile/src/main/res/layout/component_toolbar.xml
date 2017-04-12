@@ -13,15 +13,16 @@
     <com.begoandapps.padelapp.components.AppToolbar
         android:id="@+id/app_toolbar"
 
+        android:navigationIcon="@drawable/ic_back"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorAccent"
+        android:background="@color/colorGreyToolbar"
         android:elevation="@dimen/toolbar_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
         android:titleTextAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:titleTextColor="@color/colorWhite"
+        android:titleTextColor="@color/colorBlack"
         >
 
     </com.begoandapps.padelapp.components.AppToolbar>

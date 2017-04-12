@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.interfaces.IAppView;
+import com.begoandapps.padelapp.components.interfaces.IAttrView;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 
 import java.io.Serializable;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by bernatgomez on 19/3/17.
  */
 
-public class AppTitleSwitch extends FrameLayout implements IAppView {
+public class AppTitleSwitch extends FrameLayout implements IAttrView {
 
     private static final String TAG = AppTitleSwitch.class.getSimpleName();
 
@@ -75,28 +76,20 @@ public class AppTitleSwitch extends FrameLayout implements IAppView {
     public void init(Context context, AttributeSet attrs) {
         this.createData();
 
-        this.bindViews(context);
-        
         this.extractAttrs(context, attrs);
 
-        //this.configViews();
+        this.bindViews(context);
+
+        this.configViews();
     }
 
-//////////////////////////////////////////////////////////////////////////////////
-// SUPPORT
-//////////////////////////////////////////////////////////////////////////////////
-
-    private void createData() {
+    @Override
+    public void createData() {
         this.data = new Data();
     }
 
-    private void bindViews(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.view_title_switch, this, true);
-
-        ButterKnife.bind(this);
-    }
-
-    private void extractAttrs(Context context, AttributeSet attrs) {
+    @Override
+    public void extractAttrs(Context context, AttributeSet attrs) {
         TypedArray custom =
             context.getTheme().obtainStyledAttributes(attrs, R.styleable.AppTitleSwitch, 0, 0);
 
@@ -115,7 +108,15 @@ public class AppTitleSwitch extends FrameLayout implements IAppView {
         }
     }
 
-    private void configViews() {
+    @Override
+    public void bindViews(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.view_title_switch, this, true);
+
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    public void configViews() {
 
         // TITLE
         if (this.isTitle()) {

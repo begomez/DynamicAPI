@@ -61,6 +61,20 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <style name="Toolbar">
+        <item name="icon">@drawable/ic_back</item>
+    </style>
+
+    <style name="Toolbar.White">
+        <item name="backColor">@color/colorWhite</item>
+        <item name="foreColor">@color/colorBlack</item>
+    </style>
+
+    <style name="Toolbar.Grey">
+        <item name="backColor">@color/colorAccent</item>
+        <item name="foreColor">@color/colorWhite</item>
+    </style>
+
     <!-- TUTORIAL -->
     <style name="Common">
         <item name="android:layout_width">match_parent</item>
@@ -72,6 +86,17 @@
 
     <style name="Tutorial.PagerIndicator">
         <item name="android:layout_marginBottom">@dimen/pager_indicator_marginBottom</item>
+    </style>
+
+    <!-- REGISTER -->
+    <style name="EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="img_background">@drawable/line_grey</item>
     </style>
 
     <!-- SEARCH -->

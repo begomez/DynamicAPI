@@ -2,16 +2,24 @@
 
 <resources>
 
+    <declare-styleable name="AppEditText">
+        <attr name="left_icon" format="integer"></attr>
+        <attr name="img_background" format="integer"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="AppToolbar">
+        <attr name="title" format="string"></attr>
+        <attr name="backColor" format="color"></attr>
+        <attr name="foreColor" format="color"></attr>
+        <attr name="icon" format="reference"></attr>
+    </declare-styleable>
+
     <declare-styleable name="AppTitleSwitch">
         <attr name="type" format="enum">
             <enum name="TITLE" value="0"/>
             <enum name="CONTENT" value="1"/>
         </attr>
-
-        <attr name="text" format="string">
-
-        </attr>
-
+        <attr name="text" format="string"></attr>
     </declare-styleable>
 
 </resources>
