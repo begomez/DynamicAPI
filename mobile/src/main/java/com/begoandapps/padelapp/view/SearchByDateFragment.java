@@ -19,15 +19,6 @@ import butterknife.BindView;
 
 public class SearchByDateFragment extends BaseFragment {
 
-    @BindView(R.id.search_by_date_preview_container)
-    protected LinearLayout selectionPreviewContainer;
-
-    @BindView(R.id.search_by_date_preview_year)
-    protected AppTextView selectionPreviewYear;
-
-    @BindView(R.id.search_by_date_preview_date)
-    protected AppTextView selectionPreviewDate;
-
     @BindView(R.id.search_by_date_calendar)
     protected DatePicker calendar;
 
@@ -67,6 +58,7 @@ public class SearchByDateFragment extends BaseFragment {
     }
 
     private void configCalendar() {
+
 
         /*
         this.calendar.setShowWeekNumber(false);

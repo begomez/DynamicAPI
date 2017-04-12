@@ -7,57 +7,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- PREVIEW -->
-    <LinearLayout
-        android:id="@+id/search_by_date_preview_container"
-
-        android:orientation="vertical"
-
-        android:layout_alignParentTop="true"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- YEAR -->
-        <com.begoandapps.padelapp.components.AppTextView
-            android:id="@+id/search_by_date_preview_year"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="@string/search_by_date_default_year"
-            />
-
-        <!-- DATE -->
-        <com.begoandapps.padelapp.components.AppTextView
-            android:id="@+id/search_by_date_preview_date"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="@string/search_by_date_default_date"
-            />
-
-    </LinearLayout>
-
     <!-- CALENDAR -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_below="@+id/search_by_date_preview_container"
         >
 
         <DatePicker
             android:id="@+id/search_by_date_calendar"
 
-            android:background="@color/colorBlue"
+            style="@style/DatePicker"
 
-            android:layout_width="@dimen/calendar_w"
-            android:layout_height="@dimen/calendar_h">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </DatePicker>
 
     </FrameLayout>
+
+    <com.begoandapps.padelapp.components.AppButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_h"
+
+        style="@style/Button.GreenReverse"
+
+        android:text="@string/btn_next"
+
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
