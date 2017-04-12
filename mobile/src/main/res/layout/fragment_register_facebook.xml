@@ -30,13 +30,13 @@
         <com.begoandapps.padelapp.components.AppEditText
             android:id="@+id/login_facebook_user"
 
+            style="@style/EditText"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_marginBottom="@dimen/login_facebook_user_margin_bottom"
-
-            android:padding="3dp"
-
+            android:drawableLeft="@drawable/ic_user"
             android:hint="@string/login_facebook_user"
 
             android:layout_alignParentTop="true"
@@ -45,11 +45,12 @@
         <com.begoandapps.padelapp.components.AppEditText
             android:id="@+id/login_facebook_password"
 
+            style="@style/EditText"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:padding="3dp"
-
+            android:drawableLeft="@drawable/ic_mail"
             android:hint="@string/login_facebook_pass"
             android:inputType="textPassword"
 
