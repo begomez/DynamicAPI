@@ -29,6 +29,18 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="BaseText.Title.Green">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="BaseText.Subtitle.Green">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="BaseText.Content.Green">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="BaseText.Title.Black">
         <item name="android:textColor">@color/colorBlackTrans</item>
     </style>

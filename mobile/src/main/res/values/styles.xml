@@ -74,4 +74,29 @@
         <item name="android:layout_marginBottom">@dimen/pager_indicator_marginBottom</item>
     </style>
 
+    <!-- SEARCH -->
+
+    <style name="SearchItemIcon">
+        <item name="android:layout_marginTop">@dimen/search_selection_icon_margin</item>
+        <item name="android:layout_marginBottom">@dimen/search_selection_icon_margin</item>
+        <item name="android:layout_marginLeft">@dimen/search_selection_icon_margin</item>
+        <item name="android:layout_marginRight">@dimen/search_selection_icon_margin</item>
+    </style>
+
+    <style name="SearchItemTitle" parent="BaseText.Content.Black">
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginBottom">@dimen/search_selection_title_margin</item>
+    </style>
+
+    <style name="SearchItemSubtitle" parent="BaseText.Subtitle.Green">
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">@dimen/search_selection_title_margin</item>
+    </style>
+
+    <style name="SearchItemArrow">
+        <item name="android:layout_marginRight">@dimen/search_selection_arrow_margin</item>
+    </style>
+
+    <style name="TimePicker"></style>
+
 </resources>

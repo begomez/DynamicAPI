@@ -6,6 +6,7 @@
 <!-- GENERAL -->
 
     <!-- toolbar -->
+    <dimen name="separator_h">5dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
 
     <!-- texts -->
@@ -17,7 +18,7 @@
 
     <!-- button -->
     <dimen name="button_h">66.33dp</dimen>
-    <dimen name="button_default_elevation">10dp</dimen>
+    <dimen name="button_default_elevation">20dp</dimen>
 
 <!-- TUTORIAL -->
 
@@ -48,6 +49,11 @@
     <dimen name="login_facebook_btn_margin_bottom">25dp</dimen>
     <dimen name="login_facebook_descrip_margin_bottom">150dp</dimen>
 
+<!-- SEARCH SELECTION -->
+    <dimen name="search_selection_arrow_margin">25dp</dimen>
+    <dimen name="search_selection_icon_margin">5dp</dimen>
+    <dimen name="search_selection_title_margin">10dp</dimen>
+
 <!-- SEARCH BY DATE -->
     <dimen name="calendar_size">300dp</dimen>
     <dimen name="calendar_w">@dimen/calendar_size</dimen>
@@ -55,5 +61,6 @@
 
 <!-- GENERAL -->
     <dimen name="default_margin">16dp</dimen>
+
 
 </resources>

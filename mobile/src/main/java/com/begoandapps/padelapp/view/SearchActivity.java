@@ -43,13 +43,13 @@ public class SearchActivity extends BaseActivity implements SearchSelectionFragm
     public void onSelected(int position) {
         switch (position) {
             case 0:
-                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByNameFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
                 break;
             case 1:
-                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByTimeFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
                 break;
             case 2:
-                //NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByDateFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
+                NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByTimeFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
                 break;
             default:
                 break;

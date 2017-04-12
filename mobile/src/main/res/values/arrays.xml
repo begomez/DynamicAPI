@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <integer-array name="search_selection_icons">
+        <item name="icon_where">@drawable/ic_pin</item>
+        <item name="icon_date">@drawable/ic_calendar</item>
+        <item name="icon_time">@drawable/ic_clock</item>
+    </integer-array>
+
     <string-array name="search_selection_options">
         <item name="option_where">@string/search_subtitle_where</item>
         <item name="option_date">@string/search_subtitle_when_date</item>

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppTextView;
@@ -13,7 +14,6 @@ import com.begoandapps.padelapp.view.SearchSelectionFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +28,8 @@ public class SearchSelectionAdapter
     protected Context cntxt;
 
     protected SearchSelectionFragment.ISelection callback;
+
+    protected int[] icons = {R.drawable.ic_pin, R.drawable.ic_calendar, R.drawable.ic_clock};
 
     protected ArrayList<String> titles;
 
@@ -50,6 +52,8 @@ public class SearchSelectionAdapter
     }
 
     private void init() {
+        //this.icons = this.cntxt.getResources().getIntArray(R.array.search_selection_icons);
+
         this.titles = new ArrayList<String>(Arrays.asList(this.cntxt.getResources().getStringArray(R.array.search_selection_options)));
 
         this.subtitles = new ArrayList<String>(Arrays.asList(this.cntxt.getResources().getStringArray(R.array.search_selection_default_values)));
@@ -66,7 +70,7 @@ public class SearchSelectionAdapter
 
     @Override
     public void onBindViewHolder(SearchSelectionHolder holder, int position) {
-        holder.setValuesForItem(position);
+        holder.setValuesForItemInPosition(position);
     }
 
     @Override
@@ -82,6 +86,9 @@ public class SearchSelectionAdapter
      *
      */
     public class SearchSelectionHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        @BindView(R.id.search_selection_item_icon)
+        public ImageView icon;
 
         @BindView(R.id.search_selection_item_title)
         public AppTextView title;
@@ -107,8 +114,9 @@ public class SearchSelectionAdapter
             }
         }
 
-        public void setValuesForItem(int position) {
+        public void setValuesForItemInPosition(int position) {
             if (ArrayUtils.valueInRange(position, titles != null? titles.size() : 0)) {
+                this.icon.setImageDrawable(cntxt.getResources().getDrawable(icons[position]));
                 this.title.setCustomText(titles.get(position));
                 this.subtitle.setCustomText(subtitles.get(position));
             }

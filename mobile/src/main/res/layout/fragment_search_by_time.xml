@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- PREVIEW -->
+    <!--
     <LinearLayout
         android:id="@+id/search_by_time_preview_container"
 
@@ -25,6 +26,7 @@
             />
 
     </LinearLayout>
+    -->
 
     <!-- CLOCK -->
     <FrameLayout
@@ -34,9 +36,22 @@
         <TimePicker
             android:id="@+id/search_by_time_clock"
 
+            style="@style/TimePicker"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </FrameLayout>
+
+    <com.begoandapps.padelapp.components.AppButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_h"
+
+        style="@style/Button.GreenReverse"
+
+        android:text="@string/btn_next"
+
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
