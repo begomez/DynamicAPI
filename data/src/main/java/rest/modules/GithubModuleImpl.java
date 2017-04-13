@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
+import rest.annotations.DynamicModule;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -19,7 +20,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by bernatgomez on 6/4/17.
  */
-
+@DynamicModule
 public class GithubModuleImpl extends BaseModuleImpl<GithubModuleImpl.IGithubModule> {
 
     private static final String TAG = GithubModuleImpl.class.getSimpleName();

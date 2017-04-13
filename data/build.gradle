@@ -3,6 +3,9 @@ apply plugin: 'java'
 
 
 dependencies {
+
+
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
 // OTTO
@@ -14,14 +17,19 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 
 // RX
-    //compile 'io.reactivex:rxandroid:1.2.1' //<-use this
-    compile 'io.reactivex:rxjava:1.1.6'    //<-use this
+    compile 'io.reactivex:rxjava:1.1.6'
 
 // OK
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'javax.inject:javax.inject:1'
+
+// REFLECTIONS
+
+
+
     compile project(path: ':common')
+
 }
 
 sourceCompatibility = "1.7"

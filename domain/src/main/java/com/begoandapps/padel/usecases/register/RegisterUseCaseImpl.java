@@ -22,7 +22,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
 
         this.register();
 
-        this.rest.registerGithubModule();
+        this.rest.registerModules();
     }
 
     @Override

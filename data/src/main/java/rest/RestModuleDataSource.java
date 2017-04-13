@@ -1,5 +1,6 @@
 package rest;
 
+import com.myapps.utils.LoggerUtils;
 import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
@@ -18,6 +19,8 @@ import retrofit2.Retrofit;
  */
 
 public class RestModuleDataSource implements IDataSource {
+
+    private static final String TAG = RestModuleDataSource.class.getSimpleName();
 
     private final Bus bus;
 
@@ -101,8 +104,22 @@ public class RestModuleDataSource implements IDataSource {
 // PUBLIC API
 ////////////////////////////////////////////////////////////////////////////////////
 
-    public void registerGithubModule() {
-        this.registerModule(GithubModuleImpl.class, new GithubModuleImpl(this.bus, this.retrofit), IModuleContainer.MODULE_GITHUB);
-    }
 
+    public void registerModules() {
+
+        try {
+
+            Class someClass = Class.forName("rest.modules.GithubModuleImpl");
+
+            this.registerModule(
+                someClass,
+                someClass.getConstructor(Bus.class, Retrofit.class).newInstance(this.bus, this.retrofit),
+                IModuleContainer.MODULE_GITHUB);
+
+        } catch (Exception e) {
+            LoggerUtils.logMsg(TAG, "error : " + e.toString());
+
+        }
+
+    }
 }
