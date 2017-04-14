@@ -4,10 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    style="@style/Container.Grey"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-    android:textAlignment="center"
     >
 
     <com.begoandapps.padelapp.components.AppToolbar
@@ -16,7 +16,6 @@
         android:navigationIcon="@drawable/ic_back"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorGreyToolbar"
         android:elevation="@dimen/toolbar_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

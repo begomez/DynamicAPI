@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/toolbar_container"
 
@@ -11,20 +12,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <ImageView
         android:id="@+id/toolbar_icon"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         />
+    -->
 
     <com.begoandapps.padelapp.components.AppTextView
         android:id="@+id/toolbar_title"
 
-        android:textSize="20sp"
+        android:textSize="@dimen/content_size_large"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:gravity="left|center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+
+        tools:name="@string/app_name"
         />
 
-</LinearLayout>
+</RelativeLayout>

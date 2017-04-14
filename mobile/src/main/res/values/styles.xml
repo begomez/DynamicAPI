@@ -20,6 +20,10 @@
         <item name="android:background">@color/colorWhite</item>
     </style>
 
+    <style name="Container.Grey">
+        <item name="android:background">@color/colorGreyToolbar</item>
+    </style>
+
     <style name="Container.Green">
         <item name="android:background">@color/colorAccent</item>
     </style>
@@ -66,7 +70,7 @@
     </style>
 
     <style name="Toolbar.White">
-        <item name="backColor">@color/colorWhite</item>
+        <item name="backColor">@color/colorGreyToolbar</item>
         <item name="foreColor">@color/colorBlack</item>
     </style>
 
