@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.interfaces.IAttrView;
@@ -29,11 +30,11 @@ public class AppToolbar extends Toolbar implements IAttrView {
 
     @Nullable
     @BindView(R.id.toolbar_container)
-    protected LinearLayout container;
+    protected RelativeLayout container;
 
-    @Nullable
-    @BindView(R.id.toolbar_icon)
-    protected ImageView icon;
+    //@Nullable
+    //@BindView(R.id.toolbar_icon)
+    //protected ImageView icon;
 
     @Nullable
     @BindView(R.id.toolbar_title)
@@ -71,7 +72,7 @@ public class AppToolbar extends Toolbar implements IAttrView {
     public void init(Context context, AttributeSet attrs) {
         this.createData();
 
-        //this.bindViews(context);
+        this.bindViews(context);
 
         this.extractAttrs(context, attrs);
 
@@ -115,20 +116,39 @@ public class AppToolbar extends Toolbar implements IAttrView {
             this.container.setBackgroundColor(this.data.backColor);
             this.title.setTextColor(this.data.foreColor);
             this.title.setCustomText(this.data.title);
-            this.icon.setImageDrawable(this.getResources().getDrawable(this.data.icon));
+            //this.icon.setImageDrawable(this.getResources().getDrawable(this.data.icon));
         }
+    }
+
+    public void reset() {
+        this.showIcon();
+        this.setBackColor(R.color.colorGrey);
+        this.setForeColor(R.color.colorBlack);
+        this.title.setText(this.getResources().getString(R.string.app_name));
     }
 
 //////////////////////////////////////////////////////////////////////////////////
 // ACCESSORS
 //////////////////////////////////////////////////////////////////////////////////
 
+    public void showIcon() {
+        this.toogleIcon(true, false);
+    }
+
+    public void hideIcon() {
+        this.toogleIcon(false, false);
+    }
+
+    public void toogleIcon(boolean shown, boolean restart) {
+        this.getNavigationIcon().setVisible(false, false);
+    }
+
     public void setIcon(int icon) {
         this.setNavigationIcon(icon);
     }
 
     public void setTitle(String title) {
-        this.setTitle(title);
+        this.title.setCustomText(title);
     }
 
     public void setForeColor(int color) {
@@ -144,10 +164,11 @@ public class AppToolbar extends Toolbar implements IAttrView {
 //////////////////////////////////////////////////////////////////////////////////
 
     public static final class Data implements Serializable {
-        String title;
-        int icon;
-        int backColor;
-        int foreColor;
+        public boolean showIcon;
+        public String title;
+        public int icon;
+        public int backColor;
+        public int foreColor;
     }
 
 }

@@ -21,6 +21,8 @@ import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.persist.ActivityRepository;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 
+import junit.framework.Assert;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -192,6 +194,7 @@ public class BaseActivity
 
     @Override
     public void configViews() {
+
         this.configToolBar();
     }
 
@@ -267,14 +270,41 @@ public class BaseActivity
 
     @Override
     public void showToolbar() {
-        this.toolbar.setVisibility(View.VISIBLE);
+        if (this.hasToolbar()) {
+            this.toolbar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void hideToolbar() {
-        this.toolbar.setVisibility(View.GONE);
+        if (this.hasToolbar()) {
+            this.toolbar.setVisibility(View.GONE);
+        }
     }
 
+    @Override
+    public void customizeToolbar(AppToolbar.Data data) {
+        if (this.hasToolbar()) {
+            if (data.showIcon) {
+                this.toolbar.showIcon();
+            } else {
+                this.toolbar.hideIcon();
+            }
+
+            this.toolbar.setBackColor(data.backColor);
+
+            this.toolbar.setTitleTextColor(data.foreColor);
+
+            this.toolbar.setTitle(data.title);
+        }
+    }
+
+    @Override
+    public void resetToolbar() {
+        if (this.hasToolbar()) {
+            this.toolbar.reset();
+        }
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // BACK NAVIGATION

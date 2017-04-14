@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.begoandapps.padelapp.components.AppToolbar;
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 import com.f2prateek.dart.Dart;
@@ -28,7 +29,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     protected int layoutId;
 
-    protected IToggleToolbar callbackToolbar;
+    private IToggleToolbar callbackToolbar;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -93,6 +94,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onStop() {
         super.onStop();
 
+        this.callbackToolbar.resetToolbar();
+
+        this.unbindPresentersAndViews();
+
         AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onStop()");
     }
 
@@ -116,7 +121,14 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        this.saveCallback(context);
+        this.saveCallback();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        this.resetCallback();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -128,7 +140,13 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
      */
     @Override
     public void prepareWindow() {
+        this.configToolbar();
+    }
 
+    protected void configToolbar() {
+        if ((this.callbackToolbar != null) && (this.getCustomToolbarData() != null)) {
+            this.callbackToolbar.customizeToolbar(this.getCustomToolbarData());
+        }
     }
 
     /**
@@ -136,6 +154,13 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
      */
     protected void bindPresentersAndViews() {
         //TODO: use Dagger if needed
+    }
+
+    /**
+     *
+     */
+    protected void unbindPresentersAndViews() {
+
     }
 
     /**
@@ -177,6 +202,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     }
 
+    protected AppToolbar.Data getCustomToolbarData() {
+        return null;
+    }
+
     /**
      *
      */
@@ -196,12 +225,15 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     /**
      *
-     * @param cntxt
      */
-    protected void saveCallback(Context cntxt) {
+    protected void saveCallback() {
         if (this.getActivity() instanceof IToggleToolbar) {
             this.callbackToolbar = (IToggleToolbar) this.getActivity();
         }
+    }
+
+    protected void resetCallback() {
+        this.callbackToolbar = null;
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////
