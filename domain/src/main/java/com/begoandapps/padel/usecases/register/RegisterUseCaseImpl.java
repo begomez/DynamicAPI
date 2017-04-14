@@ -20,13 +20,12 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
     public RegisterUseCaseImpl(Bus bus, RestModuleDataSource rest) {
         super(bus, rest);
 
-        this.register();
-
         this.rest.registerModules();
     }
 
     @Override
     public void signUp(String user, String pass) {
+        this.register();
 
         try {
             GithubModuleImpl impl = this.rest.getModule(IModuleContainer.MODULE_GITHUB);
