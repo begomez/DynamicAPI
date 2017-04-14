@@ -61,7 +61,7 @@ public class ApplicationModule {
 
         clientBuilder.readTimeout(TIMEOUT, TimeUnit.MILLISECONDS);
 
-        clientBuilder.retryOnConnectionFailure(false);
+        clientBuilder.retryOnConnectionFailure(true);
 
         clientBuilder.connectionPool(connectionPool);
 
