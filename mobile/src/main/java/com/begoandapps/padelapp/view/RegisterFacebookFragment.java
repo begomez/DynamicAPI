@@ -1,6 +1,5 @@
 package com.begoandapps.padelapp.view;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -82,15 +81,22 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
     }
 
     @Override
-    public void saveCallback(Context context) {
-        super.saveCallback(context);
+    public void saveCallback() {
+        super.saveCallback();
 
         if (this.getActivity() instanceof IDashboardNav) {
             this.callbackNav = (IDashboardNav) this.getActivity();
         }
     }
 
-////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    protected void resetCallback() {
+        super.resetCallback();
+
+        this.callbackNav = null;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////
 

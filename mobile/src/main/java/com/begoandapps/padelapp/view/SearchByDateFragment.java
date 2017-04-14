@@ -1,15 +1,11 @@
 package com.begoandapps.padelapp.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
-import android.widget.LinearLayout;
-import android.widget.TimePicker;
 
 import com.begoandapps.padelapp.R;
-import com.begoandapps.padelapp.components.AppTextView;
+import com.begoandapps.padelapp.components.AppToolbar;
 
 import butterknife.BindView;
 
@@ -55,6 +51,15 @@ public class SearchByDateFragment extends BaseFragment {
         this.showToolbar();
 
         this.configCalendar();
+    }
+
+    @Override
+    protected AppToolbar.Data getCustomToolbarData() {
+        super.getCustomToolbarData();
+
+        AppToolbar.Data data = new AppToolbar.Data();
+
+        return data;
     }
 
     private void configCalendar() {
