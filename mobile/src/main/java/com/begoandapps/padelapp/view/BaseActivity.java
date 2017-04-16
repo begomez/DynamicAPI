@@ -296,9 +296,9 @@ public class BaseActivity
                 //this.getSupportActionBar().setIcon(null);
             }
 
-            this.toolbar.setBackColor(Color.GREEN);
+            this.toolbar.setBackColor(this.getResources().getColor(data.backColor));
 
-            this.toolbar.setForeColor(Color.RED);
+            this.toolbar.setForeColor(this.getResources().getColor(data.foreColor));
 
             this.toolbar.setTitle(data.title);
         }
