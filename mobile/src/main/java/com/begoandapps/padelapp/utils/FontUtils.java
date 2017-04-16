@@ -12,7 +12,7 @@ public abstract class FontUtils {
     /**
      *
      */
-    private static final String DIR_FONTS = "fonts";
+    private static final String DIR_FONTS = "fonts/";
 
     /**
      *
@@ -39,7 +39,7 @@ public abstract class FontUtils {
         FontUtils.robotoLightFont = loadFont(assets, Fonts.ROBOTO_LIGHT);
         FontUtils.robotoRegularFont = loadFont(assets, Fonts.ROBOTO_REGULAR);
         FontUtils.corgetteRegularFont = loadFont(assets, Fonts.COURGETTE_REGULAR);
-        FontUtils.defaultFont = corgetteRegularFont;
+        FontUtils.defaultFont = robotoRegularFont;
     }
 
     /**
@@ -50,6 +50,10 @@ public abstract class FontUtils {
     public static Typeface loadFont(AssetManager assets, Fonts fontName) {
         return
             Typeface.createFromAsset(assets, DIR_FONTS + getFontFileByFontName(fontName)) ;
+    }
+
+    public static Typeface getDefaultFont() {
+        return defaultFont;
     }
 
     /**

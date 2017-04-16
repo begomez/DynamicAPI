@@ -2,10 +2,12 @@ package com.begoandapps.padelapp.components;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.widget.Button;
 
 import com.begoandapps.padelapp.components.interfaces.IAppView;
+import com.begoandapps.padelapp.utils.FontUtils;
 
 /**
  * Created by bernatgomez on 9/3/17.
@@ -49,6 +51,6 @@ public class AppButton extends Button implements IAppView {
 
     @Override
     public void init(Context context, AttributeSet attrs) {
-
+        this.setTypeface(FontUtils.getDefaultFont());
     }
 }
