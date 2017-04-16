@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.dependencies.components.DaggerApplicationComponent;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
+import com.begoandapps.padelapp.utils.FontUtils;
 
 
 /**
@@ -31,6 +32,8 @@ public class MainApplication extends Application {
         super.onCreate();
 
         this.initInjector();
+
+        this.initFonts();
 
         AndroidLoggerUtils.logMsg(TAG, "onCreate()");
     }
@@ -70,6 +73,10 @@ public class MainApplication extends Application {
 
     private void initInjector() {
         this.injector = DaggerApplicationComponent.builder().build();
+    }
+
+    private void initFonts() {
+        FontUtils.loadFonts(this.getAssets());
     }
 
 /////////////////////////////////////////////////////////////////////////
