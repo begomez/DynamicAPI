@@ -7,6 +7,7 @@ import android.view.View;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
+import com.begoandapps.padelapp.components.AppToolbar;
 import com.begoandapps.padelapp.dependencies.components.DaggerRegisterComponent;
 import com.begoandapps.padelapp.dependencies.modules.RegisterModule;
 import com.begoandapps.padelapp.presenter.RegisterFacebookPresenter;
@@ -100,6 +101,21 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+    @Override
+    protected AppToolbar.Data getCustomToolbarData() {
+        super.getCustomToolbarData();
+
+        AppToolbar.Data data = new AppToolbar.Data();
+
+        data.title = R.string.btn_accept;
+        data.showIcon = true;
+        data.icon = R.drawable.ic_arrow_right;
+        data.foreColor = R.color.colorGreen;
+        data.backColor = R.color.colorBlue;
+
+        return data;
+    }
 
     @Override
     public void prepareWindow() {

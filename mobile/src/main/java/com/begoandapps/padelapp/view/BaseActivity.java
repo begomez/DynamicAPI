@@ -1,6 +1,8 @@
 package com.begoandapps.padelapp.view;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -285,15 +287,18 @@ public class BaseActivity
     @Override
     public void customizeToolbar(AppToolbar.Data data) {
         if (this.hasToolbar()) {
+
             if (data.showIcon) {
+                this.toolbar.setIcon(data.icon);
                 this.toolbar.showIcon();
             } else {
                 this.toolbar.hideIcon();
+                //this.getSupportActionBar().setIcon(null);
             }
 
-            this.toolbar.setBackColor(data.backColor);
+            this.toolbar.setBackColor(Color.GREEN);
 
-            this.toolbar.setTitleTextColor(data.foreColor);
+            this.toolbar.setForeColor(Color.RED);
 
             this.toolbar.setTitle(data.title);
         }

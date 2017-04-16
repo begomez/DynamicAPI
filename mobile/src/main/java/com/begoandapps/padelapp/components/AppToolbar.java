@@ -2,6 +2,9 @@ package com.begoandapps.padelapp.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
@@ -76,7 +79,7 @@ public class AppToolbar extends Toolbar implements IAttrView {
 
         this.extractAttrs(context, attrs);
 
-        //this.configViews();
+        this.configViews();
     }
 
     @Override
@@ -96,7 +99,7 @@ public class AppToolbar extends Toolbar implements IAttrView {
         TypedArray custom = context.getTheme().obtainStyledAttributes(attrs, R.styleable.AppToolbar, 0, 0);
 
         try {
-            this.data.title = custom.getString(R.styleable.AppToolbar_title);
+            this.data.title = custom.getInt(R.styleable.AppToolbar_title, R.string.app_name);
             this.data.icon = custom.getInt(R.styleable.AppToolbar_icon, R.drawable.ic_back);
             this.data.backColor = custom.getColor(R.styleable.AppToolbar_backColor, context.getResources().getColor(R.color.colorToolbarBackDef));
             this.data.backColor = custom.getColor(R.styleable.AppToolbar_foreColor, context.getResources().getColor(R.color.colorToolbarForeDef));
@@ -113,9 +116,15 @@ public class AppToolbar extends Toolbar implements IAttrView {
     @Override
     public void configViews() {
         if (this.data != null) {
-            this.container.setBackgroundColor(this.data.backColor);
-            this.title.setTextColor(this.data.foreColor);
-            this.title.setCustomText(this.data.title);
+            this.setBackColor(this.data.backColor);
+            this.setTitle(this.data.title);
+            this.setForeColor(this.data.foreColor);
+            this.setIcon(this.data.icon);
+            if (this.data.showIcon) {
+                this.showIcon();
+            } else {
+                this.hideIcon();
+            }
             //this.icon.setImageDrawable(this.getResources().getDrawable(this.data.icon));
         }
     }
@@ -124,7 +133,7 @@ public class AppToolbar extends Toolbar implements IAttrView {
         this.showIcon();
         this.setBackColor(R.color.colorGrey);
         this.setForeColor(R.color.colorBlack);
-        this.title.setText(this.getResources().getString(R.string.app_name));
+        this.setTitle(R.string.app_name);
     }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -140,19 +149,20 @@ public class AppToolbar extends Toolbar implements IAttrView {
     }
 
     public void toogleIcon(boolean shown, boolean restart) {
-        this.getNavigationIcon().setVisible(false, false);
+        this.getNavigationIcon().setVisible(shown, false);
     }
 
     public void setIcon(int icon) {
         this.setNavigationIcon(icon);
     }
 
-    public void setTitle(String title) {
+    public void setTitle(int title) {
         this.title.setCustomText(title);
     }
 
     public void setForeColor(int color) {
-        this.setTitleTextColor(color);
+        this.title.setTextColor(color);
+        //this.setTitleTextColor(color);
     }
 
     public void setBackColor(int color) {
@@ -165,10 +175,20 @@ public class AppToolbar extends Toolbar implements IAttrView {
 
     public static final class Data implements Serializable {
         public boolean showIcon;
-        public String title;
+        public int title;
         public int icon;
         public int backColor;
         public int foreColor;
+
+        public Data defaultData() {
+            this.showIcon = true;
+            this.title = R.string.app_name;
+            this.icon = R.drawable.ic_back;
+            this.backColor = R.color.colorGreyToolbar;
+            this.foreColor = R.color.colorBlack;
+
+            return this;
+        }
     }
 
 }
