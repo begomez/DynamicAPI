@@ -45,21 +45,23 @@ public class SearchByDateFragment extends BaseFragment {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
+    protected AppToolbar.Data getCustomToolbarData() {
+        super.getCustomToolbarData();
+
+        AppToolbar.Data data = new AppToolbar.Data().defaultData();
+
+        data.title = R.string.btn_accept;
+
+        return data;
+    }
+
+    @Override
     public void configViews() {
         super.configViews();
 
         this.showToolbar();
 
         this.configCalendar();
-    }
-
-    @Override
-    protected AppToolbar.Data getCustomToolbarData() {
-        super.getCustomToolbarData();
-
-        AppToolbar.Data data = new AppToolbar.Data();
-
-        return data;
     }
 
     private void configCalendar() {

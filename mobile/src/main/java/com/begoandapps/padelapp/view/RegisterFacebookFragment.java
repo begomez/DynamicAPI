@@ -101,22 +101,6 @@ public class RegisterFacebookFragment extends BaseFragment implements IRegisterF
 // ARCHITECTURE
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
-    @Override
-    protected AppToolbar.Data getCustomToolbarData() {
-        super.getCustomToolbarData();
-
-        AppToolbar.Data data = new AppToolbar.Data();
-
-        data.title = R.string.btn_accept;
-        data.showIcon = true;
-        data.icon = R.drawable.ic_arrow_right;
-        data.foreColor = R.color.colorGreen;
-        data.backColor = R.color.colorBlue;
-
-        return data;
-    }
-
     @Override
     public void prepareWindow() {
         super.prepareWindow();

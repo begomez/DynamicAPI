@@ -35,10 +35,6 @@ public class AppToolbar extends Toolbar implements IAttrView {
     @BindView(R.id.toolbar_container)
     protected RelativeLayout container;
 
-    //@Nullable
-    //@BindView(R.id.toolbar_icon)
-    //protected ImageView icon;
-
     @Nullable
     @BindView(R.id.toolbar_title)
     protected AppTextView title;
@@ -120,12 +116,15 @@ public class AppToolbar extends Toolbar implements IAttrView {
             this.setTitle(this.data.title);
             this.setForeColor(this.data.foreColor);
             this.setIcon(this.data.icon);
+
+            // NAV ICON
             if (this.data.showIcon) {
                 this.showIcon();
+
+            // NO NAV ICON
             } else {
                 this.hideIcon();
             }
-            //this.icon.setImageDrawable(this.getResources().getDrawable(this.data.icon));
         }
     }
 

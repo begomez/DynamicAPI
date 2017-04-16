@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
@@ -94,7 +95,7 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onStop() {
         super.onStop();
 
-        this.callbackToolbar.resetToolbar();
+        //this.callbackToolbar.resetToolbar();
 
         this.unbindPresentersAndViews();
 
@@ -144,8 +145,8 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     }
 
     protected void configToolbar() {
-        if ((this.callbackToolbar != null) && (this.getCustomToolbarData() != null)) {
-            this.callbackToolbar.customizeToolbar(this.getCustomToolbarData());
+        if (this.callbackToolbar != null) {
+            this.callbackToolbar.customizeToolbar(this.getCustomToolbarData() != null? this.getCustomToolbarData() : this.getDefaultToolbarData());
         }
     }
 
@@ -203,7 +204,26 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     }
 
     protected AppToolbar.Data getCustomToolbarData() {
+
+        // Sample
+
+        /*
+        AppToolbar.Data data = new AppToolbar.Data();
+
+        data.title = R.string.btn_accept;
+        data.showIcon = false;
+        data.icon = R.drawable.ic_arrow_right;
+        data.foreColor = R.color.colorGreen;
+        data.backColor = R.color.colorBlue;
+
+        return data;
+        */
+
         return null;
+    }
+
+    protected AppToolbar.Data getDefaultToolbarData() {
+        return new AppToolbar.Data().defaultData();
     }
 
     /**
