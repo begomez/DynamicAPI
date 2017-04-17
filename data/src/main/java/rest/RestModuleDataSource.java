@@ -1,7 +1,10 @@
 package rest;
 
+import com.myapps.utils.FileUtils;
 import com.myapps.utils.LoggerUtils;
 import com.squareup.otto.Bus;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -108,13 +111,16 @@ public class RestModuleDataSource implements IDataSource {
     public void registerModules() {
 
         try {
+            ArrayList<String> modules = FileUtils.readFile("modules.list");
 
-            Class someClass = Class.forName("rest.modules.GithubModuleImpl");
+            for (String module : modules) {
+                Class someClass = Class.forName(module);
 
-            this.registerModule(
-                someClass,
-                someClass.getConstructor(Bus.class, Retrofit.class).newInstance(this.bus, this.retrofit),
-                IModuleContainer.MODULE_GITHUB);
+                this.registerModule(
+                    someClass,
+                    someClass.getConstructor(Bus.class, Retrofit.class).newInstance(this.bus, this.retrofit),
+                    IModuleContainer.MODULE_GITHUB);
+            }
 
         } catch (Exception e) {
             LoggerUtils.logMsg(TAG, "error : " + e.toString());
