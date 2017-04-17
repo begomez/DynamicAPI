@@ -4,14 +4,12 @@ import com.begoandapps.padel.usecases.BaseUseCase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
 import rest.RestModuleDataSource;
 import rest.exceptions.ModuleNotFoundException;
-import rest.modulecontainer.interfaces.IModuleContainer;
 import rest.modules.GithubModuleImpl;
 
 /**
@@ -23,7 +21,7 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
     public RegisterUseCaseImpl(Bus bus, RestModuleDataSource rest) {
         super(bus, rest);
 
-        this.rest.registerModules();
+        this.rest.registerAllRestModules();
     }
 
     @Override

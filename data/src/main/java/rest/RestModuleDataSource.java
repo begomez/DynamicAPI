@@ -115,10 +115,10 @@ public class RestModuleDataSource implements IDataSource {
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-    public void registerModules() {
+    public void registerAllRestModules() {
 
         try {
-            ArrayList<KeyValue<String, String>> modules = ModuleListParser.readModulesFile("modules.list");
+            ArrayList<KeyValue<String, String>> modules = new ModuleListParser().getRestModules();
 
             for (KeyValue<String, String> module : modules) {
                 Class someClass = Class.forName(module.getValue());

@@ -1,6 +1,7 @@
 package com.myapps.parsers;
 
 import com.myapps.data.KeyValue;
+import com.myapps.parsers.interfaces.IModulesParser;
 import com.myapps.utils.LoggerUtils;
 import com.myapps.utils.TextUtils;
 
@@ -13,17 +14,50 @@ import java.util.ArrayList;
  * Created by bernatgomez on 17/4/17.
  */
 
-public abstract class ModuleListParser {
+public class ModuleListParser implements IModulesParser {
 
     private static final String TAG = ModuleListParser.class.getSimpleName();
 
-    private static final String DIR_FILES = "files/";
+    private static final String TARGET_DIR = "files/";
+    private static final String TARGET_FILE = "modules.list";
 
     private static final String KEY_VALUE_SEPARATOR = " ";
-
     private static final int INDEX_KEY = 0;
     private static final int INDEX_VALUE = 1;
 
+
+    public ModuleListParser() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<KeyValue<String, String>> getRestModules() {
+        ArrayList<KeyValue<String, String>> modules = new ArrayList<KeyValue<String, String>>();
+
+        try {
+            InputStream is = ModuleListParser.class.getClassLoader().getResourceAsStream(TARGET_DIR + TARGET_FILE);
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                KeyValue<String, String> module = this.parseLine(line);
+
+                if (module.validate() && !modules.contains(module)) {
+                    modules.add(module);
+                }
+            }
+
+        } catch (Exception e) {
+            LoggerUtils.logMsg(TAG, "getRestModules() " + e);
+
+            modules = new ArrayList<KeyValue<String, String>>();
+        }
+
+        return modules;
+    }
 
     /**
      *
@@ -32,7 +66,7 @@ public abstract class ModuleListParser {
      * @param <V>
      * @return
      */
-    private static <K, V>KeyValue<K, V> parseLine(String line) {
+    private <K, V>KeyValue<K, V> parseLine(String line) {
         KeyValue ret = new KeyValue();
 
         if (TextUtils.isValidString(line)) {
@@ -45,33 +79,4 @@ public abstract class ModuleListParser {
         return ret;
     }
 
-    /**
-     *
-     * @param name
-     * @return
-     */
-    public static ArrayList<KeyValue<String, String>> readModulesFile(String name) {
-        ArrayList<KeyValue<String, String>> modules = new ArrayList<KeyValue<String, String>>();
-
-        try {
-            InputStream is = ModuleListParser.class.getClassLoader().getResourceAsStream(DIR_FILES + name);
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                KeyValue<String, String> module = ModuleListParser.parseLine(line);
-
-                if (module.validate() && !modules.contains(module)) {
-                    modules.add(module);
-                }
-            }
-
-        } catch (Exception e) {
-            LoggerUtils.logMsg(TAG, "readModulesFile() " + e);
-
-            modules = new ArrayList<KeyValue<String, String>>();
-        }
-
-        return modules;
-    }
 }
