@@ -1,7 +1,9 @@
 package rest.modulecontainer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import rest.modulecontainer.interfaces.IModuleContainer;
 import rest.modulecontainer.interfaces.IModuleContainerEntry;
@@ -66,4 +68,11 @@ public class ModuleContainer implements IModuleContainer {
     public IModuleContainerEntry getEntryByName(String name) {
         return this.map.get(name);
     }
+
+    @Override
+    public Set<String> getEntries() {
+        return this.map.keySet();
+    }
+
+
 }

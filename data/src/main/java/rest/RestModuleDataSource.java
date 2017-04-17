@@ -1,10 +1,12 @@
 package rest;
 
-import com.myapps.utils.FileUtils;
+import com.myapps.data.KeyValue;
+import com.myapps.parsers.ModuleListParser;
 import com.myapps.utils.LoggerUtils;
 import com.squareup.otto.Bus;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -72,6 +74,11 @@ public class RestModuleDataSource implements IDataSource {
         }
     }
 
+    @Override
+    public Set<String> getAvailableModules() {
+        return this.moduleContainer.getEntries();
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////
 // HELPERS
 ////////////////////////////////////////////////////////////////////////////////////
@@ -111,15 +118,15 @@ public class RestModuleDataSource implements IDataSource {
     public void registerModules() {
 
         try {
-            ArrayList<String> modules = FileUtils.readFile("modules.list");
+            ArrayList<KeyValue<String, String>> modules = ModuleListParser.readModulesFile("modules.list");
 
-            for (String module : modules) {
-                Class someClass = Class.forName(module);
+            for (KeyValue<String, String> module : modules) {
+                Class someClass = Class.forName(module.getValue());
 
                 this.registerModule(
                     someClass,
                     someClass.getConstructor(Bus.class, Retrofit.class).newInstance(this.bus, this.retrofit),
-                    IModuleContainer.MODULE_GITHUB);
+                    module.getKey());
             }
 
         } catch (Exception e) {

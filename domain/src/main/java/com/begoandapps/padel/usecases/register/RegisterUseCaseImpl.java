@@ -4,6 +4,9 @@ import com.begoandapps.padel.usecases.BaseUseCase;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import apimodels.ApiErrorModel;
 import apimodels.Sample;
 import rest.RestModuleDataSource;
@@ -28,12 +31,16 @@ public class RegisterUseCaseImpl extends BaseUseCase implements RegisterUseCase 
         this.register();
 
         try {
-            GithubModuleImpl impl = this.rest.getModule(IModuleContainer.MODULE_GITHUB);
+            Set<String> availableModules = this.rest.getAvailableModules();
+
+            String targetModule = availableModules.iterator().next();
+
+            GithubModuleImpl impl = this.rest.getModule(targetModule);
 
             impl.fakeSignUp("status:open");
 
         } catch (ModuleNotFoundException e) {
-            //TODO: do dome
+            //TODO: do something
         }
     }
 

@@ -1,6 +1,8 @@
 package rest.interfaces;
 
 
+import java.util.Set;
+
 import rest.exceptions.ModuleNotFoundException;
 
 
@@ -14,11 +16,6 @@ public interface IDataSource {
      */
     public void createModuleContainer();
 
-    //public <T> void registerModule(Class<T> target, T instance, String name);
-
-
-    //public <T> T getModule(String name, Class<T> target) throws ModuleNotFoundException;
-
     /**
      *
      * @param name
@@ -27,4 +24,10 @@ public interface IDataSource {
      * @throws ModuleNotFoundException
      */
     public <T> T getModule(String name) throws ModuleNotFoundException;
+
+    /**
+     *
+     * @return
+     */
+    public Set<String> getAvailableModules();
 }

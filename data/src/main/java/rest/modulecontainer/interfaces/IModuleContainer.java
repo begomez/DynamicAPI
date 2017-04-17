@@ -1,5 +1,8 @@
 package rest.modulecontainer.interfaces;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 import rest.modulecontainer.ModuleContainerEntry;
 import rest.exceptions.ModuleNotFoundException;
 
@@ -18,4 +21,6 @@ public interface IModuleContainer {
     public boolean isModuleRegistered(String name);
 
     public IModuleContainerEntry getEntryByName(String name) throws ModuleNotFoundException;
+
+    public Set<String> getEntries();
 }
