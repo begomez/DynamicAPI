@@ -6,6 +6,10 @@ package com.myapps.utils;
 
 public abstract class TextUtils {
 
+    public static boolean isValidString(String str) {
+        return str != null && !str.trim().equals("");
+    }
+
     /**
      *
      * @param text
