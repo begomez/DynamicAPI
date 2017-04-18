@@ -57,6 +57,7 @@
     <string name="search_default_where_value">Cerca de mi</string>
     <string name="search_default_when_date_value">Hoy</string>
     <string name="search_default_when_time_value">A cualquier hora</string>
+    <string name="search_hint">Introduce</string>
 
     <!-- BY DATE -->
     <string name="search_by_date_default_year">2016</string>
