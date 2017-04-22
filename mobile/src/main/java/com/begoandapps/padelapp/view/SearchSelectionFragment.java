@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchSelectionAdapter;
+import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.view.interfaces.IView;
 
 import butterknife.BindView;
@@ -84,13 +85,4 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
     public void hideLoading() {
 
     }
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-// IVIEW IMPL
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-    public interface ISelection {
-        public void onSelected(int position);
-    }
-
 }

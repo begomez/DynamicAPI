@@ -28,6 +28,12 @@ public class RegisterModule {
         return new RegisterFacebookPresenter(useCase, bus);
     }
 
+    /**
+     *
+     * @param bus
+     * @param rest
+     * @return
+     */
     @Provides
     @PerActivity
     public RegisterUseCase provideLoginUsecase(Bus bus, RestModuleDataSource rest) {
