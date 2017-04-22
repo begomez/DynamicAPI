@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/search_by_name_container"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- ICON -->
+    <ImageView
+        android:id="@+id/search_by_name_icon"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:src="@drawable/tennis_ball"
+        />
+
+    <!-- TITLE -->
+    <com.begoandapps.padelapp.components.AppTextView
+        android:id="@+id/search_by_name_title"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toRightOf="@id/search_by_name_icon"
+
+        tools:text="@string/dummy_title"
+        />
+
+    <!-- SUBTITLE -->
+    <com.begoandapps.padelapp.components.AppTextView
+        android:id="@+id/search_by_name_subtitle"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toRightOf="@id/search_by_name_icon"
+        app:layout_constraintTop_toBottomOf="@id/search_by_name_title"
+
+        tools:text="@string/dummy_subtitle"
+        />
+
+    <!-- DESCRIP -->
+    <com.begoandapps.padelapp.components.AppTextView
+        android:id="@+id/search_by_name_descrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        tools:text="@string/dummy_descrip"
+        />
+
+</android.support.constraint.ConstraintLayout>

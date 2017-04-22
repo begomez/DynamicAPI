@@ -7,4 +7,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- LIST -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_by_name_list"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <!-- BTN -->
+    <com.begoandapps.padelapp.components.AppButton
+        android:id="@+id/search_by_name_main_btn"
+
+        style="@style/Button.GreenReverse"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_h"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+
+        android:text="@string/accept"
+        />
+
 </RelativeLayout>

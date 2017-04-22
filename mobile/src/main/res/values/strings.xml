@@ -66,4 +66,9 @@
     <!-- BY TIME -->
     <string name="search_by_time_default_time">3:30</string>
 
+    <!-- DUMMY -->
+    <string name="dummy_title">Title</string>
+    <string name="dummy_subtitle">Subtitle</string>
+    <string name="dummy_descrip">Descrip</string>
+
 </resources>

@@ -106,6 +106,8 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
     public void onResume() {
         super.onResume();
 
+        this.retrieveData();
+
         AndroidLoggerUtils.logMsg(TAG, this.getClass().getSimpleName() + ".onResume()");
 
     }
@@ -254,6 +256,10 @@ public class BaseFragment extends Fragment implements IBase, IMainAction {
 
     protected void resetCallback() {
         this.callbackToolbar = null;
+    }
+
+    protected void retrieveData() {
+
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////

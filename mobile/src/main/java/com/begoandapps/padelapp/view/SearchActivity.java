@@ -5,13 +5,14 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
+import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
 
 /**
  * Created by bernatgomez on 10/4/17.
  */
 
-public class SearchActivity extends BaseActivity implements SearchSelectionFragment.ISelection {
+public class SearchActivity extends BaseActivity implements ISelection {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -36,11 +37,20 @@ public class SearchActivity extends BaseActivity implements SearchSelectionFragm
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// ARCHITECTURE
+// LIST INTERACTION
 ///////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void onSelected(int position) {
+    public void onSelected(int position, ISelection.Types types) {
+        if (types == Types.SEARCH_SELECTION) {
+            this.onSelectedFromSelection(position);
+
+        } else if (types == Types.SEARCH_BY_NAME) {
+            this.onSelectedFromName(position);
+        }
+    }
+
+    private void onSelectedFromSelection(int position) {
         switch (position) {
             case 0:
                 NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchByNameFragment.newInstance(), BaseActivity.CONTENT_FRAME, true);
@@ -55,4 +65,9 @@ public class SearchActivity extends BaseActivity implements SearchSelectionFragm
                 break;
         }
     }
+
+    private void onSelectedFromName(int position) {
+
+    }
+
 }
