@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.begoandapps.padelapp.R;
+import com.begoandapps.padelapp.adapters.interfaces.IHolder;
+import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.utils.ArrayUtils;
 import com.begoandapps.padelapp.view.SearchSelectionFragment;
@@ -27,7 +29,7 @@ public class SearchSelectionAdapter
 
     protected Context cntxt;
 
-    protected SearchSelectionFragment.ISelection callback;
+    protected ISelection callback;
 
     protected int[] icons = {R.drawable.ic_pin, R.drawable.ic_calendar, R.drawable.ic_clock};
 
@@ -41,7 +43,7 @@ public class SearchSelectionAdapter
      *
      * @param cntxt
      */
-    public SearchSelectionAdapter(Context cntxt, SearchSelectionFragment.ISelection callback) {
+    public SearchSelectionAdapter(Context cntxt, ISelection callback) {
         super();
 
         this.cntxt = cntxt;
@@ -85,7 +87,7 @@ public class SearchSelectionAdapter
     /**
      *
      */
-    public class SearchSelectionHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class SearchSelectionHolder extends RecyclerView.ViewHolder implements IHolder {
 
         @BindView(R.id.search_selection_item_icon)
         public ImageView icon;
@@ -110,7 +112,7 @@ public class SearchSelectionAdapter
             int pos = getAdapterPosition();
 
             if (callback != null) {
-                callback.onSelected(pos);
+                callback.onSelected(pos, ISelection.Types.SEARCH_SELECTION);
             }
         }
 
