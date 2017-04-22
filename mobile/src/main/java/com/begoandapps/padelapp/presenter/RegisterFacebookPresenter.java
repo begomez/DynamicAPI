@@ -50,6 +50,7 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
         final String pass = this.getView().getPassword();
 
         //TODO: un/comment
+        this.getView().showLoading();
 
         //this.isRegistered(user, pass, completion);
 
@@ -161,11 +162,15 @@ public class RegisterFacebookPresenter extends BasePresenter<IRegisterFacebookVi
     public void onSuccessResponse(String sample) {
         AndroidLoggerUtils.logMsg(TAG, "sample: " + sample);
 
-        getView().onRegisterSuccess();
+        this.getView().hideLoading();
+
+        this.getView().onRegisterSuccess();
     }
 
     @Subscribe
     public void onErrorResponse(ApiErrorModel error) {
+        this.getView().hideLoading();
+
         this.manageError(error);
     }
 }
