@@ -1,5 +1,6 @@
 package fake;
 
+import com.myapps.data.PadelClub;
 import com.myapps.data.PlaceModel;
 
 import java.util.ArrayList;
@@ -26,5 +27,20 @@ public class FakeUtils {
         places.add(place1);
         places.add(place2);
         return places;
+    }
+
+    public static ArrayList<PadelClub> getFakeClubs() {
+        ArrayList<PadelClub> clubs = new ArrayList<PadelClub>();
+
+        PadelClub club1 = new PadelClub();
+        club1.setName("Club 1");
+
+        PadelClub club2 = new PadelClub();
+        club2.setName("Club 2");
+
+        clubs.add(club1);
+        clubs.add(club2);
+
+        return clubs;
     }
 }
