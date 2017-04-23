@@ -12,8 +12,10 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchSelectionAdapter;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.view.interfaces.IView;
+import com.myapps.utils.ValueUtils;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by bernatgomez on 10/4/17.
@@ -23,6 +25,9 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
 
     @BindView(R.id.search_list)
     protected RecyclerView list;
+
+    private IResultNav callback;
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -57,19 +62,32 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
     }
 
     private void configureList() {
-        this.list.setAdapter(new SearchSelectionAdapter(this.getContext(), (ISelection) this.getActivity()));
-        this.list.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
+        this.list.setAdapter(new SearchSelectionAdapter(this.getActivity(), (ISelection) this.getActivity()));
+        this.list.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false));
         this.list.setHasFixedSize(true);
+    }
+
+    @Override
+    protected void saveCallback() {
+        super.saveCallback();
+
+        if (this.getActivity() instanceof IResultNav) {
+            this.callback = (IResultNav) this.getActivity();
+        }
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // INTERACTION
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
+    @OnClick(R.id.search_selection_main_btn)
     @Override
     public void onMainBtnClick(View v) {
         super.onMainBtnClick(v);
 
+        if (ValueUtils.isValidObj(this.callback)) {
+            this.callback.launchResults();
+        }
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,4 +103,13 @@ public class SearchSelectionFragment extends BaseFragment implements IView {
     public void hideLoading() {
 
     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// INTERFACE DECL
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+    public interface IResultNav {
+        public void launchResults();
+    }
+
 }
