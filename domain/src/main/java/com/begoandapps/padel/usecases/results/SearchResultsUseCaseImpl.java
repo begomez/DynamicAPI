@@ -1,30 +1,21 @@
-package com.begoandapps.padel.usecases.search;
+package com.begoandapps.padel.usecases.results;
 
 import com.begoandapps.padel.usecases.BaseUseCase;
-import com.myapps.forms.SearchForm;
+import com.myapps.forms.SearchResultForm;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import apimodels.ApiErrorModel;
-import apimodels.PlaceByName;
 import fake.FakeUtils;
 import rest.RestModuleDataSource;
 
 /**
- * Created by bernatgomez on 20/4/17.
+ * Created by bernatgomez on 23/4/17.
  */
 
-public class SearchByNameUseCaseImpl extends BaseUseCase implements SearchByNameUseCase {
+public class SearchResultsUseCaseImpl extends BaseUseCase implements SearchResultUseCase {
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-// CONSTRUCTOR
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-    public SearchByNameUseCaseImpl(Bus bus, RestModuleDataSource rest) {
+    public SearchResultsUseCaseImpl(Bus bus, RestModuleDataSource rest) {
         super(bus, rest);
     }
 
@@ -33,7 +24,7 @@ public class SearchByNameUseCaseImpl extends BaseUseCase implements SearchByName
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void getPlaces(SearchForm form) {
+    public void getClubs(SearchResultForm form) {
         this.register();
 
         this.onSuccess(null);
@@ -44,16 +35,17 @@ public class SearchByNameUseCaseImpl extends BaseUseCase implements SearchByName
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     @Subscribe
-    public void onSuccess(ArrayList<PlaceByName> list) {
+    public void onSuccess(Void none) {
         this.unregister();
 
-        this.bus.post(FakeUtils.getFakePlaces());
+        this.bus.post(FakeUtils.getFakeClubs());
     }
 
     @Subscribe
-    public void onError(ApiErrorModel apiErrorModel) {
+    public void onError(ApiErrorModel error) {
         this.unregister();
 
-        this.bus.post(apiErrorModel);
+        this.bus.post(error);
     }
+
 }

@@ -8,8 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchResultAdapter;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
+import com.begoandapps.padelapp.dependencies.components.DaggerSearchComponent;
+import com.begoandapps.padelapp.dependencies.modules.SearchModule;
+import com.begoandapps.padelapp.presenter.SearchResultPresenter;
 import com.begoandapps.padelapp.view.interfaces.ISearchResultView;
-import com.begoandapps.padelapp.view.interfaces.IView;
+import com.myapps.data.PadelClub;
+
+import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import fake.FakeUtils;
@@ -26,6 +33,10 @@ public class SearchResultFragment extends BaseFragment implements ISearchResultV
     private SearchResultAdapter adapter;
 
     private ISelection callback;
+
+    @Inject
+    protected SearchResultPresenter presenter;
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTOR
@@ -46,10 +57,23 @@ public class SearchResultFragment extends BaseFragment implements ISearchResultV
         this.layoutId = R.layout.fragment_search_result;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        this.presenter.start();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        this.presenter.stop();
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 /////////////////////////////////////////////////////////////////////////////////////////////
-
 
     @Override
     protected void saveCallback() {
@@ -64,21 +88,35 @@ public class SearchResultFragment extends BaseFragment implements ISearchResultV
     public void configViews() {
         super.configViews();
 
-        this.configList();
+        this.configureList();
     }
 
-    private void configList() {
-        this.adapter = new SearchResultAdapter(this.getActivity(), this.callback, FakeUtils.getFakeClubs());
-
+    private void configureList() {
         this.list.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false));
 
         this.list.setHasFixedSize(false);
-
-        this.list.setAdapter(this.adapter);
-
-        this.adapter.notifyDataSetChanged();
     }
 
+    @Override
+    protected void retrieveData() {
+        super.retrieveData();
+
+        this.presenter.getClubs();
+    }
+
+    @Override
+    protected void injectDependencies() {
+        super.injectDependencies();
+
+        DaggerSearchComponent.builder().applicationComponent(this.getApplicationComponent()).searchModule(new SearchModule()).build().inject(this);
+    }
+
+    @Override
+    protected void bindPresentersAndViews() {
+        super.bindPresentersAndViews();
+
+        this.presenter.attachView(this);
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // IMPL
@@ -93,4 +131,22 @@ public class SearchResultFragment extends BaseFragment implements ISearchResultV
     public void hideLoading() {
 
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// IMPL
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onDataReceived(ArrayList<PadelClub> data) {
+        this.prepareAdapter();
+    }
+
+    private void prepareAdapter() {
+        this.adapter = new SearchResultAdapter(this.getActivity(), this.callback, FakeUtils.getFakeClubs());
+
+        this.adapter.notifyDataSetChanged();
+
+        this.list.setAdapter(this.adapter);
+    }
+
 }
