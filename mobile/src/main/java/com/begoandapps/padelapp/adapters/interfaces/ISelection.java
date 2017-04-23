@@ -6,7 +6,7 @@ package com.begoandapps.padelapp.adapters.interfaces;
 
 public interface ISelection {
 
-    enum Types {SEARCH_SELECTION, SEARCH_BY_NAME};
+    enum Types {SEARCH_SELECTION, SEARCH_BY_NAME, SEARCH_RESULT};
 
     public void onSelected(int position, Types types);
 }

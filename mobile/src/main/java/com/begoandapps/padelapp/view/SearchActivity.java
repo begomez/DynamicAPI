@@ -12,7 +12,7 @@ import com.begoandapps.padelapp.navigation.NavigationUtils;
  * Created by bernatgomez on 10/4/17.
  */
 
-public class SearchActivity extends BaseActivity implements ISelection {
+public class SearchActivity extends BaseActivity implements ISelection, SearchSelectionFragment.IResultNav {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // LIFE CYCLE
@@ -47,6 +47,9 @@ public class SearchActivity extends BaseActivity implements ISelection {
 
         } else if (types == Types.SEARCH_BY_NAME) {
             this.onSelectedFromName(position);
+
+        } else if (types == Types.SEARCH_RESULT) {
+            this.onSelectedFromResult(position);
         }
     }
 
@@ -70,4 +73,16 @@ public class SearchActivity extends BaseActivity implements ISelection {
 
     }
 
+    private void onSelectedFromResult(int position) {
+
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////
+// NAVIGATION
+///////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void launchResults() {
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchResultFragment.newInstance(), CONTENT_FRAME, true);
+    }
 }
