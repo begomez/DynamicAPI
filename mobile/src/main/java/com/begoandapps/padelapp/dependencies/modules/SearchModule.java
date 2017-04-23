@@ -1,9 +1,12 @@
 package com.begoandapps.padelapp.dependencies.modules;
 
+import com.begoandapps.padel.usecases.results.SearchResultUseCase;
+import com.begoandapps.padel.usecases.results.SearchResultsUseCaseImpl;
 import com.begoandapps.padel.usecases.search.SearchByNameUseCaseImpl;
 import com.begoandapps.padel.usecases.search.SearchByNameUseCase;
 import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
 import com.begoandapps.padelapp.presenter.SearchByNamePresenter;
+import com.begoandapps.padelapp.presenter.SearchResultPresenter;
 import com.squareup.otto.Bus;
 
 import dagger.Module;
@@ -36,7 +39,26 @@ public class SearchModule {
      */
     @Provides
     @PerActivity
-    public SearchByNameUseCase provideSearchUsecase(Bus bus, RestModuleDataSource rest) {
+    public SearchByNameUseCase provideSearchByNameUsecase(Bus bus, RestModuleDataSource rest) {
         return new SearchByNameUseCaseImpl(bus, rest);
     }
+
+    /**
+     *
+     * @param bus
+     * @param usecase
+     * @return
+     */
+    @Provides
+    @PerActivity
+    public SearchResultPresenter provideSearchResultPresenter(Bus bus, SearchResultUseCase usecase) {
+        return new SearchResultPresenter(bus, usecase);
+    }
+
+    @Provides
+    @PerActivity
+    public SearchResultUseCase provideSearchResultUsecase(Bus bus, RestModuleDataSource rest) {
+        return new SearchResultsUseCaseImpl(bus, rest);
+    }
+
 }

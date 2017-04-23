@@ -3,6 +3,7 @@ package com.begoandapps.padelapp.dependencies.components;
 import com.begoandapps.padelapp.dependencies.modules.SearchModule;
 import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
 import com.begoandapps.padelapp.view.SearchByNameFragment;
+import com.begoandapps.padelapp.view.SearchResultFragment;
 
 import dagger.Component;
 
@@ -14,4 +15,6 @@ import dagger.Component;
 public interface SearchComponent {
 
     public void inject(SearchByNameFragment fragment);
+
+    public void inject(SearchResultFragment fragment);
 }
