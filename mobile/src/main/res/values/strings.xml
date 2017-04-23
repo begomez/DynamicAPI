@@ -66,9 +66,15 @@
     <!-- BY TIME -->
     <string name="search_by_time_default_time">3:30</string>
 
+    <!-- RESULT -->
+    <string name="search_result_open">Abierto</string>
+    <string name="search_result_closed">Cerrado</string>
+    <string name="search_result_timetable_pattern">Pattern</string>
+
     <!-- DUMMY -->
     <string name="dummy_title">Title</string>
     <string name="dummy_subtitle">Subtitle</string>
     <string name="dummy_descrip">Descrip</string>
+    <string name="dummy_padel_club_name">Padel Club Name</string>
 
 </resources>
