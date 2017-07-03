@@ -2,6 +2,7 @@ package fake;
 
 import com.myapps.data.PadelClub;
 import com.myapps.data.PlaceModel;
+import com.myapps.data.RangeTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +34,14 @@ public class FakeUtils {
         ArrayList<PadelClub> clubs = new ArrayList<PadelClub>();
 
         PadelClub club1 = new PadelClub();
-        club1.setName("Club 1");
+        club1.setName("Padel Club Badalona");
+        club1.setRating(2);
+        club1.setTime(new RangeTime(9, 23));
 
         PadelClub club2 = new PadelClub();
-        club2.setName("Club 2");
+        club2.setName("Padel Club Barcelona");
+        club2.setRating(3);
+        club2.setTime(new RangeTime(10, 23));
 
         clubs.add(club1);
         clubs.add(club2);

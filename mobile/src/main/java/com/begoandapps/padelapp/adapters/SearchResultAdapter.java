@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RatingBar;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.interfaces.IHolder;
@@ -61,6 +62,11 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         @BindView(R.id.search_result_item_padel_club_name)
         protected AppTextView clubName;
 
+        @BindView(R.id.search_result_item_padel_club_rating)
+        protected RatingBar rate;
+
+        @BindView(R.id.search_result_item_padel_club_time)
+        protected AppTextView clubTime;
 
         public SearchResultHolder(View itemView) {
             super(itemView);
@@ -73,6 +79,8 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
             PadelClub data = clubs.get(position);
 
             this.clubName.setCustomText(data.getName());
+            this.rate.setRating(data.getRating());
+            this.clubTime.setCustomText(data.getTime().toString());
 
         }
 
