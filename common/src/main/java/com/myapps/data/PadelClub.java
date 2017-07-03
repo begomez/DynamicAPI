@@ -8,6 +8,7 @@ public class PadelClub extends BaseModel {
 
     private String name;
     private int rating;
+    private RangeTime time;
     private float distance;
     private Type type;
 
@@ -29,6 +30,14 @@ public class PadelClub extends BaseModel {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public RangeTime getTime() {
+        return time;
+    }
+
+    public void setTime(RangeTime time) {
+        this.time = time;
     }
 
     public float getDistance() {
