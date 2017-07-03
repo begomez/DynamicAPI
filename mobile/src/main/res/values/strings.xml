@@ -75,6 +75,7 @@
     <string name="dummy_title">Title</string>
     <string name="dummy_subtitle">Subtitle</string>
     <string name="dummy_descrip">Descrip</string>
-    <string name="dummy_padel_club_name">Padel Club Name</string>
+    <string name="dummy_padel_club_name">Padel Indoor Badalona</string>
+    <string name="dummy_padel_club_time">Abierto 10:00 - 23:00</string>
 
 </resources>

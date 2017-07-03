@@ -62,5 +62,7 @@
 <!-- GENERAL -->
     <dimen name="default_margin">16dp</dimen>
 
+<!-- SEARCH RESULT -->
+    <dimen name="result_item_img_h">200dp</dimen>
 
 </resources>
