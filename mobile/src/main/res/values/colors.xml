@@ -15,5 +15,6 @@
     <color name="colorToolbarForeDef">@color/colorBlack</color>
     <color name="colorAccent">@color/colorGreen</color>
     <color name="colorYellow">#FFFFFF00</color>
+    <color name="colorRed">#FFFF0000</color>
 
 </resources>

@@ -71,6 +71,10 @@
     <string name="search_result_closed">Cerrado</string>
     <string name="search_result_timetable_pattern">Pattern</string>
 
+    <!-- DETAIL -->
+    <string name="search_detail_info_title">Info</string>
+    <string name="search_detail_comments_title">Comments</string>
+
     <!-- DUMMY -->
     <string name="dummy_title">Title</string>
     <string name="dummy_subtitle">Subtitle</string>
