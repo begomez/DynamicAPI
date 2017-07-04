@@ -12,7 +12,6 @@ import com.begoandapps.padelapp.adapters.interfaces.IHolder;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.utils.ArrayUtils;
-import com.begoandapps.padelapp.view.SearchSelectionFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

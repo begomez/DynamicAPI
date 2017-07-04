@@ -1,5 +1,6 @@
-package com.begoandapps.padelapp.view.interfaces;
+package com.begoandapps.padelapp.view.search.interfaces;
 
+import com.begoandapps.padelapp.view.core.interfaces.IView;
 import com.myapps.data.PlaceModel;
 
 import java.util.List;

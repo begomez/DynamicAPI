@@ -1,22 +1,24 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search.result;
+
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
-import com.begoandapps.padelapp.view.interfaces.IDetail;
+import com.begoandapps.padelapp.view.core.BaseFragment;
+import com.begoandapps.padelapp.view.search.result.interfaces.IDetail;
 import com.myapps.utils.LoggerUtils;
+
 
 /**
  * Created by bernatgomez on 4/7/17.
  */
+public class SearchDetailInfoFragment extends BaseFragment implements IDetail {
 
-public class SearchDetailCommentsFragment extends BaseFragment implements IDetail {
+    private static final String TAG = SearchDetailInfoFragment.class.getSimpleName();
 
-    private static final String TAG = SearchDetailCommentsFragment.class.getSimpleName();
-
-    public static SearchDetailCommentsFragment newInstance() {
-        return new SearchDetailCommentsFragment();
+    public static SearchDetailInfoFragment newInstance() {
+        return new SearchDetailInfoFragment();
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,12 +29,14 @@ public class SearchDetailCommentsFragment extends BaseFragment implements IDetai
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.layoutId = R.layout.fragment_search_detail_comments;
+        this.layoutId = R.layout.fragment_search_detail_info;
     }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // ARCHITECTURE
 /////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // IMPL
@@ -41,7 +45,7 @@ public class SearchDetailCommentsFragment extends BaseFragment implements IDetai
     @Override
     public void pageWithFocus() {
         LoggerUtils.logMsg(TAG, "pageWithFocus()");
-    }
 
+    }
 
 }

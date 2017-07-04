@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search.result;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,7 @@ import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.dependencies.components.DaggerSearchComponent;
 import com.begoandapps.padelapp.dependencies.modules.SearchModule;
 import com.begoandapps.padelapp.presenter.SearchResultPresenter;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 import com.begoandapps.padelapp.view.interfaces.ISearchResultView;
 import com.myapps.data.PadelClub;
 

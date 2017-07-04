@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.widget.DatePicker;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 
 import butterknife.BindView;
 

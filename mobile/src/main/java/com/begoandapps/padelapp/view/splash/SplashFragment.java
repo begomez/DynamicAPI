@@ -1,9 +1,10 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.splash;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 
 
 /**

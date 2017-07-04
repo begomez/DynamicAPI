@@ -1,22 +1,19 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.dashboard;
 
 
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppTabBar;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.utils.MessageUtils;
-import com.begoandapps.padelapp.view.BaseActivity;
+import com.begoandapps.padelapp.view.search.SearchActivity;
+import com.begoandapps.padelapp.view.core.BaseActivity;
 import com.begoandapps.padelapp.view.interfaces.ITabBar;
 
 import butterknife.BindView;
-import butterknife.OnClick;
-import butterknife.Optional;
 
 
 /**

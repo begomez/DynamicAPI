@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.enroll;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,11 +7,11 @@ import android.view.View;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppEditText;
-import com.begoandapps.padelapp.components.AppToolbar;
 import com.begoandapps.padelapp.dependencies.components.DaggerRegisterComponent;
 import com.begoandapps.padelapp.dependencies.modules.RegisterModule;
 import com.begoandapps.padelapp.presenter.RegisterFacebookPresenter;
 import com.begoandapps.padelapp.utils.MessageUtils;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 import com.begoandapps.padelapp.view.interfaces.IRegisterFacebookView;
 import com.myapps.utils.TextUtils;
 

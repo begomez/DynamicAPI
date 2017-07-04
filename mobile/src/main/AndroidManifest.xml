@@ -14,7 +14,7 @@
 
         <!-- SPLASH -->
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".view.splash.SplashActivity"
             android:theme="@style/AppThemeFullScreen"
             android:screenOrientation="portrait"
             android:noHistory="true"
@@ -30,7 +30,7 @@
 
         <!-- LOGIN -->
         <activity
-            android:name=".view.RegisterActivity"
+            android:name=".view.enroll.RegisterActivity"
             android:label="@string/title_login_screen"
             android:screenOrientation="portrait"
             >
@@ -39,7 +39,7 @@
 
         <!-- TUTORIAL -->
         <activity
-            android:name=".view.TutorialActivity"
+            android:name=".view.tutorial.TutorialActivity"
             android:label="@string/title_tutorial_screen"
             android:screenOrientation="portrait"
             >
@@ -48,7 +48,7 @@
 
         <!-- DASHBOARD -->
         <activity
-            android:name=".view.PadelActivity"
+            android:name=".view.dashboard.PadelActivity"
             android:label="@string/title_dashboard_screen"
             android:screenOrientation="portrait"
             >
@@ -57,7 +57,7 @@
 
         <!-- SEARCH -->
         <activity
-            android:name=".view.SearchActivity"
+            android:name=".view.search.SearchActivity"
             android:label="@string/title_search"
             android:screenOrientation="portrait">
 

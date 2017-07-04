@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.core;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,13 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
 import com.begoandapps.padelapp.dependencies.components.ApplicationComponent;
 import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 import com.f2prateek.dart.Dart;
-import com.begoandapps.padelapp.view.interfaces.IBase;
-import com.begoandapps.padelapp.view.interfaces.IMainAction;
+import com.begoandapps.padelapp.view.core.interfaces.IBase;
+import com.begoandapps.padelapp.view.core.interfaces.IMainAction;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
 
 

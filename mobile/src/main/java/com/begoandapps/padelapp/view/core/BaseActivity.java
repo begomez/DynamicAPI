@@ -1,8 +1,6 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.core;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -16,14 +14,12 @@ import com.begoandapps.padelapp.view.interfaces.IToggleToolbar;
 import com.f2prateek.dart.Dart;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppToolbar;
-import com.begoandapps.padelapp.view.interfaces.IBase;
-import com.begoandapps.padelapp.view.interfaces.IMainAction;
+import com.begoandapps.padelapp.view.core.interfaces.IBase;
+import com.begoandapps.padelapp.view.core.interfaces.IMainAction;
 import com.begoandapps.padelapp.view.interfaces.INavigable;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.persist.ActivityRepository;
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
-
-import junit.framework.Assert;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

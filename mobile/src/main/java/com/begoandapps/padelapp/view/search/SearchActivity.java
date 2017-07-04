@@ -1,12 +1,18 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
+import com.begoandapps.padelapp.view.core.BaseActivity;
+import com.begoandapps.padelapp.view.search.result.SearchResultDetailFragment;
+import com.begoandapps.padelapp.view.search.result.SearchResultFragment;
+import com.begoandapps.padelapp.view.search.SearchByDateFragment;
+import com.begoandapps.padelapp.view.search.SearchByNameFragment;
+import com.begoandapps.padelapp.view.search.SearchByTimeFragment;
+import com.begoandapps.padelapp.view.search.SearchSelectionFragment;
 
 /**
  * Created by bernatgomez on 10/4/17.

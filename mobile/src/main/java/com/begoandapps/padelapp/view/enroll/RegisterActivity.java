@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.enroll;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
+import com.begoandapps.padelapp.view.core.BaseActivity;
+import com.begoandapps.padelapp.view.dashboard.PadelActivity;
 
 /**
  * Created by bernatgomez on 7/3/17.

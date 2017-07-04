@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.begoandapps.padelapp.view.BaseFragment;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 
 /**
  * Created by bernatgomez on 7/3/17.

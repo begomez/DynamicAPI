@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.splash;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +9,8 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.navigation.BaseNavigation;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
+import com.begoandapps.padelapp.view.core.BaseActivity;
+import com.begoandapps.padelapp.view.tutorial.TutorialActivity;
 
 public class SplashActivity extends BaseActivity {
 

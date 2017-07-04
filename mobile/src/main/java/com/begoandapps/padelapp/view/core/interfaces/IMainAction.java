@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view.interfaces;
+package com.begoandapps.padelapp.view.core.interfaces;
 
 import android.view.View;
 

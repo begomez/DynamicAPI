@@ -1,11 +1,8 @@
 package com.begoandapps.padelapp.presenter;
 
 import com.begoandapps.padelapp.utils.AndroidLoggerUtils;
-import com.begoandapps.padelapp.view.interfaces.IView;
+import com.begoandapps.padelapp.view.core.interfaces.IView;
 import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-
-import javax.inject.Inject;
 
 import apimodels.ApiErrorModel;
 

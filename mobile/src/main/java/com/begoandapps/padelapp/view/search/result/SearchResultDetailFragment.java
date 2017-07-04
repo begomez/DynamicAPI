@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search.result;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,7 +6,8 @@ import android.support.v4.view.ViewPager;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchDetailPagerAdapter;
-import com.begoandapps.padelapp.view.interfaces.IDetail;
+import com.begoandapps.padelapp.view.core.BaseFragment;
+import com.begoandapps.padelapp.view.search.result.interfaces.IDetail;
 import com.myapps.utils.LoggerUtils;
 
 import butterknife.BindView;

@@ -1,14 +1,13 @@
 package com.begoandapps.padelapp.presenter;
 
 import com.begoandapps.padel.usecases.search.SearchByNameUseCase;
-import com.begoandapps.padelapp.view.interfaces.ISearchByNameView;
+import com.begoandapps.padelapp.view.search.interfaces.ISearchByNameView;
 import com.myapps.data.PlaceModel;
 import com.myapps.forms.SearchForm;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.enroll;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;
 import com.begoandapps.padelapp.components.AppTextView;
 import com.begoandapps.padelapp.utils.ViewUtils;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 import com.begoandapps.padelapp.view.interfaces.ILoginSelectionView;
 
 import butterknife.BindView;

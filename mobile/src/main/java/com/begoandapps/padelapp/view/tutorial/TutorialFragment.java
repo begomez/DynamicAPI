@@ -1,10 +1,11 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.tutorial;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.begoandapps.padelapp.view.core.BaseFragment;
 import com.f2prateek.dart.InjectExtra;
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.components.AppButton;

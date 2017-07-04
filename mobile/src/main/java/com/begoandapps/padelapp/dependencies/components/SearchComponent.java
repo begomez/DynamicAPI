@@ -2,8 +2,8 @@ package com.begoandapps.padelapp.dependencies.components;
 
 import com.begoandapps.padelapp.dependencies.modules.SearchModule;
 import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
-import com.begoandapps.padelapp.view.SearchByNameFragment;
-import com.begoandapps.padelapp.view.SearchResultFragment;
+import com.begoandapps.padelapp.view.search.SearchByNameFragment;
+import com.begoandapps.padelapp.view.search.result.SearchResultFragment;
 
 import dagger.Component;
 

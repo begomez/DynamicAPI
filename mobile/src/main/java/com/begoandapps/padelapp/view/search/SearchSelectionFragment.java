@@ -1,17 +1,16 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchSelectionAdapter;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
-import com.begoandapps.padelapp.view.interfaces.IView;
+import com.begoandapps.padelapp.view.core.BaseFragment;
+import com.begoandapps.padelapp.view.core.interfaces.IView;
 import com.myapps.utils.ValueUtils;
 
 import butterknife.BindView;

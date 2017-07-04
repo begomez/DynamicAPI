@@ -3,7 +3,7 @@ package com.begoandapps.padelapp.dependencies.components;
 
 import com.begoandapps.padelapp.dependencies.modules.RegisterModule;
 import com.begoandapps.padelapp.dependencies.scopes.PerActivity;
-import com.begoandapps.padelapp.view.RegisterFacebookFragment;
+import com.begoandapps.padelapp.view.enroll.RegisterFacebookFragment;
 
 import dagger.Component;
 

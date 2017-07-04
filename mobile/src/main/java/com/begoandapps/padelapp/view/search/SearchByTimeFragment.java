@@ -1,11 +1,11 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.AnalogClock;
 import android.widget.TimePicker;
 
 import com.begoandapps.padelapp.R;
+import com.begoandapps.padelapp.view.core.BaseFragment;
 
 import butterknife.BindView;
 

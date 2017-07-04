@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.tutorial;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -7,6 +7,8 @@ import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.TutorialAdapter;
 import com.begoandapps.padelapp.navigation.interfaces.INavigation;
 import com.begoandapps.padelapp.navigation.NavigationUtils;
+import com.begoandapps.padelapp.view.core.BaseActivity;
+import com.begoandapps.padelapp.view.enroll.RegisterActivity;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import butterknife.BindView;

@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.begoandapps.padelapp.R;
-import com.begoandapps.padelapp.view.SearchDetailCommentsFragment;
-import com.begoandapps.padelapp.view.SearchDetailInfoFragment;
+import com.begoandapps.padelapp.view.search.result.SearchDetailCommentsFragment;
+import com.begoandapps.padelapp.view.search.result.SearchDetailInfoFragment;
 
 
 /**

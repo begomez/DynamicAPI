@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.begoandapps.padelapp.view.interfaces.INavigable;
-import com.begoandapps.padelapp.view.TutorialFragment;
+import com.begoandapps.padelapp.view.tutorial.TutorialFragment;
 
 /**
  * Created by bernatgomez on 13/3/17.

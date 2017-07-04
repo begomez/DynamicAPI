@@ -1,7 +1,6 @@
-package com.begoandapps.padelapp.view;
+package com.begoandapps.padelapp.view.search;
 
 import android.app.SearchManager;
-import android.app.SearchableInfo;
 import android.app.Service;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,12 +8,10 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.begoandapps.padelapp.R;
 import com.begoandapps.padelapp.adapters.SearchByNameAdapter;
@@ -22,10 +19,10 @@ import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.dependencies.components.DaggerSearchComponent;
 import com.begoandapps.padelapp.dependencies.modules.SearchModule;
 import com.begoandapps.padelapp.presenter.SearchByNamePresenter;
-import com.begoandapps.padelapp.view.interfaces.ISearchByNameView;
+import com.begoandapps.padelapp.view.core.BaseFragment;
+import com.begoandapps.padelapp.view.search.interfaces.ISearchByNameView;
 import com.myapps.data.PlaceModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;

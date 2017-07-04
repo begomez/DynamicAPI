@@ -1,4 +1,4 @@
-package com.begoandapps.padelapp.view.interfaces;
+package com.begoandapps.padelapp.view.search.result.interfaces;
 
 /**
  * Created by bernatgomez on 4/7/17.

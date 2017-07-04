@@ -1,6 +1,6 @@
 package com.begoandapps.padelapp.presenter;
 
-import com.begoandapps.padelapp.view.interfaces.IView;
+import com.begoandapps.padelapp.view.core.interfaces.IView;
 
 /**
  * Created by bernatgomez on 21/3/17.
