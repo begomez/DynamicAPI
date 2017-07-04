@@ -8,7 +8,7 @@ buildscript {
         //Necessary in order to get dagger compiling
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:2.3.3'
 
         //XXX: required by firebase
         classpath 'com.google.gms:google-services:3.0.0'
