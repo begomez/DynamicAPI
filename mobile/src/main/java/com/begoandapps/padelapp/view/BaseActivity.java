@@ -156,7 +156,6 @@ public class BaseActivity
      */
     @Override
     public void prepareWindow() {
-
     }
 
     /**

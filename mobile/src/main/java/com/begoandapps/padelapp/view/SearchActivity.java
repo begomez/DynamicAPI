@@ -74,7 +74,7 @@ public class SearchActivity extends BaseActivity implements ISelection, SearchSe
     }
 
     private void onSelectedFromResult(int position) {
-
+        NavigationUtils.launchFragment(this.getSupportFragmentManager(), SearchResultDetailFragment.newInstance(), CONTENT_FRAME, true);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////
