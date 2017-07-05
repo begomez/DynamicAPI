@@ -10,6 +10,7 @@
     <string name="btn_make_reservation">Reserva partida</string>
     <string name="btn_next">Siguiente</string>
     <string name="btn_search">Buscar</string>
+    <string name="btn_make_reservation_in_club">Reserva pista</string>
 
     <!-- GENERAL -->
     <string name="app_name">PadelApp</string>
@@ -75,11 +76,18 @@
     <string name="search_detail_info_title">Info</string>
     <string name="search_detail_comments_title">Comments</string>
 
+    <!-- TYPE -->
+    <string name="search_result_club_type_indoor">INDOOR</string>
+    <string name="search_result_club_type_outdoor">OUTDOOR</string>
+
+
     <!-- DUMMY -->
     <string name="dummy_title">Title</string>
     <string name="dummy_subtitle">Subtitle</string>
     <string name="dummy_descrip">Descrip</string>
     <string name="dummy_padel_club_name">Padel Indoor Badalona</string>
-    <string name="dummy_padel_club_time">Abierto 10:00 - 23:00</string>
-
+    <string name="dummy_padel_club_time">Abierto . 10:00 - 23:00</string>
+    <string name="dummy_padel_club_distance">3,2 Km</string>
+    <string name="dummy_padel_club_type">@string/search_result_club_type_outdoor</string>
+    <string name="dummy_padel_club_price">16 €</string>
 </resources>
