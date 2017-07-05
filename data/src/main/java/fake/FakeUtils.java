@@ -36,12 +36,12 @@ public class FakeUtils {
         PadelClub club1 = new PadelClub();
         club1.setName("Padel Club Badalona");
         club1.setRating(2);
-        club1.setTime(new RangeTime(9, 23));
+        club1.setTime(new RangeTime("Abierto", 9, 23));
 
         PadelClub club2 = new PadelClub();
         club2.setName("Padel Club Barcelona");
         club2.setRating(3);
-        club2.setTime(new RangeTime(10, 23));
+        club2.setTime(new RangeTime("Cerrado", 10, 23));
 
         clubs.add(club1);
         clubs.add(club2);
