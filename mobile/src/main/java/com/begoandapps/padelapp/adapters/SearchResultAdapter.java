@@ -68,6 +68,13 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         @BindView(R.id.search_result_item_padel_club_time)
         protected AppTextView clubTime;
 
+        @BindView(R.id.search_result_item_padel_distance)
+        protected AppTextView clubDistance;
+
+        @BindView(R.id.search_result_item_padel_type)
+        protected AppTextView clubType;
+
+
         public SearchResultHolder(View itemView) {
             super(itemView);
 
@@ -83,7 +90,8 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
             this.clubName.setCustomText(data.getName());
             this.rate.setRating(data.getRating());
             this.clubTime.setCustomText(data.getTime().toString());
-
+            this.clubDistance.setCustomText(data.getDistance() + "");
+            this.clubType.setCustomText(data.getType() + "");
         }
 
         @Override
