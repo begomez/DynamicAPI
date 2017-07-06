@@ -1,7 +1,19 @@
 apply plugin: 'java'
+//XXX: auto value
+apply plugin: "net.ltgt.apt"
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    ext {
+        AUTO_VALUE_VERSION = "1.2"
+    }
+
+    // AUTOVALUE
+    compile "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    apt "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+
 }
 
 sourceCompatibility = "1.7"
