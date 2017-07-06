@@ -38,13 +38,24 @@ dependencies {
 
 // VARS
     ext {
+        DEX_VERSION = "1.0.1"
+        JUNIT_VERSION = "4.12"
         SERVICES_VERSION = "10.2"
         DAGGER_VERSION = "2.4"
-        ANDROID_VERSION = "25.2.0"
+        BUILD_TOOLS_VERSION = "25.2.0"
+        CONSTRAINT_LAYOUT_VERSION = "1.0.0-beta4"
+        BUTTER_VERSION = "8.5.1"
+        DART_VERSION = "+"
+        HENSON_VERSION = "+"
+        PAGER_INDICATOR_VERSION = "2.4.1"
+        PLAY_SERVICES_VERSION = "9.0.0"
+        FIREBASE_VERSION = "9.0.0"
+        OTTO_VERSION = "1.3.8"
+        AUTO_VALUE_VERSION = "1.2"
     }
 
 // DEX
-    compile 'com.android.support:multidex:1.0.1'
+    compile "com.android.support:multidex:$DEX_VERSION"
 
 // TEST
     testCompile 'junit:junit:4.12'
@@ -53,48 +64,47 @@ dependencies {
     })
 
 // DAGGER
-    compile 'com.google.dagger:dagger:2.4'
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
 
     //XXX: should be defined for all configurations (compile, test)
-    apt "com.google.dagger:dagger-compiler:2.4"
+    apt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
     //XXX: required by dagger
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
 
 // ANDROID
-    compile 'com.android.support:support-annotations:25.2.0'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:cardview-v7:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    compile 'com.google.android.gms:play-services:9.0.0'
+    compile "com.android.support:support-annotations:$BUILD_TOOLS_VERSION"
+    compile "com.android.support:appcompat-v7:$BUILD_TOOLS_VERSION"
+    compile "com.android.support:design:$BUILD_TOOLS_VERSION"
+    compile "com.android.support:cardview-v7:$BUILD_TOOLS_VERSION"
+    compile "com.android.support:recyclerview-v7:$BUILD_TOOLS_VERSION"
+    compile "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION"
+    compile "com.google.android.gms:play-services:$PLAY_SERVICES_VERSION"
 
 // BUTTER
-    compile 'com.jakewharton:butterknife:8.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile "com.jakewharton:butterknife:$BUTTER_VERSION"
+    apt "com.jakewharton:butterknife-compiler:$BUTTER_VERSION"
 
 // FIREBASE
-    compile 'com.google.firebase:firebase-auth:9.0.0'
-    compile 'com.google.firebase:firebase-database:9.0.0'
+    compile "com.google.firebase:firebase-auth:$PLAY_SERVICES_VERSION"
+    compile "com.google.firebase:firebase-database:$PLAY_SERVICES_VERSION"
 
 // PAGER
-    compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    compile "com.github.JakeWharton:ViewPagerIndicator:$PAGER_INDICATOR_VERSION"
 
 // DART
-    compile 'com.f2prateek.dart:dart:+'
-    provided 'com.f2prateek.dart:dart-processor:+'
+    compile "com.f2prateek.dart:dart:$DART_VERSION"
+    provided "com.f2prateek.dart:dart-processor:$DART_VERSION"
 
 // HENSON
-    compile 'com.f2prateek.dart:henson:+'
-    provided 'com.f2prateek.dart:henson-processor:+'
+    compile "com.f2prateek.dart:henson:$HENSON_VERSION"
+    provided "com.f2prateek.dart:henson-processor:$HENSON_VERSION"
 
 // OTTO
-    compile 'com.squareup:otto:1.3.8'
+    compile "com.squareup:otto:$OTTO_VERSION"
 
 // AUTOVALUE
-    compile "com.google.auto.value:auto-value:1.2"
-    apt "com.google.auto.value:auto-value:1.2"
-
+    compile "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    apt "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
 }
