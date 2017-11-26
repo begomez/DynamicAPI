@@ -21,7 +21,7 @@ android {
     defaultConfig {
         javaCompileOptions {
             annotationProcessorOptions {
-                includeCompileClasspath false
+                includeCompileClasspath true
             }
         }
     }

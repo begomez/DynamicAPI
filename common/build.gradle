@@ -3,6 +3,7 @@ apply plugin: 'java'
 apply plugin: "net.ltgt.apt"
 
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -11,7 +12,7 @@ dependencies {
     }
 
     // AUTOVALUE
-    compile "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    compileOnly "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
     apt "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
 
 }
