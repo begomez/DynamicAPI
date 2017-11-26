@@ -1,5 +1,6 @@
 package fake;
 
+import com.myapps.data.OptionItem;
 import com.myapps.data.PadelClub;
 import com.myapps.data.PlaceModel;
 import com.myapps.data.RangeTime;
@@ -12,6 +13,13 @@ import java.util.List;
  */
 
 public class FakeUtils {
+
+    public static ArrayList<OptionItem> getOptionItems() {
+        ArrayList<OptionItem> options = new ArrayList<OptionItem>();
+
+        return options;
+    }
+
     public static ArrayList<PlaceModel> getFakePlaces() {
         PlaceModel place1 = new PlaceModel();
         PlaceModel place2 = new PlaceModel();

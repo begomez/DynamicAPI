@@ -6,6 +6,7 @@ buildscript {
             url "https://plugins.gradle.org/m2/"
         }
         jcenter()
+        google()
     }
     dependencies {
 
@@ -13,9 +14,9 @@ buildscript {
         classpath "net.ltgt.gradle:gradle-apt-plugin:0.10"
 
         //XXX: in order to get dagger compiling
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         //XXX: firebase
         classpath 'com.google.gms:google-services:3.0.0'
@@ -29,6 +30,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://jitpack.io' }
+        google()
     }
 }
 

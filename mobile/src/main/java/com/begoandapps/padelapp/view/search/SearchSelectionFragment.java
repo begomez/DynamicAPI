@@ -11,7 +11,10 @@ import com.begoandapps.padelapp.adapters.SearchSelectionAdapter;
 import com.begoandapps.padelapp.adapters.interfaces.ISelection;
 import com.begoandapps.padelapp.view.core.BaseFragment;
 import com.begoandapps.padelapp.view.core.interfaces.IView;
+import com.f2prateek.dart.InjectExtra;
 import com.myapps.utils.ValueUtils;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;

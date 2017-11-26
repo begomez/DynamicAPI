@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 //XXX: required by dagger
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 //XXX: required by firebase
 apply plugin: 'com.google.gms.google-services'
 //XXX: auto value
-apply plugin: "net.ltgt.apt"
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.begoandapps.padelapp"
         minSdkVersion 19
@@ -18,6 +17,15 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -41,9 +49,9 @@ dependencies {
         DEX_VERSION = "1.0.1"
         JUNIT_VERSION = "4.12"
         SERVICES_VERSION = "10.2"
-        DAGGER_VERSION = "2.4"
+        DAGGER_VERSION = "2.9"
         BUILD_TOOLS_VERSION = "25.2.0"
-        CONSTRAINT_LAYOUT_VERSION = "1.0.0-beta4"
+        CONSTRAINT_LAYOUT_VERSION = "1.0.0"
         BUTTER_VERSION = "8.5.1"
         DART_VERSION = "+"
         HENSON_VERSION = "+"
@@ -67,7 +75,7 @@ dependencies {
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
 
     //XXX: should be defined for all configurations (compile, test)
-    apt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
     //XXX: required by dagger
     provided 'javax.annotation:jsr250-api:1.0'
@@ -84,7 +92,7 @@ dependencies {
 
 // BUTTER
     compile "com.jakewharton:butterknife:$BUTTER_VERSION"
-    apt "com.jakewharton:butterknife-compiler:$BUTTER_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_VERSION"
 
 // FIREBASE
     compile "com.google.firebase:firebase-auth:$PLAY_SERVICES_VERSION"
@@ -95,16 +103,16 @@ dependencies {
 
 // DART
     compile "com.f2prateek.dart:dart:$DART_VERSION"
-    provided "com.f2prateek.dart:dart-processor:$DART_VERSION"
+    annotationProcessor "com.f2prateek.dart:dart-processor:$DART_VERSION"
 
 // HENSON
     compile "com.f2prateek.dart:henson:$HENSON_VERSION"
-    provided "com.f2prateek.dart:henson-processor:$HENSON_VERSION"
+    annotationProcessor "com.f2prateek.dart:henson-processor:$HENSON_VERSION"
 
 // OTTO
     compile "com.squareup:otto:$OTTO_VERSION"
 
 // AUTOVALUE
     compile "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
-    apt "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    annotationProcessor "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
 }

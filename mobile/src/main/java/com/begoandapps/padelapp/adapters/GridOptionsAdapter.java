@@ -21,4 +21,7 @@ public class GridOptionsAdapter extends ArrayAdapter<PadelClubFeature> {
     public GridOptionsAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<PadelClubFeature> objects) {
         super(context, resource, objects);
     }
+
+
+
 }
